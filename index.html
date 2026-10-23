@@ -1,0 +1,2126 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)https://sage-kelpie-664a26.netlify.app/ -->
+<html lang="zh-TW"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>林相攝影 — 攝影器材收購同意書</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --black:#111;--white:#fff;
+  --gray-50:#f8f8f7;--gray-100:#f2f2f0;--gray-200:#e4e4e0;--gray-400:#b0b0a8;--gray-600:#6b6b63;
+  --green:#2d6a4f;--green-light:#e8f4f0;--green-mid:#52b788;
+  --red:#c0392b;--red-light:#fdf0ef;
+  --radius:12px;--radius-sm:7px;
+}
+body{background:var(--gray-50);font-family:-apple-system,'PingFang TC','Noto Sans TC',sans-serif;color:var(--black);min-height:100vh;}
+.topbar{background:var(--black);color:#fff;padding:13px 14px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;}
+.topbar-logo{width:30px;height:30px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:var(--black);flex-shrink:0;}
+.topbar-info{flex:1;}
+.topbar-title{font-size:14px;font-weight:600;}
+.topbar-sub{font-size:11px;opacity:0.45;}
+.topbar-steps{display:flex;gap:5px;}
+.step-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.2);transition:background 0.3s;}
+.step-dot.active{background:var(--green-mid);}
+.step-dot.done{background:rgba(255,255,255,0.55);}
+.page{display:none;padding:14px 13px 100px;max-width:700px;margin:0 auto;}
+.page.active{display:block;}
+.card{background:var(--white);border-radius:var(--radius);border:1px solid var(--gray-200);margin-bottom:13px;overflow:hidden;}
+.card-header{padding:10px 14px;border-bottom:1px solid var(--gray-200);display:flex;align-items:center;gap:8px;background:#fafafa;}
+.card-num{width:20px;height:20px;border-radius:50%;background:var(--black);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.card-title{font-size:13px;font-weight:600;}
+.card-body{padding:12px 13px;}
+.field{margin-bottom:9px;}
+.field:last-child{margin-bottom:0;}
+.field label{display:block;font-size:11px;color:var(--gray-600);margin-bottom:4px;font-weight:600;letter-spacing:0.02em;}
+.field input[type="text"],.field input[type="tel"],.field input[type="email"],.field input[type="date"],.field textarea{
+  width:100%;padding:9px 11px;border:1px solid var(--gray-200);border-radius:var(--radius-sm);
+  font-size:15px;color:var(--black);background:var(--white);-webkit-appearance:none;font-family:inherit;
+}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--green-mid);box-shadow:0 0 0 3px rgba(82,183,136,0.12);}
+.field textarea{height:56px;resize:none;line-height:1.5;font-size:13px;}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+
+/* Equipment block */
+.eq-block{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius-sm);margin-bottom:10px;overflow:hidden;}
+.eq-block-head{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:var(--gray-100);border-bottom:1px solid var(--gray-200);}
+.eq-block-title{font-size:12px;font-weight:700;color:var(--green);}
+.eq-remove{font-size:11px;color:var(--red);cursor:pointer;border:1px solid #f5c6c2;border-radius:4px;padding:2px 8px;background:var(--red-light);}
+.eq-inner{padding:11px 12px;}
+.eq-grid2{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:8px;}
+.eq-grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:8px;}
+.sub-label{font-size:11px;color:var(--gray-600);font-weight:600;margin-bottom:4px;}
+
+/* Type selector */
+.type-row{display:flex;gap:6px;margin-bottom:10px;}
+.type-btn{flex:1;padding:9px 6px;border:1px solid var(--gray-200);border-radius:var(--radius-sm);font-size:13px;font-weight:500;color:var(--gray-600);cursor:pointer;background:var(--white);text-align:center;transition:all 0.15s;}
+.type-btn.on{background:var(--black);border-color:var(--black);color:#fff;}
+
+/* Condition */
+.cond-row{display:flex;flex-wrap:wrap;gap:5px;}
+.cond-btn{padding:5px 10px;border:1px solid var(--gray-200);border-radius:99px;font-size:12px;color:var(--gray-600);cursor:pointer;background:var(--white);transition:all 0.15s;white-space:nowrap;}
+.cond-btn.on{background:var(--black);border-color:var(--black);color:#fff;}
+
+/* Toggle */
+.toggle-pair{display:flex;gap:4px;}
+.tgl{flex:1;padding:6px 3px;font-size:12px;border:1px solid var(--gray-200);border-radius:var(--radius-sm);background:var(--white);color:var(--gray-600);cursor:pointer;text-align:center;transition:all 0.15s;}
+.tgl.on-yes{background:var(--green-light);border-color:var(--green-mid);color:var(--green);font-weight:600;}
+.tgl.on-no{background:var(--red-light);border-color:#e57373;color:var(--red);font-weight:600;}
+.note-field{margin-top:5px;display:none;}
+.note-field.show{display:block;}
+.note-field input{width:100%;border:1px solid var(--gray-200);border-radius:4px;padding:5px 8px;font-size:12px;color:var(--black);font-family:inherit;background:var(--white);}
+
+/* Fn checks inside eq-block */
+.fn-section{margin-top:10px;padding-top:10px;border-top:1px solid var(--gray-200);}
+.fn-section-title{font-size:11px;font-weight:700;color:var(--gray-600);letter-spacing:0.05em;padding:6px 0 4px;border-bottom:1px solid var(--gray-200);margin-bottom:2px;}
+.fn-item{border-bottom:0.5px solid #f3f3f1;}
+.fn-item:last-child{border-bottom:none;}
+.fn-item .fn-row{border-bottom:none;}
+.fn-row{display:flex;align-items:center;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f3f3f1;gap:8px;}
+.fn-row:last-of-type{border-bottom:none;}
+.fn-label{font-size:13px;color:var(--black);flex:1;}
+.fn-toggle{display:flex;gap:4px;flex-shrink:0;}
+.fn-btn{padding:5px 9px;font-size:12px;border:1px solid var(--gray-200);border-radius:var(--radius-sm);background:var(--white);color:var(--gray-600);cursor:pointer;white-space:nowrap;transition:all 0.15s;}
+.fn-btn.fn-normal{background:var(--green-light);border-color:var(--green-mid);color:var(--green);font-weight:600;}
+.fn-btn.fn-abnormal{background:var(--red-light);border-color:#e57373;color:var(--red);font-weight:600;}
+.fn-btn.fn-na{background:var(--gray-100);border-color:var(--gray-200);color:var(--gray-600);font-weight:600;}
+.deduct-field{display:none;margin-top:4px;}
+.deduct-field.show{display:flex;align-items:center;gap:6px;}
+.deduct-field input{width:90px;padding:4px 8px;border:1px solid var(--gray-200);border-radius:4px;font-size:12px;font-family:inherit;}
+.all-ok-btn{width:100%;padding:8px;border:1.5px dashed var(--green-mid);border-radius:var(--radius-sm);background:var(--green-light);color:var(--green);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;margin-top:8px;margin-bottom:2px;}
+
+/* Photo inside eq */
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px;}
+.photo-slot{aspect-ratio:1;border:1.5px dashed var(--gray-200);border-radius:var(--radius-sm);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;background:#fafafa;overflow:hidden;position:relative;}
+.photo-slot img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+.photo-slot-label{font-size:10px;color:var(--gray-400);margin-top:2px;}
+.photo-slot input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.photo-icon{font-size:18px;}
+
+/* Accessories */
+.acc-grid{display:flex;flex-wrap:wrap;gap:7px;}
+.acc-item{display:flex;align-items:center;gap:5px;padding:7px 11px;border:1px solid var(--gray-200);border-radius:var(--radius-sm);cursor:pointer;font-size:13px;background:var(--white);transition:all 0.15s;user-select:none;}
+.acc-item.sel{background:var(--green-light);border-color:var(--green-mid);color:var(--green);}
+.acc-box{width:14px;height:14px;border:2px solid var(--gray-200);border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.acc-item.sel .acc-box{background:var(--green);border-color:var(--green);}
+.acc-item.sel .acc-box::after{content:'✓';font-size:9px;color:#fff;}
+
+/* Summary */
+.summary-box{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius-sm);overflow:hidden;margin-top:10px;}
+.summary-header{padding:8px 12px;background:var(--gray-100);font-size:11px;font-weight:700;color:var(--gray-600);letter-spacing:0.04em;}
+.summary-row{display:flex;align-items:center;padding:8px 12px;border-top:1px solid var(--gray-200);gap:8px;}
+.summary-check{width:16px;height:16px;border:1.5px solid var(--gray-200);border-radius:3px;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.summary-check.on{background:var(--green);border-color:var(--green);}
+.summary-check.on::after{content:'✓';font-size:9px;color:#fff;}
+.summary-name{flex:1;font-size:13px;color:var(--black);}
+.summary-est{font-size:13px;color:var(--gray-600);}
+.summary-deduct{font-size:12px;color:var(--red);}
+.summary-total-row{display:flex;justify-content:space-between;padding:10px 12px;border-top:1px solid var(--gray-200);background:var(--white);}
+.summary-total-label{font-size:13px;font-weight:600;}
+.summary-total-val{font-size:16px;font-weight:700;color:var(--green);}
+
+/* Amount */
+.amount-row{display:flex;align-items:center;gap:6px;}
+.amount-row input{flex:1;padding:10px 12px;border:1px solid var(--gray-200);border-radius:var(--radius-sm);font-size:18px;font-weight:700;color:var(--black);font-family:inherit;-webkit-appearance:none;}
+.amount-row input:focus{outline:none;border-color:var(--green-mid);}
+.amount-unit{font-size:14px;color:var(--gray-600);white-space:nowrap;}
+.pay-row{display:flex;gap:8px;}
+.pay-opt{flex:1;padding:11px;border:1px solid var(--gray-200);border-radius:var(--radius-sm);text-align:center;cursor:pointer;font-size:14px;color:var(--gray-600);background:var(--white);transition:all 0.15s;}
+.pay-opt.sel{background:var(--green-light);border-color:var(--green-mid);color:var(--green);font-weight:600;}
+
+/* Terms & sig */
+.terms-box{background:#f9f9f7;border:1px solid var(--gray-200);border-radius:var(--radius-sm);padding:12px;font-size:12px;color:var(--gray-600);line-height:1.8;margin-bottom:12px;}
+.terms-box strong{color:var(--black);}
+.rc-box{border:1.5px dashed #c9a227;background:#fffbea;border-radius:var(--radius-sm);padding:12px;margin-top:12px;}
+.rc-check{display:flex;align-items:flex-start;gap:8px;font-size:14px;color:#111;cursor:pointer;line-height:1.5;}
+.rc-check input{width:18px;height:18px;accent-color:#c9a227;margin-top:2px;flex-shrink:0;}
+.rc-panel{display:none;margin-top:12px;padding-top:12px;border-top:1px solid #f0e2a8;text-align:center;}
+.rc-panel.show{display:block;}
+#rc-qr{width:150px;height:150px;margin:0 auto 10px;background:#fff;border:1px solid #e4e4e0;border-radius:10px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.rc-btn{display:block;background:#111;color:#fff;font-size:14px;font-weight:600;padding:11px;border-radius:10px;text-decoration:none;margin-bottom:10px;}
+.rc-note{font-size:12px;color:#6b6b63;line-height:1.7;text-align:left;}
+.sig-wrap{position:relative;border:2px dashed var(--gray-200);border-radius:var(--radius-sm);height:110px;background:#fafafa;overflow:hidden;cursor:crosshair;margin-top:5px;}
+.sig-wrap canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;}
+.sig-expand-btn{position:absolute;top:6px;left:6px;background:rgba(255,255,255,0.85);border:1px solid #ccc;border-radius:6px;padding:3px 7px;font-size:11px;cursor:pointer;z-index:11;color:#555;backdrop-filter:blur(2px);}
+/* 簽名放大 Modal */
+#sig-modal{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.7);align-items:center;justify-content:center;}
+#sig-modal.show{display:flex;}
+#sig-modal-inner{background:#fff;border-radius:16px;padding:18px;width:calc(100vw - 32px);max-width:560px;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+#sig-modal-title{font-size:14px;font-weight:700;color:#141413;margin-bottom:12px;}
+#sig-modal-wrap{position:relative;border:2px dashed #b0b0a8;border-radius:10px;height:220px;background:#fafafa;overflow:hidden;cursor:crosshair;}
+#sig-modal-wrap canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;}
+#sig-modal-hint{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#b0b0a8;font-size:13px;pointer-events:none;}
+#sig-modal-btns{display:flex;gap:10px;margin-top:12px;}
+#sig-modal-clear{flex:1;padding:11px;background:#f2f2f0;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;color:#555;}
+#sig-modal-done{flex:2;padding:11px;background:#1565c0;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;}
+.sig-hint{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:12px;color:var(--gray-400);pointer-events:none;white-space:nowrap;}
+.sig-clear{position:absolute;top:5px;right:7px;font-size:11px;color:var(--gray-400);cursor:pointer;background:rgba(255,255,255,0.9);border:1px solid var(--gray-200);border-radius:4px;padding:2px 7px;z-index:10;}
+
+/* Nav */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:var(--white);border-top:1px solid var(--gray-200);padding:10px 13px;display:flex;gap:8px;z-index:100;}
+.btn-back{flex:1;padding:12px;border:1px solid var(--gray-200);border-radius:var(--radius);background:var(--white);font-size:15px;color:var(--gray-600);cursor:pointer;font-family:inherit;}
+.btn-next{flex:2;padding:12px;border:none;border-radius:var(--radius);background:var(--black);color:#fff;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;}
+.btn-next:active{opacity:0.85;}
+.loading{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:999;align-items:center;justify-content:center;flex-direction:column;gap:12px;}
+.loading.show{display:flex;}
+.spinner{width:38px;height:38px;border:3px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 0.8s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.loading-text{color:#fff;font-size:13px;}
+.success-screen{display:none;text-align:center;padding:60px 20px;}
+.success-screen.show{display:block;}
+.success-icon{width:68px;height:68px;border-radius:50%;background:var(--green-light);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:30px;}
+.success-title{font-size:20px;font-weight:600;margin-bottom:8px;}
+.success-sub{font-size:14px;color:var(--gray-600);line-height:1.7;}
+.add-eq-btn{width:100%;padding:10px;border:1.5px dashed var(--green-mid);border-radius:var(--radius-sm);background:var(--green-light);color:var(--green);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;margin-top:4px;}
+.sec-label{font-size:11px;font-weight:700;color:var(--gray-600);margin:12px 0 7px;letter-spacing:0.03em;}
+.mt8{margin-top:8px;}.mt12{margin-top:12px;}
+.acc-section{margin-top:10px;padding-top:10px;border-top:1px solid var(--gray-200);}
+.acc-eq-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.acc-eq-item{display:flex;align-items:center;gap:6px;padding:7px 10px;border:1px solid var(--gray-200);border-radius:var(--radius-sm);cursor:pointer;font-size:13px;background:var(--white);transition:all 0.15s;user-select:none;}
+.acc-eq-item.sel{background:var(--green-light);border-color:var(--green-mid);color:var(--green);}
+.acc-eq-box{width:14px;height:14px;border:2px solid var(--gray-200);border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.acc-eq-item.acc-na{opacity:0.5;}
+.acc-eq-item.acc-na .acc-eq-box{background:#ffcdd2 !important;border-color:#e57373;}
+.acc-eq-item.acc-na span{color:var(--red);text-decoration:line-through;}
+.acc-eq-item.sel .acc-eq-box{background:var(--green);border-color:var(--green);}
+.acc-eq-item.sel .acc-eq-box::after{content:'✓';font-size:9px;color:#fff;}
+
+/* Decision cards */
+.decision-block{background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-sm);margin-bottom:10px;overflow:hidden;}
+.decision-head{padding:10px 12px;background:#fafafa;border-bottom:1px solid var(--gray-200);display:flex;align-items:center;justify-content:space-between;}
+.decision-name{font-size:13px;font-weight:600;color:var(--black);}
+.decision-est{font-size:12px;color:var(--gray-600);}
+.decision-body{padding:10px 12px;}
+.decision-row{display:flex;gap:8px;}
+.decision-btn{flex:1;padding:11px 8px;border:1px solid var(--gray-200);border-radius:var(--radius-sm);font-size:13px;font-weight:500;color:var(--gray-600);cursor:pointer;text-align:center;background:var(--white);transition:all 0.15s;line-height:1.4;}
+.decision-btn.sell{border-color:var(--green-mid);background:var(--green-light);color:var(--green);font-weight:700;}
+.decision-btn.hold{border-color:#c9a84c;background:#f5edd8;color:#8a6820;font-weight:700;}
+.hold-expire{font-size:11px;color:#8a6820;text-align:center;margin-top:6px;display:none;}
+.hold-expire.show{display:block;}
+.decision-summary{background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius-sm);padding:12px;margin-bottom:12px;}
+.decision-summary-row{display:flex;justify-content:space-between;font-size:13px;padding:4px 0;border-bottom:1px solid var(--gray-200);}
+.decision-summary-row:last-child{border-bottom:none;font-weight:700;font-size:14px;padding-top:8px;}
+
+.divider-label{font-size:11px;font-weight:700;color:var(--gray-600);letter-spacing:0.05em;padding:8px 0 5px;border-bottom:1px solid var(--gray-200);margin-bottom:4px;}
+</style>
+</head>
+<body>
+<div class="loading" id="loading"><div class="spinner"></div><div class="loading-text">正在送出合約，請稍候…</div></div>
+
+<div class="topbar">
+  <div class="topbar-logo">林</div>
+  <div class="topbar-info"><div class="topbar-title">林相攝影</div><div class="topbar-sub">攝影器材收購同意書</div></div>
+  <div class="topbar-steps">
+    <div class="step-dot active" id="dot-0"></div>
+    <div class="step-dot" id="dot-1"></div>
+    <div class="step-dot" id="dot-2"></div>
+    <div class="step-dot" id="dot-3"></div>
+    <div class="step-dot" id="dot-4"></div>
+  </div>
+</div>
+
+<!-- PAGE 0 -->
+<div class="page active" id="page-0">
+
+  <div class="card">
+    <div class="card-header"><div class="card-num">1</div><div class="card-title">器材詳情 ＋ 功能檢核（每台器材獨立）</div></div>
+    <div class="card-body">
+      <div id="eq-container"></div>
+      <button class="add-eq-btn" onclick="addEquipment()">＋ 新增器材</button>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+<!-- PAGE 1: 檢測報告預覽 -->
+<div class="page" id="page-1">
+  <div class="card">
+    <div class="card-header"><div class="card-num">📋</div><div class="card-title">檢測報告預覽（請客戶確認內容）</div></div>
+    <div class="card-body" style="padding:0">
+      <div id="report-preview" style="padding:14px;font-size:13px;line-height:1.8;color:#1a1a1a;"></div>
+    </div>
+  </div>
+  <div style="font-size:12px;color:#888;text-align:center;margin-bottom:8px;">以上為本次收購檢測報告，請確認內容無誤後繼續</div>
+</div>
+
+<!-- PAGE 2: 明細確認（每台選出售或保留） -->
+<div class="page" id="page-2">
+  <div class="card">
+    <div class="card-header"><div class="card-num">✓</div><div class="card-title">請確認每台器材的處理方式</div></div>
+    <div class="card-body">
+      <div id="decision-container"></div>
+      <div class="decision-summary" id="decision-summary" style="display:none">
+        <div id="decision-summary-rows"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header"><div class="card-num">💰</div><div class="card-title">交易日期與付款方式</div></div>
+    <div class="card-body">
+      <div class="field"><label>交易日期</label><input type="date" id="tx-date"></div>
+      <div class="summary-box" style="margin-top:10px">
+        <div class="summary-header">器材明細（依上方勾選自動計算）</div>
+        <div id="summary-rows"><div class="summary-row">
+      <div class="summary-check on" data-n="1" onclick="this.classList.toggle('on');calcTotal()"></div>
+      <span class="summary-name">器材 1</span>
+      <span class="summary-est">NT$ 0</span>
+      
+    </div></div>
+        <div class="summary-total-row"><span class="summary-total-label">建議收購總價</span><span class="summary-total-val" id="summary-total">NT$ 0</span></div>
+      </div>
+      <div class="field mt12"><label>最終收購總金額（新台幣）*</label>
+        <div class="amount-row"><input type="text" id="tx-amount" placeholder="0" inputmode="numeric" oninput="txAmtEdited=true"><span class="amount-unit">元整</span></div>
+      </div>
+      <div class="field mt8"><label>付款方式 *</label>
+        <div class="pay-row">
+          <div class="pay-opt" onclick="pickPay(this)">匯款</div>
+          <div class="pay-opt" onclick="pickPay(this)">現金</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="font-size:12px;color:#888;text-align:center;margin-bottom:8px">確認後繼續填寫資料並簽名</div>
+</div>
+
+<!-- PAGE 3: 資料 + 簽名 -->
+<div class="page" id="page-3">
+  <div class="card">
+    <div class="card-header"><div class="card-num">客</div><div class="card-title">乙方基本資料 ＋ 簽署</div></div>
+    <div class="card-body">
+      <div class="row2">
+        <div class="field"><label>姓名 *</label><input type="text" id="name" placeholder="請輸入姓名"></div>
+        <div class="field"><label>身分證字號</label><input type="text" id="id-num" placeholder="A123456789"></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label>聯絡電話 *</label><input type="tel" id="phone" placeholder="0912-345-678"></div>
+        <div class="field"><label>電子信箱 *</label><input type="email" id="email" placeholder="example@email.com"></div>
+      </div>
+      <div class="field" style="margin-top:10px">
+        <label>從哪裡得知我們？ *</label>
+        <select id="source-select" onchange="pickSourceSelect(this.value)" style="width:100%;padding:10px 12px;border:1px solid #d0d0c8;border-radius:8px;font-size:14px;background:#fff;color:#141413;-webkit-appearance:none;appearance:none;background-image:url('data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%228%22 viewBox=%220 0 12 8%22&gt;&lt;path d=%22M1 1l5 5 5-5%22 stroke=%22%23888%22 stroke-width=%221.5%22 fill=%22none%22 stroke-linecap=%22round%22/&gt;&lt;/svg&gt;');background-repeat:no-repeat;background-position:right 12px center;cursor:pointer;font-family:inherit">
+          <option value="">— 請選擇 —</option>
+          <option value="google_map">Google 地圖</option>
+          <option value="google_search">Google 搜尋</option>
+          <option value="social">Facebook / Instagram 廣告</option>
+          <option value="returning">老客戶</option>
+          <option value="friend">朋友介紹</option>
+          <option value="walk">門市路過</option>
+          <option value="other">其他</option>
+        </select>
+        <div class="note-field" id="other-source-field" style="margin-top:6px"><input type="text" id="other-source" placeholder="請說明來源…" style="width:100%"></div>
+      </div>
+
+      <div class="sec-label mt12">甲方（收購方）— 經手人員</div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:8px">
+        <label style="display:flex;align-items:center;gap:6px;font-size:14px;cursor:pointer">
+          <input type="checkbox" name="staff" value="Annie" style="width:16px;height:16px;accent-color:#1565c0"> Annie
+        </label>
+        <label style="display:flex;align-items:center;gap:6px;font-size:14px;cursor:pointer">
+          <input type="checkbox" name="staff" value="陳貢丸" style="width:16px;height:16px;accent-color:#1565c0"> 陳貢丸
+        </label>
+        <label style="display:flex;align-items:center;gap:6px;font-size:14px;cursor:pointer">
+          <input type="checkbox" name="staff" value="AMY" style="width:16px;height:16px;accent-color:#1565c0"> AMY
+        </label>
+        <label style="display:flex;align-items:center;gap:6px;font-size:14px;cursor:pointer">
+          <input type="checkbox" name="staff" value="EASON" style="width:16px;height:16px;accent-color:#1565c0"> EASON
+        </label>
+        <label style="display:flex;align-items:center;gap:6px;font-size:14px;cursor:pointer">
+          <input type="checkbox" name="staff" value="孟" style="width:16px;height:16px;accent-color:#1565c0"> 孟
+        </label>
+      </div>
+      <div class="rc-box">
+        <label class="rc-check">
+          <input type="checkbox" id="review-credit-chk" onchange="toggleReviewCredit(this.checked)">
+          <span>🎁 我願意留下 Google 評論，領取 <strong>NT$<span class="rc-amt">500</span> 折抵金</strong>（消費滿 NT$<span class="rc-min">5,000</span> 可折抵）</span>
+        </label>
+        <div class="rc-panel" id="rc-panel">
+          <div id="rc-qr"></div>
+          <div style="font-size:12px;color:#b0b0a8;margin-bottom:10px">用手機掃描 QR Code，或點下方按鈕</div>
+          <a class="rc-btn" id="rc-link" href="https://amazing-capybara-a34a3c.netlify.app/" target="_blank">前往留下評論 →</a>
+          <div class="rc-note">✔ NT$<span class="rc-amt">500</span> 折抵金將登記在您的聯絡電話 <strong id="rc-phone">—</strong> 名下<br>✔ 下次於林相攝影單筆消費滿 NT$<span class="rc-min">5,000</span>，報上電話即可折抵</div>
+        </div>
+      </div>
+
+      <div class="sec-label mt12">乙方（出售方）簽名</div>
+      <div class="sig-wrap"><canvas id="sig-client"></canvas><span class="sig-hint" id="hint-sig-client">請用手指或觸控筆簽名</span><div class="sig-clear" onclick="clearSig('sig-client','hint-sig-client')">清除</div><button class="sig-expand-btn" onclick="openSigModal('sig-client','hint-sig-client')" type="button">⛶ 放大</button></div>
+
+      <div class="sec-label mt12">立書同意條款</div>
+      <div class="terms-box">
+        器材實際詳情由<strong>乙方如實告知</strong>，由甲方填寫器材【實際詳情狀況表】內容無隱匿造假，且非為贓物或不法管道取得之器材。甲方依現場交付配件填寫【交付配件內容表】，並由甲乙雙方現場以【功能檢核表】確認器材現況。<br><br>
+        雙方確認上述資料均屬實，同意以此電子同意書為交易憑證，<strong>交易一經成立，恕無法取消。</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="success-screen" id="success-screen">
+  <div class="success-icon">✓</div>
+  <div class="success-title">合約完成！</div>
+  <div class="success-sub">交易紀錄已儲存，確認信將寄送至您的信箱<br>感謝您選擇林相攝影</div>
+
+  <!-- 交易摘要卡片 -->
+  <div id="success-summary" style="background:#fff;border:1px solid #e4e4e0;border-radius:14px;padding:18px 16px;max-width:360px;margin:16px auto;text-align:left"></div>
+
+  <div style="background:#fff;border:1px solid #e4e4e0;border-radius:16px;padding:24px 20px;max-width:320px;margin:0 auto">
+    <div style="font-size:13px;color:#6b6b63;margin-bottom:6px;">✨ 等候的空檔，誠摯邀請您</div>
+    <div style="font-size:17px;font-weight:700;color:#111;margin-bottom:4px;">為林相攝影留下評論</div>
+    <div style="font-size:13px;color:#6b6b63;margin-bottom:18px;line-height:1.6;">您的每一則評論都是我們繼續進步的動力<br>只需 30 秒，對我們幫助很大 🙏</div>
+    <div id="qrcode-container" style="width:160px;height:160px;background:#f8f8f7;border-radius:10px;display:flex;align-items:center;justify-content:center;border:1px solid #e4e4e0;overflow:hidden;margin:0 auto 14px;"></div>
+    <div style="font-size:12px;color:#b0b0a8;text-align:center;margin-bottom:16px">掃描 QR Code 或點下方按鈕</div>
+    <a id="success-review-link" href="https://amazing-capybara-a34a3c.netlify.app/" target="_blank" style="display:block;background:#111;color:#fff;font-size:14px;font-weight:600;padding:13px;border-radius:10px;text-decoration:none;text-align:center;">
+      前往留下評論 →
+    </a>
+  </div>
+</div>
+
+<div class="bottom-nav" id="bottom-nav">
+  <button class="btn-back" id="btn-back" onclick="goBack()" style="display:none">← 上一步</button>
+  <button class="btn-next" id="btn-next" onclick="goNext()">下一步 →</button>
+</div>
+
+<!-- 簽名放大 Modal -->
+<div id="sig-modal">
+  <div id="sig-modal-inner">
+    <div id="sig-modal-title">✍️ 請在此簽名</div>
+    <div id="sig-modal-wrap">
+      <canvas id="sig-modal-canvas"></canvas>
+      <span id="sig-modal-hint">請用手指或觸控筆簽名</span>
+    </div>
+    <div id="sig-modal-btns">
+      <button id="sig-modal-clear" onclick="sigModalClear()" type="button">清除</button>
+      <button id="sig-modal-done" onclick="sigModalDone()" type="button">完成簽名 ✓</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Airtable 金鑰改放在 Netlify 環境變數，由 netlify/functions/airtable-create.js 代送
+// ===== Google 評論購物金 =====
+const REVIEW_CREDIT = 500;   // ← 折抵金金額
+const REVIEW_MIN_SPEND = 5000; // ← 消費滿多少才能折抵
+const REVIEW_URL = 'https://amazing-capybara-a34a3c.netlify.app/';
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('.rc-amt').forEach(e=>e.textContent=REVIEW_CREDIT.toLocaleString());
+  document.querySelectorAll('.rc-min').forEach(e=>e.textContent=REVIEW_MIN_SPEND.toLocaleString());
+  const l=document.getElementById('rc-link'); if(l) l.href=REVIEW_URL;
+});
+// 評論頁網址帶入本次器材，讓評論自然寫到型號（SEO 關鍵字）
+function reviewUrl(){
+  let names=[];
+  try{ names=getDecisionData().sell.map(x=>x.name); }catch(e){}
+  if(!names.length) names=[...document.querySelectorAll('.eq-block')].map(b=>document.getElementById(`eq${b.id.replace('eq-block-','')}-name`)?.value.trim()).filter(Boolean);
+  names=[...new Set(names)].slice(0,3);
+  return names.length ? REVIEW_URL+'?eq='+encodeURIComponent(names.join('|')) : REVIEW_URL;
+}
+function toggleReviewCredit(on){
+  document.getElementById('rc-panel').classList.toggle('show',on);
+  const ph=document.getElementById('phone')?.value.trim();
+  document.getElementById('rc-phone').textContent=ph||'（請先填寫電話）';
+  const q=document.getElementById('rc-qr');
+  const url=reviewUrl();
+  const l=document.getElementById('rc-link'); if(l) l.href=url;
+  if(on&&q&&typeof QRCode!=='undefined'){
+    q.innerHTML='';
+    try{new QRCode(q,{text:url,width:146,height:146,colorDark:'#111',colorLight:'#fff',correctLevel:QRCode.CorrectLevel.M});}
+    catch(e){q.innerHTML='<div style="font-size:11px;color:#aaa;padding:16px">請點下方按鈕</div>';}
+  }
+}
+function getReviewCredit(){return document.getElementById('review-credit-chk')?.checked?REVIEW_CREDIT:0;}
+let currentPage=0,totalPages=4,sourceVal='',paymentVal='';
+let txAmtEdited=false;
+const CAMERA_DB = {
+  body: ["Canon  EOS M2", "Canon  R50V", "Canon  R8", "Canon 100D", "Canon 100D+18-55mm", "Canon 1100D+18-55mm", "Canon 200D", "Canon 200D+18-55", "Canon 200DII+18-55mm", "Canon 250D", "Canon 4000D", "Canon 500D", "Canon 500D+18-55", "Canon 550D+18-55", "Canon 550D+18-55mm", "Canon 5D1", "Canon 5D2", "Canon 5D3", "Canon 5D4", "Canon 600D", "Canon 600D+18-55", "Canon 600D+Tamron 17-50mm", "Canon 60D", "Canon 60D + Canon 15-85 mm", "Canon 650D", "Canon 650D+18-55mm", "Canon 6D", "Canon 6D2", "Canon 700D", "Canon 700D+18-135mm", "Canon 700D+18-55mm", "Canon 70D", "Canon 70D+18-250mm", "Canon 750D+18-55mm", "Canon 760D", "Canon 760D+18-200mm", "Canon 77D", "Canon 7D", "Canon 7D+18-55mm", "Canon 7DII", "Canon 7DII+15-85mm", "Canon 800D", "Canon 80D", "Canon 850D", "Canon 850D+18-55mm", "Canon 90D", "Canon A3400", "Canon C80", "Canon EF 200mm F2 L IS USM", "Canon EOS 1D Mark II", "Canon EOS 1D Mark IV", "Canon EOS 7D Mark II", "Canon EOS 850D", "Canon EOS Kiss X7+18-55mm", "Canon EOS Kiss X8i+18-55mm", "Canon EOS M", "Canon EOS M+11-22mm", "Canon EOS M+18-55mm", "Canon EOS M+18-55mm 閃燈", "Canon EOS M2", "Canon EOS M200", "Canon EOS M3+18-55mm", "Canon EOS M6+15-45mm", "Canon EOS R", "Canon EOS RP", "Canon G10", "Canon G12", "Canon G15", "Canon G16", "Canon G1X", "Canon G1X3", "Canon G1XM2", "Canon G1XM3", "Canon G3X", "Canon G5X", "Canon G7X", "Canon G7X2", "Canon G7X3", "Canon G7X3 全新", "Canon G9X", "Canon G9X2", "Canon IXUS 110 IS", "Canon IXUS 285", "Canon IXUS 60", "Canon IXY160", "Canon IXY620", "Canon Ixus 110 IS", "Canon Ixus 200 IS", "Canon Ixus 210", "Canon M10", "Canon M10+15-45", "Canon M100", "Canon M100+15-45mm", "Canon M2", "Canon M2+18-55mm", "Canon M3", "Canon M3+15-45mm", "Canon M3+18-55mm", "Canon M5", "Canon M5+15-45mm", "Canon M5+18-55", "Canon M50", "Canon M50+15-45mm", "Canon M50+18-55mm", "Canon M50II", "Canon M50II+15-45mm", "Canon M50II+18-55mm", "Canon M6", "Canon M6+11-22mm", "Canon M6+15-45mm", "Canon M6II", "Canon M6II+15-45mm", "Canon R10", "Canon R10+18-150mm", "Canon R10+18-45mm", "Canon R100+18-45mm", "Canon R5", "Canon R5 Mark II", "Canon R50", "Canon R50 雙鏡組", "Canon R50+18-45", "Canon R50+18-45mm", "Canon R50+18-45mm(全新)", "Canon R50+1845", "Canon R50V 手把組", "Canon R50V+14-30", "Canon R50V+14-30mm", "Canon R50全新", "Canon R6", "Canon R6 Mark II", "Canon R6 Mark III", "Canon R7", "Canon R8", "Canon R8+24-50mm", "Canon RF 24-105mm F4-7.1 IS STM", "Canon RF 24-240mm F4-6.3 IS USM", "Canon RFS 14-30mm IS STM PZ", "Canon RP", "Canon S100", "Canon S110", "Canon S90", "Canon SX40HS", "Canon SX50HS", "Canon SX700HS", "Canon SX70HS全新", "Canon SX710HS", "Canon SX740HS", "Canon TSE 17mm F4 L", "Canon V1", "Casio ZR1000", "DJI Pocket3 (全能套裝組)", "Fujifilm GFX50S", "Nikon D7500", "Nikon ZF", "Sigma 23mm F1.4 DC DN For RF", "Sigma 50mm F1.4 For Canon", "Sigma 70-200mm F2.8 DG OS HSM Sports for Canon", "Zeiss Touit 21mm F2.8 for Canon", "insta360 ace pro2 (街拍套組)", "Fuijfilm GFX50R + 轉接環 + 50mm F3.5", "Fujifiim X100VI", "Fujifilm  X20", "Fujifilm  XT30", "Fujifilm F200EXR", "Fujifilm FINEPIX Z300", "Fujifilm FinePix F100FD", "Fujifilm FinePix Z33WP", "Fujifilm Finepix F200", "Fujifilm Finepix HS20 EXR", "Fujifilm Finepix Z2", "Fujifilm Finepix Z30", "Fujifilm GFX 100RF", "Fujifilm GFX 50S II", "Fujifilm GFX100", "Fujifilm GFX100S", "Fujifilm GFX50R", "Fujifilm GFX50SII", "Fujifilm S2950", "Fujifilm S600", "Fujifilm WCL X100II", "Fujifilm X Half 全新", "Fujifilm X half 全新", "Fujifilm X10", "Fujifilm X100", "Fujifilm X100 VI", "Fujifilm X100S(壞）", "Fujifilm X100T", "Fujifilm X100V", "Fujifilm X100V+增倍鏡", "Fujifilm X100VI", "Fujifilm X100VI  全新套組", "Fujifilm X100VI (全配組)", "Fujifilm X20", "Fujifilm X70", "Fujifilm XA3", "Fujifilm XA3+16-50mm", "Fujifilm XA5", "Fujifilm XA5+15-45mm", "Fujifilm XA5+16-50mm", "Fujifilm XA7", "Fujifilm XE1", "Fujifilm XE1+15-45mm", "Fujifilm XE2", "Fujifilm XE2S", "Fujifilm XE3", "Fujifilm XE4", "Fujifilm XE5", "Fujifilm XE5(全新)", "Fujifilm XF 16-80mm F4 R OIS WR", "Fujifilm XF 18-120mm F4 LM PZ WR", "Fujifilm XF 56mm F1.2 R APD", "Fujifilm XF10", "Fujifilm XH1", "Fujifilm XH2S", "Fujifilm XM1", "Fujifilm XM1+16-50mm", "Fujifilm XM5", "Fujifilm XM5 全新", "Fujifilm XM5 銀", "Fujifilm XM5 銀 全新", "Fujifilm XM5 黑 全新", "Fujifilm XM5+15-45 全新", "Fujifilm XM5+15-45mm", "Fujifilm XM5+15-45mm全新", "Fujifilm XM5全新", "Fujifilm XPro2", "Fujifilm XQ1", "Fujifilm XQ2", "Fujifilm XS20", "Fujifilm XS20全新", "Fujifilm XT1", "Fujifilm XT10", "Fujifilm XT100", "Fujifilm XT100+15-45mm", "Fujifilm XT2", "Fujifilm XT20", "Fujifilm XT200", "Fujifilm XT200+15-45mm", "Fujifilm XT3", "Fujifilm XT30", "Fujifilm XT30II", "Fujifilm XT30II+15-45mm", "Fujifilm XT30III+13-33mm", "Fujifilm XT4", "Fujifilm XT5", "Fujifilm XT50", "Fujifilm Xpro1", "Fujifilm Xpro2", "Fujifilm Xpro3", "Fujifilm finepix Z100fd", "Fujifilm instax mini EVO", "Fujiflim XT10", "Fujifuilm XQ2", "Fujijfilm XF10", "Lumix GF9+14-42mm", "Lumix LX7", "Olympus XZ2", "Sigma 12mm F1.4 DC Contemporary For Fuji", "Fujifilm X100S", "Fujifilm X30", "Fujifilm XA2", "Fujifilm XC 16-50mm F3.5-5.6 OIS", "Fujifilm XC 50-230mm F4.5-6.7 OIS", "Fujifilm XH2", "Hasselblad 907X CFV100C＋XCD 3.4/75P", "Hasselblad 907X+CFV100C+38mm F2.5", "Hasselblad X1D", "Hasselblad X1D II", "Hasselblad X2D 100C", "Hasselblad XCD 45 P", "Tokina 12-28mm F4 PRO", "LEICA TL 23mm / F2", "LEICA Vlux", "LEICA X-E（TYP102)", "Leica  DLux(Typ109)", "Leica  DLux(Typ113)", "Leica C", "Leica C LUX 2", "Leica C Typ112", "Leica CLUX", "Leica CLux", "Leica D-LUX(typ109)", "Leica D-LUX8", "Leica DIGILUX3+14-50mm F2.8-3.5", "Leica DLux(Typ109)", "Leica DLux3", "Leica DLux5", "Leica DLux7", "Leica DLux8", "Leica Dlux8", "Leica M10", "Leica M10P+28mm", "Leica Minilux", "Leica Q2", "Leica Sofort", "Leica Sofort 2", "Leica TL", "Leica TL2", "Leica V-LUX", "Leica V-LUX 4", "Leica V-Lux(Typ114)", "Leica X VARIO Typ107", "Leica X1", "Leica X2", "Leica digilux2", "Leica minilux zoom", "Nikon 16-50mm", "Nikon 1V1+10-30", "Nikon A900", "Nikon COOLPIX A", "Nikon Coolplx S2900", "Nikon D3000", "Nikon D3000+18-55mm", "Nikon D3100", "Nikon D3200+18-55", "Nikon D40", "Nikon D50+AF 50mm F1.8D", "Nikon D500", "Nikon D5100", "Nikon D5200", "Nikon D5300", "Nikon D5300+AFS 18-55mm F3.5-5.6 G", "Nikon D5300+AFS 18-55mm F3.5-5.6 G II", "Nikon D5500", "Nikon D5500+18-140mm", "Nikon D5600", "Nikon D5600+18-140", "Nikon D600", "Nikon D7000", "Nikon D7000+55-200mm", "Nikon D7100", "Nikon D7100 +Tamron 18-250mm", "Nikon D7200", "Nikon D750", "Nikon D780", "Nikon D800", "Nikon D800E", "Nikon D810", "Nikon D850", "Nikon D90+18-200", "Nikon J5", "Nikon P1000", "Nikon P1100", "Nikon P300", "Nikon P310", "Nikon P340", "Nikon P7700", "Nikon P7800", "Nikon P900", "Nikon P950", "Nikon Z30", "Nikon Z5", "Nikon Z50", "Nikon Z50+16-50mm(換成4142)", "Nikon Z50II", "Nikon Z50II+16-50mm", "Nikon Z5II", "Nikon Z6", "Nikon Z6II", "Nikon Z6III", "Nikon Z7", "Nikon Z7II", "Nikon Z8", "Nikon Z9", "Nikon ZFC+16-50mm", "Nikon cooplix L310", "Lumix S1+轉接環＋電池手把", "OLYMPUS SZ30MR", "Olympus 1030SW", "Olympus 770SW", "Olympus E-M5 Mark III", "Olympus EM1", "Olympus EM1 II", "Olympus EM1 III", "Olympus EM10III", "Olympus EM10III+14-42mm", "Olympus EM10IV", "Olympus EM10IV+14-42mm", "Olympus EM1M2", "Olympus EM5", "Olympus EM5+14-42", "Olympus EM5II", "Olympus EP1", "Olympus EP5", "Olympus EP5+14-42mm", "Olympus EP7+14-42mm", "Olympus EP7+17mm F2.8", "Olympus EPL1+14-42", "Olympus EPL10", "Olympus EPL3+14-42", "Olympus EPL5", "Olympus EPL7", "Olympus EPL7+14-42", "Olympus EPL9", "Olympus EPL9+14-42", "Olympus EPL9+14-42mm", "Olympus Mju 1050SW", "Olympus OM3", "Olympus PEN F", "Olympus STYLUS 1s", "Olympus TG7", "Olympus XZ1", "Olympus ZX2", "Olympus μ Tough-6000", "LUMIX G VARIO 14-140mm F3.5-5.6 ASPH Power OIS II", "Lumix  G5", "Lumix  ZS110", "Lumix 25mm F1.4 G ASPH", "Lumix DC-G9", "Lumix DMC-GF2", "Lumix FZ80", "Lumix G100D", "Lumix G100D+12-32mm", "Lumix G100D+14mm", "Lumix G100V+12-32mm", "Lumix G5+14-42mm", "Lumix G7+14-45mm", "Lumix G9", "Lumix GF10", "Lumix GF10+12-32mm", "Lumix GF10+14-42mm", "Lumix GF2", "Lumix GF2+14-42mm", "Lumix GF3", "Lumix GF3+14-45mm", "Lumix GF7", "Lumix GF7+12-32mm", "Lumix GF8+12-32mm", "Lumix GF8+14-42mm", "Lumix GF9", "Lumix GF9+12-32mm", "Lumix GH3", "Lumix GM1", "Lumix GM1+12-32mm", "Lumix GM1+20mm", "Lumix GX7m2", "Lumix GX85", "Lumix LF1", "Lumix LX10", "Lumix LX100 M2", "Lumix LX100M2", "Lumix LX2", "Lumix LX3", "Lumix LX5", "Lumix S1+S 20-60mm F3.5-5.6", "Lumix S5", "Lumix S5 II +Lumix S PRO 20-60mm F3.5-5.6", "Lumix S5II", "Lumix S9+50mm F1.8", "Lumix S9N+18-40mm", "Lumix TZ101", "Lumix TZ20", "Lumix TZ60", "Lumix TZ70", "Lumix TZ85", "Lumix TZ85 白", "Lumix TZ90", "Lumix TZ99", "Lumix ZS110", "Lumix ZS220", "OSMO Pocket3", "Olympus 12-50mm F3.5-6.3", "Olympus EM10IV+14-45mm", "Panasonic Lumix DMC-FX37", "Panasonic OM1", "Panasonic XS3-DMC", "Sigma Sd Quattro SDQ", "Lumix GF7+14-42mm", "Lumix GX7", "Lumix LX100", "Lumix LX100\tM2", "Lumix S 20-60mm F3.5-5.6", "Pentax 17", "Pentax LS465", "Pentax Optio W30", "Pentax Optio Ws80", "Pentax WG1000", "Battery gr", "Ricog GR3", "Ricoh  GR3", "Ricoh  GR3X Urban Edition", "Ricoh 0.75X TELE CONVERSION LENS GW4", "Ricoh 1.5X TELE CONVERSION LENS GT2", "Ricoh GR3 Diary Edition", "Ricoh GR3 Diary Edition 全新", "Ricoh GR3 Street Edition", "Ricoh GR3 日誌版", "Ricoh GR3 街拍版", "Ricoh GR3(日誌版)", "Ricoh GR3X", "Ricoh GR3X Urban Edition", "Ricoh GR3x", "Ricoh GR4", "Ricoh GR4(全新)", "Ricoh GRD3", "Ricoh GRD4", "Ricoh GRII Silver Edition", "Ricoh GX200", "Rioch GR2", "Rioch GR3X", "PENTAX K10D", "Ricoh GR 一代", "Ricoh GR2", "Ricoh GR3", "Ricoh GR3 HDF", "Ricoh GR3 限量版", "Sigma DP1", "Sigma FP+45mm F2.8", "Sigma FP+Sigma 45mm F2.8", "Canon 550D", "Canon EF 16-35mm F4 L IS USM", "DSC-T99", "Fujifilm XS10", "Nikon Z30+16-50mm", "Sigma 16mm F1.4 DC DN For Sony", "Sigma 20-200mm F3.5-6.3 DG For Sony", "Sigma 24-70 F 2.8 DG DN II", "Sigma 30mm F2.8 DN Art For Sony", "Sony  A55+18-55mm", "Sony  A7CR", "Sony A1", "Sony A1M2", "Sony A350+55-200mm+18-70mm", "Sony A5000+16-50mm", "Sony A5000+19mm", "Sony A5100", "Sony A5100+16-50mm", "Sony A6000", "Sony A6000+16-50mm", "Sony A6000+18-200mm", "Sony A6000+18-55mm", "Sony A6000＋16-50", "Sony A6100", "Sony A6100+16-50", "Sony A6100+16-50mm", "Sony A6300", "Sony A6400", "Sony A6400+16-50mm", "Sony A6500", "Sony A6600", "Sony A6700", "Sony A6700+16-50mm(全新)", "Sony A6700＋16-50", "Sony A7", "Sony A7C", "Sony A7C 全新", "Sony A7C+28-60mm", "Sony A7CM2", "Sony A7CM2 全新", "Sony A7CR", "Sony A7M2", "Sony A7M3", "Sony A7M4", "Sony A7M5", "Sony A7R", "Sony A7R4A", "Sony A7RM2", "Sony A7RM3", "Sony A7RM3A", "Sony A7RM4", "Sony A7RM5", "Sony A7S", "Sony A7S2", "Sony A7S3", "Sony A7m3", "Sony A9", "Sony A9M2", "Sony AXP55", "Sony DSC-W210", "Sony DSC-W530", "Sony DSC-WX1", "Sony Dsc-p7", "Sony Dscn2", "Sony FE 20-70mm F4 G", "Sony FE 24-240mm F3.5-6.3", "Sony FE 28-60mm F4-5.6", "Sony FE 28mm F2", "Sony FE 35mm F1.4 ZA", "Sony FE 50mm F1.4 GM", "Sony FE 90mm F2.8 G Macro OSS", "Sony FS5", "Sony FS7", "Sony FX30", "Sony FX30 (全新)", "Sony H10", "Sony HX300", "Sony HX30V", "Sony HX400V", "Sony HX50V", "Sony HX90V", "Sony HX99", "Sony NEX 3N", "Sony NEX 5N", "Sony NEX-C3+18-55mm", "Sony NEX-C3D+18-55", "Sony NEX5", "Sony NEX5+18-55", "Sony NEX5N+18-55mm", "Sony NEX7", "Sony NEX7+18-55", "Sony NX80", "Sony Nex5N", "Sony Nex5N+16-50mm", "Sony Nex5N+18-55mm", "Sony Nex5n+18-55mm", "Sony P200", "Sony RX0M2", "Sony RX1", "Sony RX10", "Sony RX100", "Sony RX100M1", "Sony RX100M2", "Sony RX100M3", "Sony RX100M4", "Sony RX100M5", "Sony RX100M5A", "Sony RX100M5a", "Sony RX100M6", "Sony RX100M6手把組", "Sony RX100M7", "Sony RX100M7 手把組", "Sony RX100V", "Sony RX100m3", "Sony RX10M3", "Sony RX10M4", "Sony RX1R", "Sony RX1RII", "Sony RX1RIII", "Sony WX800", "Sony WX810 CCD", "Sony ZV-1", "Sony ZV-1 II 手把組", "Sony ZV-1 手把組", "Sony ZV-1(黑)", "Sony ZV-1II 手把組", "Sony ZV-E1", "Sony ZV1", "Sony ZV1 II", "Sony ZV1 II (手把組)", "Sony ZV1 M2", "Sony ZV1 手把組", "Sony ZV1(黑)", "Sony ZV1F", "Sony ZV1F 手把組", "Sony ZV1M2", "Sony ZV1M2 手把組", "Sony ZV1M2手把組", "Sony ZV1M握把組", "Sony ZV1手把組", "Sony ZVE1", "Sony ZVE1 全新 白", "Sony ZVE1 全新 黑", "Sony ZVE10", "Sony ZVE10 手把組", "Sony ZVE10+16-50", "Sony ZVE10+16-50mm", "Sony ZVE10+16-50mm 手把組", "Sony ZVE10II", "Sony ZVE10II+16-50mm", "Sony ZVE10II+16-50mm 手把組", "Sony ZVE10II+16-50mm+手把", "Sony ZVE10手把組", "Sony ZVE1全新 白", "Sony ZVE1全新 黑", "Sony a6300", "Tamron 17-28mm F2.8 Di III RXD For sony", "Tamron 20-40mm F2.8 Di III VXD For Sony", "Tamron 28-75mm F2.8 Di III RXD For Sony", "Tamron 35-150mm F2-2.8 DiIII VXD For Sony", "ZVE10II 全新", "lomography south beach拍立得"],
+  lens: ["Canon  EF 85mm F1.2 L II USM", "Canon  EFM 18-55mm F3.5-5.6 IS STM", "Canon 750D", "Canon 7D+15-85mm", "Canon EF 100-300mm F4.5-5.6", "Canon EF 100-400mm F4.5-5.6 L IS", "Canon EF 100-400mm F4.5-5.6 L IS II USM", "Canon EF 100mm F2.8 L IS USM", "Canon EF 16-35mm F2.8 L II USM", "Canon EF 16-35mm F2.8 L USM", "Canon EF 17-40mm F4 L USM", "Canon EF 18-55mm", "Canon EF 180mm F3.5 L Macro USM", "Canon EF 20-35mm F3.5-4.5", "Canon EF 20mm f2.8 USM", "Canon EF 24-105mm F3.5-5.6 IS STM", "Canon EF 24-105mm F4 IS USM", "Canon EF 24-105mm F4 L IS II USM", "Canon EF 24-105mm F4 L IS USM", "Canon EF 24-70mm F2.8 L II USM", "Canon EF 24-70mm F2.8 L USM", "Canon EF 24-70mm F2.8 L USM Macro", "Canon EF 24-70mm F4 L IS USM", "Canon EF 24-85mm F3.5-4.5", "Canon EF 28-105mm F3.5-4.5", "Canon EF 28-300mm F3.5-5.6 L IS USM", "Canon EF 28-70mm F2.8 L USM", "Canon EF 28mm F1.8 USM", "Canon EF 300mm F4 L IS", "Canon EF 300mm F4L IS USM", "Canon EF 35-70mm F3.5-4.5", "Canon EF 35mm F1.4 L", "Canon EF 35mm F1.4 L II USM", "Canon EF 35mm F1.4 L USM", "Canon EF 35mm F2", "Canon EF 35mm F2 IS USM", "Canon EF 40mm F2.8", "Canon EF 40mm F2.8 STM", "Canon EF 50mm F1.2 L USM", "Canon EF 50mm F1.4", "Canon EF 50mm F1.8", "Canon EF 50mm F1.8  II", "Canon EF 50mm F1.8 II", "Canon EF 50mm F1.8 STM", "Canon EF 50mm F2.5 MACRO", "Canon EF 50mm F2.5 Marco", "Canon EF 55-200mm F4.5-5.6 II USM", "Canon EF 70-200mm F2.8 L", "Canon EF 70-200mm F2.8 L IS II USM", "Canon EF 70-200mm F2.8 L IS III USM", "Canon EF 70-200mm F2.8 L IS USM", "Canon EF 70-200mm F2.8 L USM", "Canon EF 70-200mm F4 IS USM", "Canon EF 70-200mm F4 L IS II USM", "Canon EF 70-200mm F4 L IS USM", "Canon EF 70-200mm F4 L USM", "Canon EF 70-300mm F4-5.6 IS II USM", "Canon EF 70-300mm F4-5.6 IS USM", "Canon EF 70-300mm F4-5.6 L IS USM", "Canon EF 70-300mm F4.5-5.6 IS II USM", "Canon EF 75-300 F4-5.6 IS", "Canon EF 75-300mm F4-5.6", "Canon EF 75-300mm F4-5.6 II", "Canon EF 75-300mm F4-5.6 III USM", "Canon EF 8-15mm F4L USM", "Canon EF 80-200mm F4.5-5.6", "Canon EF 85mm F1.4 L IS USM", "Canon EF 85mm F1.8", "Canon EF 85mm F1.8 USM", "Canon EF-EFM 轉接環", "Canon EF-R Adapter", "Canon EF-R adapter", "Canon EF-RF 轉接環", "Canon EF-R轉接環", "Canon EF-S18-135mm F3.5-5.6 IS USM", "Canon EFM 11-22mm  F3.5-5.6 IS STM", "Canon EFM 15-45 IS STM", "Canon EFM 15-45mm", "Canon EFM 15-45mm  F3.5-5.6 IS STM", "Canon EFM 18-55mm F3.5-5.6 IS STM", "Canon EFM 22mm F2  STM", "Canon EFM 22mm F2 STM", "Canon EFM 28mm F3.5 Macro", "Canon EFM 32mm F1.4 STM", "Canon EFM 55-200mm  F4.5-6.3 IS STM", "Canon EFM 55-200mm F4.5-6.3 IS STM", "Canon EFM15-45mm", "Canon EFM18-55mm F3.5-5.6 IS STM", "Canon EFS  18-55mm F3.5-5.6 IS", "Canon EFS  18-55mm F3.5-5.6 IS STM", "Canon EFS 10-18mm F4.5-5.6 IS STM", "Canon EFS 10-22mm", "Canon EFS 10-22mm F3.5-4.5 USM", "Canon EFS 15-85mm USM F3.5-5.6", "Canon EFS 17-55mm F2.8 IS USM", "Canon EFS 17-85mm F4-5.6 IS USM", "Canon EFS 18-135mm", "Canon EFS 18-135mm F3.5-5.6  IS USM", "Canon EFS 18-135mm F3.5-5.6 IS", "Canon EFS 18-135mm F3.5-5.6 IS STM", "Canon EFS 18-135mm F3.5-5.6 IS USM", "Canon EFS 18-135mm USM", "Canon EFS 18-135mm f3.5-5.6 IS USM", "Canon EFS 18-200mm F3.5-5.6 IS", "Canon EFS 18-55mm F3.5-5.6 III", "Canon EFS 18-55mm F3.5-5.6 IS STM", "Canon EFS 18-55mm F4.5-5.6 IS STM", "Canon EFS 24mm F2.8 STM", "Canon EFS 35mm F2.8 IS STM", "Canon EFS 55-200mm II USM", "Canon EFS 55-250mm", "Canon EFS 55-250mm F4-5.6", "Canon EFS 55-250mm F4-5.6 IS", "Canon EFS 55-250mm F4-5.6 IS II", "Canon EFS 55-250mm F4-5.6 IS STM", "Canon EFS18-135mm F3.5-5.6 IS", "Canon EFS18-200mm F3.5-5.6 IS", "Canon EFS18-55mm F3.5-5.6 IS", "Canon EOS M10+15-45mm", "Canon EOS M3", "Canon EXTENDER EF 2x III", "Canon Extender 2x III", "Canon Extender EF 1.4x II", "Canon Extender RF 1.4x", "Canon Extender RF 2X", "Canon M", "Canon M 15-45mm", "Canon RF 100-400mm F5.6-8 IS  USM", "Canon RF 100-400mm F5.6-8 IS USM", "Canon RF 100-500mm F4.5-7.1 IS USM", "Canon RF 14-35mm F4 L IS USM", "Canon RF 15-30mm F4.5-6.3 IS STM", "Canon RF 15-35mm F2.8 L IS USM", "Canon RF 16mm F2.8 STM", "Canon RF 24-105mm F2.8 L IS USM Z", "Canon RF 24-105mm F4 IS USM", "Canon RF 24-105mm F4-7.1 IS  STM", "Canon RF 24-50mm F4.5-5.6 IS STM", "Canon RF 24-50mm F4.5-6.3 IS STM", "Canon RF 24-70mm F2.8 L IS USM", "Canon RF 24mm F1.8 Macro IS STM", "Canon RF 28-70mm F2 L USM", "Canon RF 28-70mm F2.8 IS STM", "Canon RF 28mm F2.8 STM", "Canon RF 35mm F1.4 L VCM", "Canon RF 35mm F1.8 Macro IS STM", "Canon RF 45mm F1.2 STM", "Canon RF 50mm F1.2 L USM", "Canon RF 50mm F1.4 L VCM", "Canon RF 50mm F1.8  STM", "Canon RF 50mm F1.8 STM", "Canon RF 70-200mm F2.8 L IS USM", "Canon RF 70-200mm F2.8 L IS USM Z", "Canon RF 70-200mm F4 L IS USM", "Canon RF 75-300mm F4-5.6", "Canon RF 800mm F11", "Canon RF 85mm F2 Macro IS STM", "Canon RF-S 55-210mm  F5-7.1 IS STM", "Canon RFS 10-18mm F4.5-6.3 IS STM", "Canon RFS 18-150mm F3.5-5.6 IS STM", "Canon RFS 18-150mm F3.5-6.3 IS STM", "Canon RFS 18-150mm f3.5- 6.3 IS STM", "Canon RFS 18-45mm F.45-6.3 IS STM", "Canon RFS 18-45mm F4.5-6.3 IS STM", "Canon RFS 55-210mm F5-7.1 IS STM", "Canon SX70HS", "Canon TSE 24mm F3.5 L", "Canon TSE 90mm F2.8", "CanonEF 75-300mm F4-5.6", "EF-EFM 轉接", "Fujifilm XF 18mm F1.4 R LM WR", "JJC  EF-RF Adapter", "MP-E65mm F2.8 1-5x Macro Photo", "Nikon Z50+16-50mm", "Olympus EM10II+14-42mm", "SIGMA 70-200mm F2.8 APO", "SIGMA 70-200mm F2.8 S版 DG  FOR CANON", "Samyang 300mm  F6.3 For Canon", "Sigma 10-20mm F3.5 EX DC  For Canon AF", "Sigma 10-20mm F3.5 EX DC For Canon AF", "Sigma 100-400mm F5-6.3 DG For Canon", "Sigma 12-24mm F4.5-5.6 II DG", "Sigma 150-600mm F5-6.3 DG For Canon", "Sigma 16-300mm F3.5-6.7 DC OS for Canon", "Sigma 16mm F1.4 For EFM", "Sigma 17-40mm F1.8 DC For Canon RF", "Sigma 17-50mm F2.8 EX DC OS For Canon", "Sigma 17-50mm F2.8 EX DC OS HSM For Canon", "Sigma 17-50mm F2.8 EX HSM For Canon", "Sigma 17-70mm F2.8-4", "Sigma 17-70mm F2.8-4 DC MACRO", "Sigma 17-70mm F2.8-4 DC MACRO for Canon", "Sigma 17-70mm F2.8-4 MACRO HSM", "Sigma 17-70mm F2.8-4.5", "Sigma 18-200mm F3.5-6.3 DC Macro OS For Canon", "Sigma 18-200mm For Canon 老鏡", "Sigma 18-250mm For", "Sigma 18-300mm F3.5-6.3 DC (For canon)", "Sigma 18-35mm F1.8 DC For Canon", "Sigma 18-35mm F1.8 DC HSM ART For Canon", "Sigma 18-50mm F2.8 DC DN For Canon RF", "Sigma 18-50mm F2.8 EX DC MACRO For Canon AF", "Sigma 24-70mm F2.8 DG DN For Canon", "Sigma 30mm F1.4 DC DN", "Sigma 30mm F1.4 DC DN For Canon EFM", "Sigma 35mm F1.4 DG ART For Canon", "Sigma 35mm F1.4 For Canon", "Sigma 50-500mm F4-6.3 APO DG EX OS HSM For Canon", "Sigma 50mm F1.4 DG HSM For Canon", "Sigma 56mm F1.4 DC DN For Canon RF", "Sigma 85mm F1.4 DG ART For Canon", "Sigma AF 70-300mm F4-5.6 DG For Canon EF", "Sigma MC-11 (Canon EF-E)", "Sony 16-35mm F4 ZA OSS", "Sony ZVE10L 手把組全新", "Tamron  SP 150-600mm F5-6.3 Di VC USD  For Canon", "Tamron 150-600mm F5-6.3 SP FOR Canon", "Tamron 16-300mm F3.5-6.3", "Tamron 18-200 F3.5-6.3 Di II VC", "Tamron 18-200mm F3.5-6.3 Di II VC", "Tamron 18-270mm  F3.5-6.3 For Canon", "Tamron 18-270mm F3.5-6.3 Di II PZD For Canon", "Tamron 18-270mm F3.5-6.3 For Canon", "Tamron 18-270mm For Canon", "Tamron 18-400mm F/3.5-6.3 Di II VC HLD", "Tamron 18-400mm F3.5-6.3 Di II VC HLD", "Tamron 18-400mm F3.5-6.3 Di II VC HLD  FOR CANON", "Tamron 18-400mm F3.5-6.3 Di II VC HLD FOR CANON", "Tamron 18-400mm F3.5-6.3 Di II VC HLD for Canon", "Tamron 24-70mm F2.8 Di VC USD G2 For Canon", "Tamron 24-70mm F2.8 Di VC USD G2 For EF", "Tamron 24-70mm F2.8 G2 For Canon", "Tamron 28-300mm F3.5-6.3 Di VC PZD", "Tamron 28-300mm F3.5-6.3 Di VC PZD For Canon", "Tamron 70-210mm F4 Di VC USD FOR Canon", "Tamron AF 18-200mm F3.5-6.3 MACRO", "Tamron AF 18-200mm F3.5-6.3 （IF) MACRO For Canon", "Tamron AF 28-300mm F3.5-6.3 XR Di VC LD Aspherical [IF] Macro", "Tamron SP 150-600mm F5-6.3 Di VC USD For Canon", "Tamron SP 17-50mm F2.8", "Tamron SP 24-70mm F2.8 Di VC USD For Canon", "Tamron SP 24-70mm F2.8 Di VC USD For EF", "Tamron SP 70-300mm F4-5.6", "Tamron SP 70-300mm F4-5.6 For Nikon", "Tanron SP  17-50mm F2.8", "Tokina 11-16mm F2.8 For Canon", "Tokina 11-20mm  F2.8 (IF) DX For Canon", "Tokina 11-20mm F2.8 For Canon", "Tokina 12-24mm F4 IF DX II For Canon", "Yongnuo 35mm F2", "Zeiss 85mm F1.4 ZE Planar T* for Canon", "Fujifilm  GF 110mm F2 R LM WR", "Fujifilm  GF 45-100mm F4 R LM OIS WR", "Fujifilm  GF 45mm F2.8 R WR", "Fujifilm GF 32-64mm F4 R LM WR", "Fujifilm GF 35-70mm WR F4.5-5.6", "Fujifilm GF 45mm F2.8 R WR", "Fujifilm GF 63mm F2.8 R WR", "Fujifilm GF 80mm F1.7", "Fujifilm TCL-X100 II", "Fujifilm WCL  X100II", "Fujifilm WCL-X100 II", "Fujifilm X Half", "Fujifilm X100F", "Fujifilm XC 13-33mm F3.5-6.3 OIS", "Fujifilm XC 15-45mm  F3.5-5.6 OIS PZ", "Fujifilm XC 15-45mm F3.5-5.6 OIS PZ", "Fujifilm XC 15-45mm F3.5-5.6 OIS PZ全新", "Fujifilm XC 35mm F2", "Fujifilm XC 50-230mm F4.5-6.7 OIS II", "Fujifilm XC16-50mm F3.5-5.6 OIS II", "Fujifilm XF 10-24mm F4 R OIS", "Fujifilm XF 14mm F2.8 R", "Fujifilm XF 150-600mm F5.6-8 R LM OIS WR", "Fujifilm XF 16-50mm F2.8-4.8 R LM WR", "Fujifilm XF 16-55mm F2.8 R LM WR", "Fujifilm XF 16-55mm F2.8 R LM WR II", "Fujifilm XF 16mm F2.8 R WR", "Fujifilm XF 18-135mm F3.5-5.6 R LM OIS WR", "Fujifilm XF 18-55mm F2.8-4 R LM OIS", "Fujifilm XF 18-55mm F2.8-4 RLM OIS", "Fujifilm XF 18-55mmF2.8-4 R LM OIS", "Fujifilm XF 18mm F2", "Fujifilm XF 18mm F2 R", "Fujifilm XF 23 F2 R WR", "Fujifilm XF 23mm F1.4 R", "Fujifilm XF 23mm F1.4 R LM WR", "Fujifilm XF 23mm F1.4 R LM WR 二代", "Fujifilm XF 23mm F1.4 R WR 二代", "Fujifilm XF 23mm F1.4 R一代", "Fujifilm XF 23mm F2 R WR", "Fujifilm XF 23mm F2.8 R WR", "Fujifilm XF 23mm F2.8 拆鏡", "Fujifilm XF 23ｍｍF1.4 R LM WR (一代)", "Fujifilm XF 27mm F2.8 R", "Fujifilm XF 27mm F2.8 R WR", "Fujifilm XF 30mm F2.8 R LM WR", "Fujifilm XF 33mm F1.4 R LM WR", "Fujifilm XF 35mm F1.4", "Fujifilm XF 35mm F2 R", "Fujifilm XF 35mm F2 R WR", "Fujifilm XF 50-140mm F2.8 R LM OIS WR", "Fujifilm XF 50mm F1.0 R WR", "Fujifilm XF 50mm F2 R WR", "Fujifilm XF 55-200mm F3.5-4.8 R LM OIS", "Fujifilm XF 56mm F1.2 R WR 二代", "Fujifilm XF 60mm F2.4 R Macro", "Fujifilm XF 70-300mm F4-5.6  R LM OIS WR", "Fujifilm XF 70-300mm F4-5.6 R LM OIS WR", "Fujifilm XF 8-16mm F2.8 R LM WR", "Fujifilm XF 80mm F2.8 R LM OIS WR Macro", "Fujifilm XF 8mm F3.5 R WR", "Fujifilm XF 90mm F2 R LM WR", "Fujifilm XF18-135mm F3.5-5.6 R LM OIS WR", "Fujifilm XF18mm F2", "Fujifilm XF18mm F2 R", "Fujifilm XF35 F2", "Fujifilm XF35mm F2 R WR", "Fujifilm XF35mmF2 R WR", "Fujifim XF 16-55mm F2.8 R LM WR", "Sigma 16-300mm F3.5-6.7 DC OS For Fuji", "Sigma 18-50mm F2.8 DC DN For Fuji", "Sigma 18-50mm F2.8 For Fuji", "Sigma 30mm F1.4 For Fuji", "Sigma 30mm F1.4 XMOUNT", "Sigma 30mmm F1.4 X mount", "Sigma 56mm F1.4 For Fuji", "TTArtisan 18mm F6.3 For FUJI", "TTArtisan 25mm F2 For Fujifilm", "TTArtisan 35mm F1.4 For Fujifilm", "TTArtisan 銘匠 AF 27mm F2.8 for Fuji", "TTArtisan 銘匠 AF 27mm F2.8 for富士XF", "Tamron 17-70mm F2.8 Di III -A VC RXD For Fujifilm", "Tamron 17-70mm F2.8 Di III-A VC RXD For Fujifilm", "Tamron 18-300mm F3.5-6.3 Di III-A VC VXD", "Tamron 18-300mm F3.5-6.3 Di III-A VC VXD For X Mount", "VILTROX AF 35mm F1.7 Xmount", "Viltrox AF 75mm F1.2 XFmoumt", "Viltrox XF 56mm F1.7  For Fujifilm", "Voigtlander 35mm F1.4 for Fuji", "Zeiss Touit 32mm F1.8 For X-mount", "sigma 56mm f1.4", "Fujifilm XF 35mm F1.4 R", "Fujifilm XF 56mm F1.2 R", "TTArtisan AF 27mm F2.8 For FUJI", "LEICA Summilux TL35mm F1.4 ASPH", "Leica DLux6", "Leica LM - L mount T", "Leica Summicron 35mm F2 ASPH", "Leica Summilux 50mm F1.4 ASPH", "Leica TL 11-23mm F3.5-4.5 ASPH", "Leica TL 23mm F2 ASPH", "Sigma 18-50mm F2.8 For L Mount", "Sigma 24-70mm F2.8 DG DN II for L-Mount", "Voigtlander Classic 50mm F1.5 For Leica M", "Voigtlander nokton 50mm F1.5 II", "Voigtlander ultron 35mm F2 type II", "Nikkor AF-S 17-55mm F2.8G ED", "Nikon  Z DX 24mm F1.7", "Nikon 10mm F2.8 J卡口", "Nikon 18-55mm F3.5-5.6 G ED", "Nikon 18-55mm F3.5-5.6 G VR", "Nikon 35mm F1.8 G ED", "Nikon 50mm 1.8", "Nikon 55-200mm F4-5.6 G ED", "Nikon AF 35-70mm F3.3-4.5", "Nikon AF 50mm F1.4D", "Nikon AF 50mm F1.8D", "Nikon AF 60mm MICRO", "Nikon AF 85mm F1.8D", "Nikon AF Micro-Nikkor 200mm F4D IF-ED", "Nikon AF Nikkor F1.8 D", "Nikon AF-P DX 18-55mm F3.5-5.6 G VR", "Nikon AF-S 18-105mm F3.5-5.6", "Nikon AF-S 70-200mm f4 G ED VR", "Nikon AFP 18-55mm F3.5-5.6 G", "Nikon AFS 105mm F2.8 G IF ED VR Micro", "Nikon AFS 14-24mm F2.8 G ED", "Nikon AFS 16-80mm F2.8-4 E ED VR", "Nikon AFS 16-85mm F3.5-6.3 G ED VR", "Nikon AFS 18-105mm F3.5-5.6", "Nikon AFS 18-140mm F3.5-6.3 G ED", "Nikon AFS 18-200mm F3.5-5.6G ED VR", "Nikon AFS 18-200mm F3.5-5.6G ED VR II", "Nikon AFS 18-55mm F3.5-5.6 G", "Nikon AFS 200-500mm F5.6 E ED VR", "Nikon AFS 200-500mm F5.6E ED VR", "Nikon AFS 24-120mm F4 G VR", "Nikon AFS 24-70mm F2.8 G ED", "Nikon AFS 28-70mm F2.8D", "Nikon AFS 28mm F1.8", "Nikon AFS 300mm F4 D", "Nikon AFS 300mm F4 D IF ED", "Nikon AFS 300mm F4 E PF ED VR", "Nikon AFS 35mm F1.4", "Nikon AFS 35mm F1.8 G", "Nikon AFS 40mm F2.8 G", "Nikon AFS 50mm F1.4 G", "Nikon AFS 50mm F1.8 D", "Nikon AFS 50mm F1.8 G", "Nikon AFS 55-200mm F4-5.6G ED VR II DX", "Nikon AFS 600mm F4 G ED VR", "Nikon AFS 60mm F2.8 G Micro", "Nikon AFS 70-200mm F2.8 G II", "Nikon AFS 70-200mm F2.8 Ｇ ED VR II", "Nikon AFS 70-300mm F4.5-5.6E ED VR", "Nikon AFS 85mm F1.4", "Nikon AFS 85mm F1.8 D", "Nikon AFS 85mm F1.8 G", "Nikon AFS DX NIKKOR 55-300mm F4.5-5.6 G ED", "Nikon AFS DX18-55 F3.5-5.6 G VR II", "Nikon AFS TC14E II", "Nikon AFs 24-120mm F3.5-5.6 G VR", "Nikon AFs 24-120mm F4 G VR", "Nikon AFs 50mm F1.8 G", "Nikon Af Micro 200mm F4 D IF-ED", "Nikon D7500+18-140mm F3.5-6.3 G ED", "Nikon FTZ", "Nikon MICRO AF 60mm F2.8 G", "Nikon NIKKOR Z 20mm F1.8 s", "Nikon Z 100-400mm F4.5-5.6 VR S", "Nikon Z 14-30mm F4 S", "Nikon Z 180-600mm F5.6-6.3 VR", "Nikon Z 24-120mm F4 S", "Nikon Z 24-200mm F4-6.3 VR", "Nikon Z 24-50mm F4-6.3", "Nikon Z 24-70mm F2.8 S", "Nikon Z 24-70mm F2.8 S II", "Nikon Z 24-70mm F4 S", "Nikon Z 26mm F2.8", "Nikon Z 28-135mm F4 PZ", "Nikon Z 28-400 F4-8 VR", "Nikon Z 28-75mm F2.8", "Nikon Z 28-75mm f2.8", "Nikon Z 28mm F2.8  SE", "Nikon Z 28mm F2.8 SE", "Nikon Z 40mm F2", "Nikon Z 50mm F1.2 S", "Nikon Z 50mm F1.8 S", "Nikon Z 70-200mm F2.8 VR S", "Nikon Z 85mm F1.8 S", "Nikon Z DX 12-28mm F3.5-5.6 PZ VR", "Nikon Z DX 16-50mm F3.5-6.3 VR", "Nikon Z DX 18-140mm F3.5-6.3 VR", "Nikon Z DX 24mm F1.7", "Nikon Z DX 50-250mm F4.5-6.3 VR", "Nikon ZFC", "Nikon nikkor z 180-600mm F5-6.3 VR", "SIGMA 18-250mm F3.5-6.3 DC Macro OS FOR NIKON", "Sigma 150-600mm F5-6.3 DG DN OS Sports For Nikon", "Sigma 17-50mm F2.8 EX HSM For Nikon", "Sigma 18-200mm F3.5-6.3 DC OS HSM For Nikon", "Sigma 18-35mm F1.8 DC For Nikon", "Sigma 18-50mm F2.8 For Nikon", "Sigma 24-135mm F2.8-4.5 D For Nikon", "Sigma 24-70mm F2.8 DG OS HSM For Nikon", "Sigma 30mm F1.4 DC DN For Nikon Z", "Sigma 50 F1.4 DG for Nikon", "Sigma18-250mm F3.5-6.3 DC Macro OS FOR NIKON", "Tamron 150-500mm F5-6.7 Di III VC VXD A057Z for Nikon Z", "Tamron 18-200 F3.5-6.3 Di II VC For Nikon", "Tamron 18-270mm F3.5-5.6 Di VC PZD For Nikon", "Tamron 70-300mm F4-5.6", "Tamron AF 18-200 mm F3.5-6.3 XR Di II LD", "Tamron SP 150-600mm F5-6.3 Di VC USD A011 For Nikon", "Tokina 12-24mm F4 IF DX II For Nikon", "Olympus  ED 14-150mm F4-5.6", "Olympus 12-100mm F4 PRO", "Olympus 12-40mm F2.8 Pro", "Olympus 12-45mm F4 Pro", "Olympus 12-45mm Pro", "Olympus 12mm F2", "Olympus 14-35mm f2.0 SWD ZUIKO ED 大43", "Olympus 14-42mm", "Olympus 14-42mm F3.5-5.6", "Olympus 14-42mm F3.5-5.6 II", "Olympus 14-42mm F3.5-6.4", "Olympus 15mm F8", "Olympus 17mm F1.2 PRO", "Olympus 17mm F1.8", "Olympus 20mm F1.4 Pro", "Olympus 25mm F1.2 PRO", "Olympus 25mm F1.8", "Olympus 300mm F4 IS PRO", "Olympus 40-150mm F2.8 Pro", "Olympus 40-150mm F2.8 Pro+1.4x增距鏡", "Olympus 40-150mm F4-5.6", "Olympus 45mm F1.2 PRO", "Olympus 45mm F1.8", "Olympus 60mm F2.8 Macro", "Olympus 7-14mm F2.8 Pro", "Olympus 7-14mm PRO", "Olympus 75-300mm F4.8-6.7 II", "Olympus 75mm F1.8 ED", "Olympus 8mm F1.8 PRO", "Olympus ED 14-150mm F4-5.6 II", "Olympus ED 25mm F1.2 Pro", "Olympus ED 30mm F3.5 Macro", "Olympus EM10II", "Olympus EP7", "Olympus ZD 12-60mm F2.8-4 ED SWD 大43", "Olympus ZUIKO DIGITAL 35mm F3.5 Macro 大43", "Yongnuo 42.5mm F1.7 II For Olympus", "olympus 14-42mm", "LUMIX G VARIO 14-140mm F3.5-5.6 ASPH", "LUMIX G VARIO 14-140mm F3.5-5.6 ASPH Power OIS", "LUMIX G VARIO 14-140mm F4-5.8 ASPH Power OIS", "Lumix 12-35mm F2.8 ASPH", "Lumix 14-42mm", "Lumix 14-42mm F3.5-5.6 ASPH", "Lumix 14-42mm電動", "Lumix 14-45mm F3-5-5.6", "Lumix 14mm F2.5 G ASPH", "Lumix 15mm F1.7 ASPH", "Lumix 20mm F1.7 G", "Lumix 25mm F1.4 ASPH", "Lumix 25mm F1.7", "Lumix 35-100mm  F2.8 一代", "Lumix 35-100mm F4-5.6 ASPH", "Lumix 42.5mm F1.7 ASPH", "Lumix 45-200mm F4-5.6 G VARIO", "Lumix 7-14mm F4 ASPH G VARIO", "Lumix 9mm F1.7", "Lumix G 8-18mm F2.8-4.0 ASPH", "Lumix G VARIO 100-300mm F4.0-5.6", "Lumix G VARIO 12-32mm F3.5-5.6 ASPH", "Lumix S 35mm F1.8", "Lumix S PRO 20-60mm F3.5-5.6", "Lumix S PRO 24-70mm F2.8", "Panasonic LEICA D SUMMILUX 25 mm 1.4 ASPH 大43", "Panasonic Lumix 12-35mm f2.8 II X OIS", "LUMIX G LEICA DG VARIO-ELMARIT 12-60mm F2.8-4.0 APSH", "Lumix 25mm F1.4 ASPH II", "Lumix 35-100mm F4-5.6", "Lumix FZ1000M2", "Ricoh GR3(街拍版)", "Sigma 16mm F1.4 Fujifilm", "Sigma 17-40mm F1.8 DC For Sony", "Sigma 18-50mm F2.8 DC DN For Sony", "Sigma 23mmm F1.4 X mount", "Sigma 50mm F2 DG DN For Sony", "Batis ZEISS 40mm F2 CF", "Batis ZEISS 85mm F1.8 For Sony", "Canon EF 70-200mm F4 II", "Canon EFM 18-150mm F3.5-6.3 IS STM", "Canon G7X3(全新)", "Nikon AFS 28-300mm F3.5-5.6", "SONY 2.0X 增距鏡SEL20TC", "Samyang 12mm F2 NCS CS For Sony", "Samyang AF 35mm F2.8 For Sony", "Sigm 30mm F1.4 DC DN", "Sigma 100-400mm F5-6.3 DG DN OS FOR SONY", "Sigma 100-400mm F5-6.3 DG DN OS For Sony", "Sigma 14-24mm F2.8 DG DN", "Sigma 150-600mm F5-6.3 DG DN OS For Sony", "Sigma 16-300mm F3.5-6.7 DC OS For Sony", "Sigma 16mm For Sony", "Sigma 16mm f1.4 DC DN For Sony", "Sigma 18-50mm F2.8 DC DN", "Sigma 18-50mm F2.8 For Sony", "Sigma 19mm F2.8", "Sigma 24-70mm F2.8 DG DN For Sony", "Sigma 24-70mm F2.8 DG DN II For Sony", "Sigma 24mm F3.5 DG DN FOR SONY", "Sigma 28-70mm F2.8 DG DN", "Sigma 28-70mm F2.8 DG DN For  Sony", "Sigma 28-70mm F2.8 DG DN For Sony", "Sigma 30mm F1.4 DC DN For Sony", "Sigma 30mm F1.4 DC DN For sony", "Sigma 30mm F1.4 For Sony", "Sigma 30mmm F1.4 E mount", "Sigma 35mm F1.4 DG DN Art For Sony", "Sigma 35mm F2 DG DN For Sony", "Sigma 45mm F2.8 DG DN Art For SONY", "Sigma 50mm F1.4 DG DN For Sony", "Sigma 56mm F1.4 DC DN For Sony", "Sigma 56mm F1.4 For Sony", "Sigma 85mm F1.4 DG For L Mount", "Sigma MC-11 (E-Canon EF)", "Sony  E 18-55mm F3.5-5.6 OSS", "Sony  FE 70-200mm F4 G OSS", "Sony 12-24mm F2.8 GM", "Sony 2x 增倍鏡", "Sony 85mm F1.4 GM", "Sony E  PZ  16-50 F3.5-5.6 OSS", "Sony E 10-18mm F4 OSS", "Sony E 11mm F1.8", "Sony E 15mm F1.4 G", "Sony E 16-50mm F3.5-5.6 OSS", "Sony E 16-50mm F3.5-5.6 OSS II", "Sony E 16-50mm F3.5-5.6 PZ", "Sony E 16-50mm F3.5-5.6 PZ OSS", "Sony E 16-50mm F3.5-6.3", "Sony E 16-50mm F3.5-6.3 OSS", "Sony E 16-55mm F2.8 G", "Sony E 16-70mm F4 ZA OSS", "Sony E 16mm F2.8", "Sony E 18-135mm F3.5-5.6 OSS", "Sony E 18-200mm  F3.5-6.3 OSS", "Sony E 18-200mm F3.5-6.3 OSS LE", "Sony E 18-55mm F3.5-5.6 OSS", "Sony E 20mm F2.8", "Sony E 24mm F1.8 ZA", "Sony E 30mm F3.5 Macro", "Sony E 35mm F1.8", "Sony E 50mm F1.8", "Sony E 55-210mm F4.5-6.3 OSS", "Sony E 70-350MM F4.5-6.3 G OSS", "Sony E 70-350mm F4.5-6.3 G OSS", "Sony E PZ 10-20mm F4 G", "Sony E PZ 18-105mm F4 G OSS", "Sony E16mm F2.8", "Sony FE 100-400mm F4.5-5.6 GM OSS", "Sony FE 100mm F2.8", "Sony FE 12-24mm F4 G", "Sony FE 135mm F1.8 GM", "Sony FE 14mm F1.8 GM", "Sony FE 16-25 F2.8 G", "Sony FE 16-35mm F2.8 GM", "Sony FE 16-35mm F2.8 GM II", "Sony FE 16-35mm F4 ZA OSS", "Sony FE 20-70mm  F4 G", "Sony FE 20-70mm F4 G (全新)", "Sony FE 200-600mm F5.6-6.3 G OSS", "Sony FE 20mm F1.8 G", "Sony FE 24-105mm F4 G OSS", "Sony FE 24-50mm F2.8 G", "Sony FE 24-70 F4 ZA OSS", "Sony FE 24-70mm F2.8 GM", "Sony FE 24-70mm F2.8 GM II", "Sony FE 24-70mm F2.8 GM II (全新)", "Sony FE 24-70mm F4 ZA OSS", "Sony FE 24mm F1.4 GM", "Sony FE 24mm F2.8 G", "Sony FE 28-70mm F2 GM", "Sony FE 28-70mm F3.5-5.6", "Sony FE 35mm F1.4 GM", "Sony FE 35mm F1.8", "Sony FE 35mm F2.8 ZA", "Sony FE 40mm F2.5 G", "Sony FE 50 mm F2.8 Macro", "Sony FE 50-150mm F2 GM", "Sony FE 50mm 2.5 G", "Sony FE 50mm F1.2 GM", "Sony FE 50mm F1.2 GM 全新", "Sony FE 50mm F1.8", "Sony FE 50mm F2.5 G", "Sony FE 55mm F1.8 ZA", "Sony FE 70-200 F2.8 GM OSS II", "Sony FE 70-200 F4 G OSS", "Sony FE 70-200mm F2.8 GM OSS", "Sony FE 70-200mm F2.8 GM OSS II", "Sony FE 70-200mm F4 G OSS", "Sony FE 70-200mm F4 Macro G OSS II", "Sony FE 70-300mm F4.5-5.6 G OSS", "Sony FE 85mm  F1.8", "Sony FE 85mm F1.4 GM", "Sony FE 85mm F1.4 GM II", "Sony FE 85mm F1.8", "Sony FE PZ 16-35mm F4 G", "Sony FE12-24mm F2.8 GM", "Sony FE16-35mm F2.8 GM II", "Sony FE16-35mm F4 ZA OSS", "Sony NEX5T+16mm F2.8", "Sony RX10 M3", "Sony ZV-1 M2手把組", "Sony 超廣角效果轉接鏡", "Sony 魚眼效果轉接鏡", "Sooy FE 50mm F1.4 GM", "TAMRON  70-300mm F4.5-6.3 DiIII RXD", "TAMRON 20mm F2.8 Di III OSD M1:2 For Sony", "TAMRON 28-75mm F2.8 Di III RXD For Sony", "TAMRON 50-300mm  F4.5-6.3  Di III VXD For Sony", "TAMRON 50-300mm F4.5-6.3 Di III VC VXD For Sony", "TTArtisan AF 27mm F2.8 For sony", "Tamron 11-20mm For Sony", "Tamron 150-500mm F5-6.7 Di III VC VXD A057 for Sony", "Tamron 17-70mm F2.8 Di III-A VC RXD For Sony", "Tamron 18-300mm F3.5-6.3 Di III A VC VXD FOR Sony", "Tamron 18-300mm F3.5-6.3 Di III-A VC VXD for Sony E", "Tamron 20-40mm F2.8 Di III VXD", "Tamron 20-40mm F2.8 Di III VXD For Sony 全新", "Tamron 24mm Di III OSD M1:2 For sony", "Tamron 24mm F2.8 For Sony", "Tamron 28-200mm F2.8-5.6 Di III RXD For sony", "Tamron 28-300mm F4-7.1 Di III VC VXD For sony", "Tamron 28-75 F2.8 Di III RXD For Sony", "Tamron 28-75mm  f2.8 Di III RXD For Sony", "Tamron 28-75mm F2.8 Di III RXD", "Tamron 28-75mm F2.8 Di III VXD  For sony", "Tamron 28-75mm F2.8 Di III VXD G2", "Tamron 28-75mm F2.8 Di III VXD G2 For Sony", "Tamron 28-75mm F2.8 Di III VXD G2 For sony", "Tamron 28-75mm F2.8 Di RXD FOR Sony", "Tamron 28-75mm F2.8 Di RXD For Sony", "Tamron 35-100mm F2.8 DiIII VXD For Sony", "Tamron 35-150mm F2-2.8 Di III VXD For Sony", "Tamron 35-150mm F2-2.8 DiIII VXD", "Tamron 70-180mm F2.8 Di III VC VXD G2 For Sony", "Tamron 70-180mm F2.8 Di III VXD FOR  SONY E", "Tamron 70-180mm F2.8 Di III VXD FOR SONY", "Tamron 70-180mm F2.8 Di III VXD FOR SONY E", "Tamron 70-180mm F2.8 Di III VXD FOR Sony", "Tamron 70-180mm F2.8 DiIII VC VXD G2 For Sony", "Tamron 70-300mm F4.5-6.3 Di III RXD", "Tamron 70-300mm F4.5-6.3 DiIII RXD", "Tamron SP 70-300mm F4-5.6 For Canon", "Viltrox AF 28 FE4.5 E Mount FOR SONY", "Voigtlander nokton 50mm F1 For Sony", "YN 50mm F1.8 For Sony 全片幅", "ZEISS 25mm F2 for Sony", "ZEISS BATIS  CF 40mm F2 For E-mount", "ZEISS Batis 18mm F2.8", "Zeiss Touit 32mm F1.8 For Sony", "metabones EF-E", "sigma 17mm f4 DG DN", "sigma 35mm f1.4 DG DN", "sigma 90mm f2.8 DG DN", "sony 18-55mm", "sony FE 50mm f2.8"]
+};
+
+let eqCount=0;
+const sigs={};
+
+function initSig(id){
+  const canvas=document.getElementById(id);if(!canvas||sigs[id])return;
+  const wrap=canvas.parentElement;canvas.width=wrap.offsetWidth;canvas.height=wrap.offsetHeight;
+  const ctx=canvas.getContext('2d');ctx.strokeStyle='#1a1a1a';ctx.lineWidth=2.5;ctx.lineCap='round';ctx.lineJoin='round';
+  sigs[id]={ctx,drawing:false,hasContent:false};
+  const pos=e=>{const r=canvas.getBoundingClientRect();const s=e.touches?e.touches[0]:e;return{x:(s.clientX-r.left)*(canvas.width/r.width),y:(s.clientY-r.top)*(canvas.height/r.height)};};
+  const start=e=>{e.preventDefault();const s=sigs[id];s.drawing=true;s.hasContent=true;const p=pos(e);s.ctx.beginPath();s.ctx.moveTo(p.x,p.y);document.getElementById('hint-'+id).style.opacity='0';};
+  const move=e=>{e.preventDefault();const s=sigs[id];if(!s.drawing)return;const p=pos(e);s.ctx.lineTo(p.x,p.y);s.ctx.stroke();};
+  const end=()=>{if(sigs[id])sigs[id].drawing=false;};
+  canvas.addEventListener('mousedown',start);canvas.addEventListener('mousemove',move);canvas.addEventListener('mouseup',end);
+  canvas.addEventListener('touchstart',start,{passive:false});canvas.addEventListener('touchmove',move,{passive:false});canvas.addEventListener('touchend',end);
+}
+
+function clearSig(id,hintId){
+  const s=sigs[id];if(!s)return;
+  s.ctx.clearRect(0,0,document.getElementById(id).width,document.getElementById(id).height);
+  s.hasContent=false;document.getElementById(hintId).style.opacity='1';
+}
+
+function getSigBase64(id){
+  const canvas=document.getElementById(id);
+  if(!canvas||!sigs[id]?.hasContent)return null;
+  return canvas.toDataURL('image/png');
+}
+
+// 簽名放大 Modal
+let _sigModalTarget=null;
+let _sigModalHintId=null;
+const _sigModalSig={ctx:null,drawing:false,hasContent:false};
+
+function openSigModal(sigId,hintId){
+  _sigModalTarget=sigId;
+  _sigModalHintId=hintId;
+  const modal=document.getElementById('sig-modal');
+  const canvas=document.getElementById('sig-modal-canvas');
+  const wrap=document.getElementById('sig-modal-wrap');
+  modal.classList.add('show');
+  // 初始化 modal canvas
+  canvas.width=wrap.offsetWidth||400;
+  canvas.height=wrap.offsetHeight||220;
+  const ctx=canvas.getContext('2d');
+  ctx.strokeStyle='#1a1a1a';ctx.lineWidth=3;ctx.lineCap='round';ctx.lineJoin='round';
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  _sigModalSig.ctx=ctx;_sigModalSig.drawing=false;_sigModalSig.hasContent=false;
+  document.getElementById('sig-modal-hint').style.opacity='1';
+  // 若原簽名已有內容，複製過來
+  const origCanvas=document.getElementById(sigId);
+  if(sigs[sigId]?.hasContent&&origCanvas){
+    ctx.drawImage(origCanvas,0,0,canvas.width,canvas.height);
+    _sigModalSig.hasContent=true;
+    document.getElementById('sig-modal-hint').style.opacity='0';
+  }
+  // 綁定事件
+  canvas.onmousedown=null;canvas.onmousemove=null;canvas.onmouseup=null;
+  canvas.ontouchstart=null;canvas.ontouchmove=null;canvas.ontouchend=null;
+  const pos=e=>{const r=canvas.getBoundingClientRect();const s=e.touches?e.touches[0]:e;return{x:(s.clientX-r.left)*(canvas.width/r.width),y:(s.clientY-r.top)*(canvas.height/r.height)};};
+  const start=e=>{e.preventDefault();_sigModalSig.drawing=true;_sigModalSig.hasContent=true;const p=pos(e);_sigModalSig.ctx.beginPath();_sigModalSig.ctx.moveTo(p.x,p.y);document.getElementById('sig-modal-hint').style.opacity='0';};
+  const move=e=>{e.preventDefault();if(!_sigModalSig.drawing)return;const p=pos(e);_sigModalSig.ctx.lineTo(p.x,p.y);_sigModalSig.ctx.stroke();};
+  const end=()=>{_sigModalSig.drawing=false;};
+  canvas.addEventListener('mousedown',start);canvas.addEventListener('mousemove',move);canvas.addEventListener('mouseup',end);
+  canvas.addEventListener('touchstart',start,{passive:false});canvas.addEventListener('touchmove',move,{passive:false});canvas.addEventListener('touchend',end);
+}
+
+function sigModalClear(){
+  const canvas=document.getElementById('sig-modal-canvas');
+  _sigModalSig.ctx?.clearRect(0,0,canvas.width,canvas.height);
+  _sigModalSig.hasContent=false;
+  document.getElementById('sig-modal-hint').style.opacity='1';
+}
+
+function sigModalDone(){
+  if(!_sigModalTarget)return;
+  const modalCanvas=document.getElementById('sig-modal-canvas');
+  const origCanvas=document.getElementById(_sigModalTarget);
+  if(origCanvas&&_sigModalSig.hasContent){
+    const wrap=origCanvas.parentElement;
+    origCanvas.width=wrap.offsetWidth;origCanvas.height=wrap.offsetHeight;
+    const ctx=origCanvas.getContext('2d');
+    ctx.strokeStyle='#1a1a1a';ctx.lineWidth=2.5;ctx.lineCap='round';ctx.lineJoin='round';
+    ctx.clearRect(0,0,origCanvas.width,origCanvas.height);
+    ctx.drawImage(modalCanvas,0,0,origCanvas.width,origCanvas.height);
+    if(sigs[_sigModalTarget]){sigs[_sigModalTarget].hasContent=true;}
+    if(_sigModalHintId){document.getElementById(_sigModalHintId).style.opacity='0';}
+  }
+  document.getElementById('sig-modal').classList.remove('show');
+  _sigModalTarget=null;
+}
+
+const bodyChecks=[
+  {cat:'外觀部分',items:['機身外觀痕跡','皮革老化狀況','感光元件入塵/發霉','觀景窗入塵/發霉','螢幕刮傷']},
+  {cat:'內部功能',items:['自動對焦/接點功能','螢幕觸控/翻轉功能','相機畫面顯示/亮暗點','記憶卡讀寫','實體按鍵功能','閃光燈','電池充電功能','功能轉盤模式','時間記憶功能','畫面切換功能']},
+];
+const compactChecks=[
+  {cat:'外觀部分',items:['機身外觀痕跡','皮革老化狀況','感光元件入塵/發霉','鏡頭入塵/發霉','螢幕刮傷']},
+  {cat:'內部功能',items:['自動對焦功能','變焦功能','螢幕顯示/亮暗點','記憶卡讀寫','實體按鍵功能','閃光燈','電池充電功能','功能轉盤模式','時間記憶功能']},
+];
+const lensChecks=[
+  {cat:'外觀部分',items:['鏡頭外觀痕跡','鏡桶刮傷','遮光罩卡口']},
+  {cat:'光學部分',items:['鏡頭鏡片發霉/霧化','鏡片入塵','鍍膜刮傷','內部油漬']},
+  {cat:'功能部分',items:['自動對焦功能','手動對焦環','光圈葉片','防手震功能','鏡頭接點']},
+];
+
+(function(){const t=new Date();document.getElementById('tx-date').value=`${t.getFullYear()}-${String(t.getMonth()+1).padStart(2,'0')}-${String(t.getDate()).padStart(2,'0')}`;})();
+
+function buildAccHTML(n, type){
+  const bodyAcc=[
+    {name:'原廠電池',key:'battery'},
+    {name:'相機背帶（含扣環）',key:'strap'},
+    {name:'充電器',key:'charger'},{name:'充電線',key:'cable'},
+    {name:'熱靴/防風罩',key:'hotshoe'},
+    {name:'相機眼罩',key:'eyecup'},
+    {name:'閃光燈',key:'flash'},
+    {name:'其他',key:'other'},
+  ];
+  const compactAcc=[
+    {name:'原廠電池',key:'battery'},
+    {name:'相機背帶（含扣環）',key:'strap'},
+    {name:'充電器',key:'charger'},
+    {name:'充電線',key:'cable'},
+    {name:'其他',key:'other'},
+  ];
+  const lensAcc=[
+    {name:'遮光罩',key:'hood'},
+    {name:'鏡頭前蓋',key:'frontcap'},
+    {name:'鏡頭後蓋',key:'rearcap'},
+  ];
+  const accList=type==='lens'?lensAcc:type==='compact'?compactAcc:bodyAcc;
+  let html=`<div class="acc-section">
+    <div class="divider-label">▸ 交付配件</div>
+    <div class="acc-eq-grid">`;
+  accList.forEach(({name,key})=>{
+    html+=`<div class="acc-eq-item" id="acc-${n}-${key}" data-state="0" onclick="cycleEqAcc(this,'${n}','${key}')">
+      <div class="acc-eq-box"></div>
+      <span>${name}</span>
+    </div>`;
+  });
+  html+=`</div>
+    <div style="display:flex;align-items:center;gap:8px;margin-top:8px">
+      <span style="font-size:12px;color:var(--gray-600);white-space:nowrap">缺少配件扣款</span>
+      <div style="display:flex;align-items:center;gap:4px;flex:1">
+        <span style="font-size:12px;color:var(--red)">NT$</span>
+        <input type="text" id="acc-deduct-${n}" inputmode="numeric" placeholder="0"
+          style="width:80px;padding:5px 8px;border:1px solid var(--gray-200);border-radius:4px;font-size:13px;font-family:inherit"
+          oninput="updateSummary();toggleAccDeductNote(${n})">
+        <span style="font-size:12px;color:var(--gray-600)">元</span>
+      </div>
+    </div>
+    <div style="font-size:11px;color:var(--gray-400);margin-top:4px" id="acc-missing-${n}"></div>
+    <div id="acc-deduct-note-${n}" style="display:none;margin-top:6px;font-size:12px;color:#c0392b;font-weight:600">
+      ⚠️ 需於 1 週內補件，方可退還扣款
+    </div>
+    <div style="margin-top:10px">
+      <div style="font-size:12px;font-weight:600;color:var(--gray-600);margin-bottom:4px">缺失配件說明</div>
+      <textarea id="missing-acc-note-${n}" placeholder="請填寫缺少的配件（例：缺原廠充電器、少電池一顆）" style="width:100%;min-height:56px;border:1px solid var(--gray-200);border-radius:var(--radius-sm);padding:8px 10px;font-size:13px;font-family:inherit;color:var(--black);resize:vertical;outline:none;box-sizing:border-box"></textarea>
+    </div>
+
+  </div>`;
+  return html;
+}
+
+function buildFnHTML(n, type){
+  const checks = type==='lens' ? lensChecks : type==='compact' ? compactChecks : bodyChecks;
+  let html=`<div class="fn-section">
+    <div style="font-size:11px;font-weight:700;color:var(--gray-600);margin-bottom:6px;letter-spacing:0.04em">功能檢核表</div>
+    <button class="all-ok-btn" onclick="setAllOk('${n}')">✓ 以下皆無問題</button>`;
+  checks.forEach(sec=>{
+    html+=`<div class="divider-label">▸ ${sec.cat}</div>`;
+    sec.items.forEach(item=>{
+      html+=`<div class="fn-item">
+        <div class="fn-row">
+          <span class="fn-label">${item}</span>
+          <div class="fn-toggle">
+            <div class="fn-btn" onclick="setFn(this,'fn-normal')">正常</div>
+            <div class="fn-btn" onclick="setFn(this,'fn-abnormal')">異常</div>
+            <div class="fn-btn fn-na-btn" onclick="setFnNA(this)">無此項</div>
+          </div>
+        </div>
+        <div class="deduct-field">
+          <span style="font-size:12px;color:var(--red)">扣款 NT$</span>
+          <input type="text" inputmode="numeric" placeholder="0" oninput="updateSummary()">
+          <span style="font-size:12px;color:var(--gray-600)">元</span>
+        </div>
+        <div class="deduct-field abnormal-note-field" style="margin-top:4px">
+          <input type="text" placeholder="異常原因（例：側邊嗑傷）" style="flex:1;width:100%;padding:5px 8px;border:1px solid #e57373;border-radius:4px;font-size:12px;font-family:inherit;color:var(--black)">
+        </div>
+      </div>`;
+    });
+  });
+  html+=`<div class="field mt8"><label>功能備註</label><textarea id="fn-note-${n}" placeholder="功能或外觀備註…" style="width:100%;min-height:56px;border:1px solid var(--gray-200);border-radius:var(--radius-sm);padding:8px 10px;font-size:13px;font-family:inherit;color:var(--black);resize:vertical;outline:none;box-sizing:border-box"></textarea></div>`;
+  html+='</div>';
+  return html;
+}
+
+function addEquipment(){
+  eqCount++;
+  const n=eqCount;
+  const div=document.createElement('div');
+  div.className='eq-block'; div.id=`eq-block-${n}`; div.dataset.type='body';
+  div.innerHTML=`
+    <div class="eq-block-head">
+      <span class="eq-block-title">器材 ${n}</span>
+      ${n>1?`<span class="eq-remove" onclick="removeEq(${n})">✕ 移除</span>`:''}
+    </div>
+    <div class="eq-inner">
+      <div class="sub-label">器材類型</div>
+      <div class="type-row">
+        <div class="type-btn on" onclick="setType(this,${n},'body')">📷 機身</div>
+        <div class="type-btn" onclick="setType(this,${n},'lens')">🔭 鏡頭</div>
+        <div class="type-btn" onclick="setType(this,${n},'compact')">📸 隨身機</div>
+      </div>
+      <div class="eq-grid2">
+        <div class="field" style="position:relative"><label>型號名稱</label>
+          <input type="text" id="eq${n}-name" placeholder="輸入型號搜尋…" autocomplete="off"
+            oninput="searchModel(this,${n})" onblur="setTimeout(()=>closeDropdown(${n}),200)"
+            style="width:100%;box-sizing:border-box">
+          <div id="eq${n}-dropdown" style="display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid var(--gray-200);border-top:none;border-radius:0 0 var(--radius-sm) var(--radius-sm);max-height:200px;overflow-y:auto;z-index:200;box-shadow:0 4px 12px rgba(0,0,0,0.12)"></div>
+        </div>
+        <div class="field"><label>機身/鏡頭序號</label><input type="text" id="eq${n}-serial" placeholder="序號"></div>
+        <div class="field"><label>粗估金額（NT$）</label><input type="text" id="eq${n}-est" placeholder="0" inputmode="numeric" oninput="updateSummary()"></div>
+        <div class="field">
+          <label>快門數（機身）</label>
+          <div style="display:flex;gap:8px;align-items:center">
+            <input type="number" id="eq${n}-shutter" placeholder="次" inputmode="numeric" 
+              style="flex:1;padding:7px 10px;border:1px solid var(--gray-200);border-radius:var(--radius-sm);font-size:14px;font-family:inherit;box-sizing:border-box;touch-action:manipulation;-webkit-user-select:text;user-select:text;position:relative;z-index:1"
+              oninput="calcTotal(${n})">
+            <span style="font-size:12px;color:var(--gray-600);white-space:nowrap">扣款</span>
+            <span style="font-size:12px;color:var(--red)">NT$</span>
+            <input type="number" id="eq${n}-shutter-deduct" inputmode="numeric" placeholder="0"
+              style="width:72px;padding:5px 8px;border:1px solid var(--gray-200);border-radius:4px;font-size:13px;font-family:inherit;touch-action:manipulation;position:relative;z-index:1"
+              oninput="calcTotal(${n})">
+          </div>
+        </div>
+      </div>
+      <div class="field" style="margin-bottom:8px">
+        <label>新舊程度</label>
+        <div class="cond-row" id="cond-${n}">
+          <div class="cond-btn" onclick="setCond(this,${n})">全新</div>
+          <div class="cond-btn" onclick="setCond(this,${n})">近無使用痕跡</div>
+          <div class="cond-btn" onclick="setCond(this,${n})">些許使用痕跡</div>
+          <div class="cond-btn" onclick="setCond(this,${n})">使用痕跡多</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px">
+        <div>
+          <div class="sub-label">保卡單據（可多選）</div>
+          <div style="display:flex;flex-wrap:wrap;gap:4px" id="receipt-${n}">
+            <div class="cond-btn" onclick="this.classList.toggle('on')">保卡</div>
+            <div class="cond-btn" onclick="this.classList.toggle('on')">發票</div>
+            <div class="cond-btn" onclick="this.classList.toggle('on')">註冊單</div>
+            <div class="cond-btn" onclick="this.classList.toggle('on')">無</div>
+          </div>
+        </div>
+        <div>
+          <div class="sub-label">盒裝</div>
+          <div style="display:flex;gap:4px" id="box-${n}">
+            <div class="cond-btn" onclick="setBoxOpt(this,${n},'有盒子')">有盒子</div>
+            <div class="cond-btn" onclick="setBoxOpt(this,${n},'無盒子')">無盒子</div>
+          </div>
+        </div>
+        <div>
+          <div class="sub-label">貨品來源</div>
+          <div style="display:flex;gap:4px" id="origin-${n}">
+            <div class="cond-btn" onclick="setOrigin(this,${n},'公司貨')">公司貨</div>
+            <div class="cond-btn" onclick="setOrigin(this,${n},'水貨')">水貨</div>
+          </div>
+          <div id="water-deduct-${n}" style="display:none;margin-top:8px;display:none">
+            <div style="display:flex;align-items:center;gap:6px;margin-top:6px">
+              <span style="font-size:12px;color:var(--red)">水貨扣款 NT$</span>
+              <input type="number" id="water-deduct-val-${n}" placeholder="0" inputmode="numeric"
+                style="width:80px;padding:5px 8px;border:1px solid var(--gray-200);border-radius:4px;font-size:13px;font-family:inherit"
+                oninput="calcTotal(${n})">
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="sub-label">盒單（保固書）</div>
+          <div style="display:flex;flex-wrap:wrap;gap:4px" id="boxdoc-${n}">
+            <div class="cond-btn" onclick="setBoxDoc(this,${n},'無盒無單')">無盒無單</div>
+            <div class="cond-btn" onclick="setBoxDoc(this,${n},'有盒無單')">有盒無單</div>
+            <div class="cond-btn" onclick="setBoxDoc(this,${n},'有盒有單')">有盒有單</div>
+            <div class="cond-btn" onclick="setBoxDoc(this,${n},'無盒有單')">無盒有單</div>
+          </div>
+        </div>
+      </div>
+      <div class="eq-grid3">
+        <div>
+          <div class="sub-label">原廠保固</div>
+          <div style="display:flex;gap:4px" id="warranty-${n}">
+            <div class="cond-btn" onclick="setWarranty(this,${n},'expired')">已過保</div>
+            <div class="cond-btn" onclick="setWarranty(this,${n},'active')">在保</div>
+            <div class="cond-btn" onclick="setWarranty(this,${n},'unknown')">不確定</div>
+          </div>
+          <div class="note-field" id="eq${n}-warranty-date"><input type="text" placeholder="保固到期日（例：2027-03）"></div>
+        </div>
+        <div>
+          <div class="sub-label">碰撞/摔落</div>
+          <div class="toggle-pair"><div class="tgl" onclick="tglYN(this,'eq${n}-crash','on-no')">有</div><div class="tgl" onclick="tglYN(this,null,'on-yes')">無</div></div>
+          <div class="note-field" id="eq${n}-crash"><input type="text" placeholder="備註…"></div>
+        </div>
+        <div>
+          <div class="sub-label">泡水/送修</div>
+          <div class="toggle-pair"><div class="tgl" onclick="tglYN(this,'eq${n}-repair','on-no')">有</div><div class="tgl" onclick="tglYN(this,null,'on-yes')">無</div></div>
+          <div class="note-field" id="eq${n}-repair"><input type="text" placeholder="備註…"></div>
+        </div>
+      </div>
+
+      <div id="acc-area-${n}">${buildAccHTML(n,'body')}</div>
+      <div id="fn-area-${n}">${buildFnHTML(n,'body')}</div>
+    </div>
+  `;
+  document.getElementById('eq-container').appendChild(div);
+  updateSummary();
+}
+
+function removeEq(n){document.getElementById(`eq-block-${n}`)?.remove();updateSummary();}
+
+function setType(el,n,type){
+  el.parentElement.querySelectorAll('.type-btn').forEach(b=>b.classList.remove('on'));
+  el.classList.add('on');
+  document.getElementById(`eq-block-${n}`).dataset.type=type;
+  document.getElementById(`acc-area-${n}`).innerHTML=buildAccHTML(n,type);
+  document.getElementById(`fn-area-${n}`).innerHTML=buildFnHTML(n,type);
+}
+
+function setCond(el,n){
+  document.querySelectorAll(`#cond-${n} .cond-btn`).forEach(b=>b.classList.remove('on'));
+  el.classList.add('on');
+}
+function setOrigin(el,n,val){
+  document.querySelectorAll(`#origin-${n} .cond-btn`).forEach(b=>b.classList.remove('on'));
+  el.classList.add('on');
+  const waterDiv = document.getElementById(`water-deduct-${n}`);
+  if(waterDiv) waterDiv.style.display = val==='水貨' ? 'block' : 'none';
+  calcTotal(n);
+}
+
+function searchModel(input, n){
+  const val = input.value.trim();
+  const dropdown = document.getElementById('eq'+n+'-dropdown');
+  const block = document.getElementById('eq-block-'+n);
+  const type = block ? block.dataset.type : 'body';
+  const list = type==='lens' ? CAMERA_DB.lens : CAMERA_DB.body;
+
+  if(!val || val.length < 1){
+    dropdown.style.display='none';
+    return;
+  }
+
+  const q = val.toLowerCase();
+  const matches = list.filter(m => m.toLowerCase().includes(q)).slice(0,30);
+
+  if(!matches.length){
+    dropdown.style.display='none';
+    return;
+  }
+
+  dropdown.innerHTML = matches.map(m =>
+    `<div onclick="selectModel(${n},'${m.replace(/'/g,"\'")}');return false;"
+      style="padding:9px 12px;font-size:13px;cursor:pointer;border-bottom:1px solid #f2f2f0;color:#111"
+      onmouseover="this.style.background='#f5faff'" onmouseout="this.style.background=''">${m}</div>`
+  ).join('');
+  dropdown.style.display='block';
+  updateSummary();
+}
+
+function selectModel(n, val){
+  const input = document.getElementById('eq'+n+'-name');
+  if(input){ input.value = val; }
+  closeDropdown(n);
+  updateSummary();
+}
+
+function closeDropdown(n){
+  const dropdown = document.getElementById('eq'+n+'-dropdown');
+  if(dropdown) dropdown.style.display='none';
+}
+
+function toggleAccDeductNote(n){
+  const val = parseInt(document.getElementById('acc-deduct-'+n)?.value||'0')||0;
+  const note = document.getElementById('acc-deduct-note-'+n);
+  if(note) note.style.display = val > 0 ? 'block' : 'none';
+}
+
+function setBoxOpt(el,n,val){
+  document.querySelectorAll('#box-'+n+' .cond-btn').forEach(b=>b.classList.remove('on'));
+  el.classList.add('on');
+}
+function setBoxDoc(el,n,val){
+  document.querySelectorAll('#boxdoc-'+n+' .cond-btn').forEach(b=>b.classList.remove('on'));
+  el.classList.add('on');
+}
+function getBoxSummary(){
+  const blocks=document.querySelectorAll('.eq-block');
+  return [...blocks].map(b=>{
+    const n=b.id.replace('eq-block-','');
+    const name=document.getElementById('eq'+n+'-name')?.value||'';
+    const btn=document.querySelector('#box-'+n+' .cond-btn.on');
+    return name&&btn?name+'：'+btn.textContent.trim():'';
+  }).filter(Boolean).join('、')||'—';
+}
+function getBoxDocSummary(){
+  const blocks=document.querySelectorAll('.eq-block');
+  return [...blocks].map(b=>{
+    const n=b.id.replace('eq-block-','');
+    const name=document.getElementById('eq'+n+'-name')?.value||'';
+    const btn=document.querySelector('#boxdoc-'+n+' .cond-btn.on');
+    return name&&btn?name+'：'+btn.textContent.trim():'';
+  }).filter(Boolean).join('、')||'—';
+}
+function setWarranty(el,n,val){
+  document.querySelectorAll(`#warranty-${n} .cond-btn`).forEach(b=>b.classList.remove('on'));
+  el.classList.add('on');
+  const dateField=document.getElementById(`eq${n}-warranty-date`);
+  if(dateField)dateField.classList.toggle('show',val==='active');
+}
+
+function setAllOk(n){
+  const block=document.getElementById(`eq-block-${n}`)||document.getElementById(`fn-area-${n}`)?.closest('.eq-block');
+  const area=document.getElementById(`fn-area-${n}`);
+  if(!area)return;
+  area.querySelectorAll('.fn-item').forEach(item=>{
+    item.querySelectorAll('.fn-btn').forEach(b=>b.classList.remove('fn-normal','fn-abnormal','fn-na'));
+    item.querySelector('.fn-btn')?.classList.add('fn-normal');
+    const df=item.querySelector('.deduct-field');
+    if(df){df.classList.remove('show');const inp=df.querySelector('input');if(inp)inp.value='';}
+  });
+  updateSummary();
+}
+
+function setFn(el,cls){
+  el.parentElement.querySelectorAll('.fn-btn').forEach(b=>b.classList.remove('fn-normal','fn-abnormal','fn-na'));
+  el.classList.add(cls);
+  const item = el.closest('.fn-item');
+  const dfs = item?.querySelectorAll('.deduct-field');
+  if(dfs){
+    if(cls==='fn-abnormal'){
+      dfs.forEach(df=>df.classList.add('show'));
+    } else {
+      dfs.forEach(df=>{
+        df.classList.remove('show');
+        const inp=df.querySelector('input');
+        if(inp)inp.value='';
+      });
+    }
+  }
+  updateSummary();
+}
+function setFnNA(el){
+  el.parentElement.querySelectorAll('.fn-btn').forEach(b=>b.classList.remove('fn-normal','fn-abnormal','fn-na'));
+  el.classList.add('fn-na');
+  const df=el.closest('.fn-item')?.querySelector('.deduct-field');
+  if(df){df.classList.remove('show');const inp=df.querySelector('input');if(inp)inp.value='';}
+  updateSummary();
+}
+
+function handlePhoto(input,n,i){
+  const file=input.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    const slot=document.getElementById(`ps-${n}-${i}`);
+    slot.innerHTML=`<img src="${e.target.result}" alt="照片"><input type="file" accept="image/*" capture="environment" onchange="handlePhoto(this,'${n}',${i})">`;
+  };
+  reader.readAsDataURL(file);
+}
+
+function toggleAcc(el){el.classList.toggle('sel');}
+function pickSourceSelect(val){
+  sourceVal=val;
+  const otherField=document.getElementById('other-source-field');
+  if(otherField) otherField.classList.toggle('show',val==='other');
+}
+function pickSource(el,val){
+  sourceVal=val;
+  document.getElementById('other-source-field').classList.toggle('show',val==='other');
+}
+function pickPay(el){
+  document.querySelectorAll('.pay-opt').forEach(p=>p.classList.remove('sel'));
+  el.classList.add('sel');paymentVal=el.textContent.trim();
+}
+function tglYN(el,noteId,cls){
+  el.parentElement.querySelectorAll('.tgl').forEach(b=>b.classList.remove('on-yes','on-no'));
+  el.classList.add(cls);
+  if(noteId)document.getElementById(noteId)?.classList.toggle('show',cls==='on-yes'||cls==='on-no');
+}
+
+function updateSummary(){
+  const blocks=document.querySelectorAll('.eq-block');
+  let html='';
+  blocks.forEach((block,bi)=>{
+    const n=block.id.replace('eq-block-','');
+    const name=document.getElementById(`eq${n}-name`)?.value||`器材 ${bi+1}`;
+    const est=parseInt(document.getElementById(`eq${n}-est`)?.value||'0')||0;
+    let deduct=0;
+    document.querySelectorAll(`#fn-area-${n} .deduct-field.show input[inputmode="numeric"]`).forEach(inp=>{deduct+=parseInt(inp.value||'0')||0;});
+    const accDeduct=parseInt(document.getElementById(`acc-deduct-${n}`)?.value||'0')||0;
+    deduct+=accDeduct;
+    html+=`<div class="summary-row">
+      <div class="summary-check on" data-n="${n}" onclick="this.classList.toggle('on');calcTotal()"></div>
+      <span class="summary-name">${name}</span>
+      <span class="summary-est">NT$ ${est.toLocaleString()}</span>
+      ${deduct?`<span class="summary-deduct">－${deduct.toLocaleString()}</span>`:''}
+    </div>`;
+  });
+  document.getElementById('summary-rows').innerHTML=html||'<div style="padding:12px;font-size:13px;color:var(--gray-400);text-align:center">新增器材後自動出現</div>';
+  calcTotal();
+}
+function calcTotal(){
+  let total=0;
+  document.querySelectorAll('.summary-check.on').forEach(el=>{
+    const n=el.dataset.n;
+    const est=parseInt(document.getElementById(`eq${n}-est`)?.value||'0')||0;
+    let deduct=0;
+    document.querySelectorAll(`#fn-area-${n} .deduct-field.show input[inputmode="numeric"]`).forEach(inp=>{deduct+=parseInt(inp.value||'0')||0;});
+    deduct+=parseInt(document.getElementById(`acc-deduct-${n}`)?.value||'0')||0;
+    deduct+=parseInt(document.getElementById(`eq${n}-shutter-deduct`)?.value||'0')||0;
+    deduct+=parseInt(document.getElementById(`water-deduct-val-${n}`)?.value||'0')||0;
+    total+=Math.max(0,est-deduct);
+  });
+  document.getElementById('summary-total').textContent=`NT$ ${total.toLocaleString()}`;
+}
+
+// Nav
+function goNext(){
+  if(currentPage===totalPages-1){
+    const btn = document.getElementById('btn-next');
+    if(btn.disabled) return;
+    btn.disabled = true;
+    btn.textContent = '送出中…';
+    submitForm().finally(()=>{
+      btn.disabled = false;
+      btn.textContent = '確認送出合約';
+    });
+    return;
+  }
+  if(!validatePage(currentPage))return;
+  currentPage++;
+  if(currentPage===1)generateReport();
+  if(currentPage===2)generateDecision();
+  showPage(currentPage);
+}
+function goBack(){if(currentPage>0){currentPage--;showPage(currentPage);}}
+function showPage(n){
+  document.querySelectorAll('.page').forEach((p,i)=>p.classList.toggle('active',i===n));
+  document.getElementById('btn-back').style.display=n>0?'block':'none';
+  document.getElementById('btn-next').textContent=n===totalPages-1?'確認送出合約':'下一步 →';
+  document.querySelectorAll('.step-dot').forEach((d,i)=>{d.classList.toggle('active',i===n);d.classList.toggle('done',i<n);});
+  window.scrollTo(0,0);
+  if(n===totalPages-1){setTimeout(()=>{initSig('sig-staff');initSig('sig-client');},150);}
+  // 翻到付款頁時自動帶入金額（強制帶入）
+  if(n===2){
+    const txAmt = document.getElementById('tx-amount');
+    if(txAmt && !txAmtEdited){
+      const dec = getDecisionData();
+      const sellTotal = dec.sell.reduce((s,x)=>s+x.sub,0);
+      txAmt.value = sellTotal || '';
+    }
+  }
+}
+function validatePage(n){
+  if(n===0){
+    // 金額與付款方式移至第3頁確認
+  }
+  if(n===2){
+    const blocks=document.querySelectorAll('.decision-block');
+    let allDecided=true;
+    blocks.forEach(block=>{
+      const n2=block.dataset.n;
+      const isSell=document.getElementById(`dec-sell-${n2}`)?.classList.contains('sell');
+      const isHold=document.getElementById(`dec-hold-${n2}`)?.classList.contains('hold');
+      if(!isSell&&!isHold)allDecided=false;
+    });
+    if(blocks.length>0&&!allDecided){alert('請為每台器材選擇「確認出售」或「保留報價」');return false;}
+    if(!document.getElementById('tx-amount').value.trim()){alert('請填寫最終收購總金額');return false;}
+    if(!paymentVal){alert('請選擇付款方式');return false;}
+  }
+  if(n===3){
+    if(!document.getElementById('name').value.trim()){alert('請填寫客戶姓名');return false;}
+    if(!document.getElementById('phone').value.trim()){alert('請填寫聯絡電話');return false;}
+    if(!document.getElementById('email').value.trim()){alert('請填寫電子信箱');return false;}
+    if(!sourceVal){alert('請選擇客戶來源管道');document.getElementById('source-select').focus();return false;}
+  }
+  return true;
+}
+
+function getEqSummary(){
+  const parts=[];
+  document.querySelectorAll('.eq-block').forEach((block,bi)=>{
+    const n=block.id.replace('eq-block-','');
+    const name=document.getElementById(`eq${n}-name`)?.value.trim();
+    const est=document.getElementById(`eq${n}-est`)?.value.trim();
+    const type=block.dataset.type==='lens'?'鏡頭':'機身';
+    const cond=document.querySelector(`#cond-${n} .cond-btn.on`)?.textContent||'';
+    if(name)parts.push(`[${type}] ${name}${est?' NT$'+est:''}${cond?' ('+cond+')':''}`);
+  });
+  return parts.join('\n');
+}
+function getAccList(){
+  const items=[];
+  document.querySelectorAll('.acc-eq-item.sel').forEach(el=>{
+    const txt=el.textContent.trim();
+    if(txt&&!items.includes(txt))items.push(txt);
+  });
+  return items.join('、');
+}
+function getFnReport(){
+  const reports=[];
+  document.querySelectorAll('.eq-block').forEach((block,bi)=>{
+    const n=block.id.replace('eq-block-','');
+    const name=document.getElementById(`eq${n}-name`)?.value||`器材${bi+1}`;
+    const abnormal=[];
+    document.querySelectorAll(`#fn-area-${n} .fn-btn.fn-abnormal`).forEach(btn=>{
+      const row=btn.closest('.fn-row');
+      const item=btn.closest('.fn-item');
+      const label=row?.querySelector('.fn-label')?.textContent.trim();
+      const reason=item?.querySelector('.abnormal-note-field input')?.value.trim()||'';
+      let desc = label||'';
+      if(reason) desc += '（'+reason+')';
+      // 不列扣款金額
+      if(label)abnormal.push(desc);
+    });
+    const note=document.getElementById(`fn-note-${n}`)?.value.trim()||'';
+    // 全數正常且無備註不列入
+    if(!abnormal.length && !note) return;
+    let r = `【${name}】`;
+    if(abnormal.length) r += abnormal.join('、');
+    else r += '全數正常';
+    if(note) r += '，'+note;
+    reports.push(r);
+  });
+  return reports.join('\n');
+}
+
+function cycleEqAcc(el,n,key){
+  const state = parseInt(el.dataset.state||'0');
+  const next = (state+1)%3;
+  el.dataset.state = next;
+  el.classList.remove('sel','acc-na');
+  const box = el.querySelector('.acc-eq-box');
+  if(next===1){ el.classList.add('sel'); }
+  else if(next===2){ el.classList.add('acc-na'); }
+  updateSummary();
+}
+
+function toggleEqAcc(el, n, key){
+  el.classList.toggle('sel');
+  updateMissingAcc(n);
+  updateSummary();
+}
+
+function updateMissingAcc(n){
+  const block=document.getElementById(`eq-block-${n}`);
+  if(!block)return;
+  const type=block.dataset.type||'body';
+  const allKeys=type==='lens'?['hood','frontcap','rearcap']:type==='compact'?['battery','strap','charger','cable','other']:['battery','strap','charger','cable','hotshoe','eyecup','flash','other'];
+  const allNames=type==='lens'?['遮光罩','鏡頭前蓋','鏡頭後蓋']:type==='compact'?['原廠電池','相機背帶（含扣環）','充電器','充電線','其他']:['原廠電池','相機背帶（含扣環）','充電器','充電線','熱靴/防風罩','相機眼罩','閃光燈','其他'];
+  const missing=[];
+  allKeys.forEach((key,i)=>{
+    const el=document.getElementById(`acc-${n}-${key}`);
+    const state=parseInt(el?.dataset.state||'0');
+    if(el&&state===0)missing.push(allNames[i]); // 0=未選才算缺少
+  });
+  const missingEl=document.getElementById(`acc-missing-${n}`);
+  if(missingEl){missingEl.textContent=missing.length?`缺少：${missing.join('、')}`:'配件齊全';}
+}
+
+function getEqAccList(n){
+  const block=document.getElementById(`eq-block-${n}`);
+  if(!block)return{have:[],missing:[]};
+  const type=block.dataset.type||'body';
+  const allKeys=type==='lens'?['hood','frontcap','rearcap']:type==='compact'?['battery','strap','charger','cable','other']:['battery','strap','charger','cable','hotshoe','eyecup','flash','other'];
+  const allNames=type==='lens'?['遮光罩','鏡頭前蓋','鏡頭後蓋']:type==='compact'?['原廠電池','相機背帶（含扣環）','充電器','充電線','其他']:['原廠電池','相機背帶（含扣環）','充電器','充電線','熱靴/防風罩','相機眼罩','閃光燈','其他'];
+  const have=[],missing=[];
+  allKeys.forEach((key,i)=>{
+    const el=document.getElementById(`acc-${n}-${key}`);
+    if(el){
+      const state=parseInt(el.dataset.state||'0');
+      if(state===1) have.push(allNames[i]);               // 有帶來
+      else if(state===2) missing.push(allNames[i]+'（無此配件）'); // 本來就沒有
+      else missing.push(allNames[i]);                      // 未選 = 沒帶來
+    }
+  });
+  return{have,missing};
+}
+
+
+function generateDecision(){
+  const blocks=document.querySelectorAll('.eq-block');
+  const container=document.getElementById('decision-container');
+  container.innerHTML='';
+  const expDate=new Date();expDate.setDate(expDate.getDate()+14);
+  const expStr=`${expDate.getFullYear()}年${expDate.getMonth()+1}月${expDate.getDate()}日`;
+
+  blocks.forEach((block,bi)=>{
+    const n=block.id.replace('eq-block-','');
+    const name=document.getElementById(`eq${n}-name`)?.value||`器材${bi+1}`;
+    const type=block.dataset.type==='lens'?'🔭 鏡頭':block.dataset.type==='compact'?'📸 隨身機':'📷 機身';
+    const est=document.getElementById(`eq${n}-est`)?.value||'0';
+    const estNum=parseInt(est.replace(/[^\d]/g,'')||'0');
+    let deduct=0;
+    document.querySelectorAll(`#fn-area-${n} .deduct-field.show input[inputmode="numeric"]`).forEach(inp=>{deduct+=parseInt(inp.value||'0')||0;});
+    deduct+=parseInt(document.getElementById(`acc-deduct-${n}`)?.value||'0')||0;
+    deduct+=parseInt(document.getElementById(`eq${n}-shutter-deduct`)?.value||'0')||0;
+    deduct+=parseInt(document.getElementById(`water-deduct-val-${n}`)?.value||'0')||0;
+    const sub=Math.max(0,estNum-deduct);
+
+    // 公司貨/水貨
+    const originBtn=document.querySelector(`#origin-${n} .cond-btn.on`);
+    const origin=originBtn?originBtn.textContent.trim():'未填';
+    // 保固狀態
+    const warrantyBtn=document.querySelector(`#warranty-${n} .cond-btn.on`);
+    const warrantyMap={expired:'已過保',active:'在保',unknown:'不確定'};
+    const warrantyKey=warrantyBtn?[...document.querySelectorAll(`#warranty-${n} .cond-btn`)].indexOf(warrantyBtn):-1;
+    const warrantyVals=['expired','active','unknown'];
+    const warrantyStatus=warrantyBtn?warrantyMap[warrantyVals[warrantyKey]]||'未填':'未填';
+    const warrantyDate=warrantyStatus==='在保'?(document.getElementById(`eq${n}-warranty-date`)?.querySelector('input')?.value||''):'';
+
+    const div=document.createElement('div');
+    div.className='decision-block';
+    div.dataset.origin=origin;
+    div.dataset.warranty=warrantyStatus+(warrantyDate?`（至${warrantyDate}）`:'');
+    div.id=`dec-${n}`;
+    div.dataset.n=n;
+    div.dataset.sub=sub;
+    div.dataset.name=name;
+    // 收集扣款明細
+    const deductList = [];
+    document.querySelectorAll(`#fn-area-${n} .fn-btn.fn-abnormal`).forEach(btn=>{
+      const item=btn.closest('.fn-item');
+      const label=btn.closest('.fn-row')?.querySelector('.fn-label')?.textContent.trim();
+      const dval=parseInt(item?.querySelector('.deduct-field input[inputmode]')?.value||'0')||0;
+      const reason=item?.querySelector('.abnormal-note-field input')?.value.trim()||'';
+      if(dval>0) deductList.push({label:(reason||label||''), amount:dval});
+    });
+    const shutterDeduct=parseInt(document.getElementById(`eq${n}-shutter-deduct`)?.value||'0')||0;
+    if(shutterDeduct>0) deductList.push({label:'快門扣款', amount:shutterDeduct});
+    const waterDeduct=parseInt(document.getElementById(`water-deduct-val-${n}`)?.value||'0')||0;
+    if(waterDeduct>0) deductList.push({label:'水貨扣款', amount:waterDeduct});
+    const accDeduct=parseInt(document.getElementById(`acc-deduct-${n}`)?.value||'0')||0;
+    if(accDeduct>0) deductList.push({label:'缺少配件', amount:accDeduct, warn:true});
+
+    const deductHTML = deductList.length ? `
+      <div style="margin-bottom:10px;padding:10px 12px;background:#fdf0ef;border-radius:8px;border-left:3px solid #c0392b">
+        <div style="font-size:11px;font-weight:700;color:#c0392b;margin-bottom:6px">扣款明細</div>
+        ${deductList.map(d=>`
+          <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px">
+            <span style="color:#c0392b">${d.label}${d.warn?' ⚠️需於1週內補件可退還':''}</span>
+            <span style="color:#c0392b;font-weight:700">－NT$ ${d.amount.toLocaleString()}</span>
+          </div>`).join('')}
+      </div>` : '';
+
+    div.innerHTML=`
+      <div class="decision-head">
+        <div>
+          <div class="decision-name">${name}</div>
+          <div style="font-size:11px;color:var(--gray-600);margin-top:2px">${type}　${origin}　保固：${warrantyStatus}${warrantyDate?'（至'+warrantyDate+'）':''}</div>
+        </div>
+        <div style="text-align:right">
+          <div class="decision-est" style="font-size:13px;font-weight:700;color:var(--green)">NT$ ${sub.toLocaleString()}</div>
+          ${deduct?`<div style="font-size:11px;color:var(--red)">已扣 NT$ ${deduct.toLocaleString()}</div>`:''}
+        </div>
+      </div>
+      ${deductHTML}
+      <div class="decision-body">
+        <div class="decision-row">
+          <div class="decision-btn" onclick="setDecision(this,'sell','${n}')" id="dec-sell-${n}">
+            ✓ 確認出售
+          </div>
+          <div class="decision-btn" onclick="setDecision(this,'hold','${n}')" id="dec-hold-${n}">
+            📌 保留報價
+          </div>
+        </div>
+        <div class="hold-expire" id="hold-expire-${n}">報價保留至 ${expStr}</div>
+      </div>
+    `;
+    container.appendChild(div);
+  });
+  updateDecisionSummary();
+}
+
+function setDecision(el,type,n){
+  document.getElementById(`dec-sell-${n}`).classList.remove('sell');
+  document.getElementById(`dec-hold-${n}`).classList.remove('hold');
+  el.classList.add(type);
+  const expire=document.getElementById(`hold-expire-${n}`);
+  if(expire)expire.classList.toggle('show',type==='hold');
+  updateDecisionSummary();
+}
+
+function updateDecisionSummary(){
+  const blocks=document.querySelectorAll('.decision-block');
+  const summaryEl=document.getElementById('decision-summary');
+  const rowsEl=document.getElementById('decision-summary-rows');
+  let sellTotal=0,sellItems=[],holdItems=[];
+  blocks.forEach(block=>{
+    const n=block.dataset.n;
+    const name=block.dataset.name;
+    const sub=parseInt(block.dataset.sub)||0;
+    const isSell=document.getElementById(`dec-sell-${n}`)?.classList.contains('sell');
+    const isHold=document.getElementById(`dec-hold-${n}`)?.classList.contains('hold');
+    if(isSell){sellTotal+=sub;sellItems.push({name,sub});}
+    else if(isHold){holdItems.push({name,sub});}
+  });
+  if(!sellItems.length&&!holdItems.length){summaryEl.style.display='none';return;}
+  summaryEl.style.display='block';
+  let html='';
+  if(sellItems.length){
+    html+=`<div style="font-size:11px;font-weight:700;color:var(--green);margin-bottom:4px;letter-spacing:0.04em">確認出售</div>`;
+    sellItems.forEach(({name,sub})=>{
+      html+=`<div class="decision-summary-row"><span>${name}</span><span style="color:var(--green)">NT$ ${sub.toLocaleString()}</span></div>`;
+    });
+  }
+  if(holdItems.length){
+    html+=`<div style="font-size:11px;font-weight:700;color:#8a6820;margin:8px 0 4px;letter-spacing:0.04em">保留報價（有效兩週）</div>`;
+    holdItems.forEach(({name,sub})=>{
+      html+=`<div class="decision-summary-row"><span>${name}</span><span style="color:#8a6820">NT$ ${sub.toLocaleString()}</span></div>`;
+    });
+  }
+  if(sellItems.length){
+    html+=`<div class="decision-summary-row"><span>本次收購總金額</span><span style="color:var(--green)">NT$ ${sellTotal.toLocaleString()}</span></div>`;
+    // 只有空白時才自動帶入，不覆蓋已填寫的金額
+    const txAmt = document.getElementById('tx-amount');
+    if(txAmt && !txAmtEdited) txAmt.value = sellTotal||'';
+  }
+  rowsEl.innerHTML=html;
+}
+
+function getDecisionData(){
+  const blocks=document.querySelectorAll('.decision-block');
+  const sell=[],hold=[];
+  blocks.forEach(block=>{
+    const n=block.dataset.n;
+    const name=block.dataset.name;
+    const sub=parseInt(block.dataset.sub)||0;
+    const origin=block.dataset.origin||'未填';
+    const warranty=block.dataset.warranty||'未填';
+    const accDeduct=parseInt(document.getElementById(`acc-deduct-${n}`)?.value||'0')||0;
+    if(document.getElementById(`dec-sell-${n}`)?.classList.contains('sell'))sell.push({name,sub,origin,warranty,accDeduct});
+    else if(document.getElementById(`dec-hold-${n}`)?.classList.contains('hold')){
+      const expDate=new Date();expDate.setDate(expDate.getDate()+14);
+      hold.push({name,sub,origin,warranty,accDeduct,exp:`${expDate.getFullYear()}/${expDate.getMonth()+1}/${expDate.getDate()}`});
+    }
+  });
+  return {sell,hold};
+}
+
+
+function getReportHTML(){
+  const reportDiv = document.getElementById('report-preview');
+  if(!reportDiv || !reportDiv.innerHTML.trim()) return '';
+  const html = `<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>林相攝影 收購檢測報告</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:PingFang TC,Arial,sans-serif;padding:20px;max-width:680px;margin:0 auto;color:#111;}
+table{width:100%;border-collapse:collapse;}
+td{padding:4px 0;font-size:13px;}
+</style>
+</head>
+<body>
+${reportDiv.innerHTML}
+</body>
+</html>`;
+  return html;
+}
+
+function generateReport(){
+  const blocks=document.querySelectorAll('.eq-block');
+  const date=document.getElementById('tx-date').value;
+  const amount=document.getElementById('tx-amount').value;
+  let html='';
+
+  // 標題
+  html+=`<div style="text-align:center;padding:8px 0 16px;border-bottom:2px solid #111;margin-bottom:14px">
+    <div style="font-size:16px;font-weight:700;letter-spacing:0.05em">林相攝影</div>
+    <div style="font-size:12px;color:#666;margin-top:2px">攝影器材收購檢測報告</div>
+    <div style="font-size:11px;color:#888;margin-top:4px">${date}</div>
+  </div>`;
+
+  // 每台器材
+  blocks.forEach((block,bi)=>{
+    const n=block.id.replace('eq-block-','');
+    const name=document.getElementById(`eq${n}-name`)?.value||`器材${bi+1}`;
+    const serial=document.getElementById(`eq${n}-serial`)?.value||'—';
+    const est=document.getElementById(`eq${n}-est`)?.value||'—';
+    const shutter=document.getElementById(`eq${n}-shutter`)?.value||'—';
+    const type=block.dataset.type==='lens'?'鏡頭':'機身';
+    const cond=document.querySelector(`#cond-${n} .cond-btn.on`)?.textContent||'—';
+    const receipts=[...document.querySelectorAll(`#receipt-${n} .cond-btn.on`)].map(b=>b.textContent).join('、')||'—';
+    const origin=document.querySelector(`#origin-${n} .cond-btn.on`)?.textContent||'—';
+    const warrantyBtn=document.querySelector(`#warranty-${n} .cond-btn.on`);
+    const warrantyMapRpt={'已過保':'已過保','在保':'在保','不確定':'不確定'};
+    const warrantyStatusRpt=warrantyBtn?warrantyBtn.textContent.trim():'未填';
+    const warrantyDateRpt=warrantyStatusRpt==='在保'?(document.getElementById(`eq${n}-warranty-date`)?.querySelector('input')?.value||''):'';
+    const warrantyDisplay=warrantyDateRpt?`${warrantyStatusRpt}（至${warrantyDateRpt}）`:warrantyStatusRpt;
+
+    html+=`<div style="margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid #e4e4e0">`;
+    html+=`<div style="font-size:13px;font-weight:700;color:#2d6a4f;margin-bottom:8px">
+      ${bi+1}. ${name} <span style="font-weight:400;color:#666;font-size:11px">（${type}）</span>
+    </div>`;
+
+    // 基本資訊
+    html+=`<table style="width:100%;font-size:12px;margin-bottom:10px;border-collapse:collapse">`;
+    const accData=getEqAccList(n);
+    const accDeductRpt=(parseInt(document.getElementById(`acc-deduct-${n}`)?.value||'0')||0)+(parseInt(document.getElementById(`eq${n}-shutter-deduct`)?.value||'0')||0);
+    const boxBtn=document.querySelector(`#box-${n} .cond-btn.on`);
+    const boxDocBtn=document.querySelector(`#boxdoc-${n} .cond-btn.on`);
+    const missingAccNote=document.getElementById(`missing-acc-note-${n}`)?.value||'';
+    const accNote=document.getElementById(`acc-note-${n}`)?.value||'';
+    [['序號',serial],['粗估金額','NT$ '+est],['快門數',shutter+'次'],
+     ['快門扣款',parseInt(document.getElementById(`eq${n}-shutter-deduct`)?.value||'0')?'NT$ '+(parseInt(document.getElementById(`eq${n}-shutter-deduct`)?.value||'0')||0):'—'],
+     ['水貨扣款',parseInt(document.getElementById(`water-deduct-val-${n}`)?.value||'0')?'NT$ '+(parseInt(document.getElementById(`water-deduct-val-${n}`)?.value||'0')||0):'—'],['新舊程度',cond],['保卡單據',receipts],['貨品來源',origin],['原廠保固',warrantyDisplay],
+     ['盒裝',boxBtn?boxBtn.textContent.trim():'未填'],
+     ['盒單',boxDocBtn?boxDocBtn.textContent.trim():'未填'],
+     ['附帶配件',accData.have.length?accData.have.join('、'):'—'],
+     ['缺少配件',(()=>{
+       const realMissing=accData.missing.filter(x=>!x.includes('（無此配件）'));
+       return realMissing.length?realMissing.join('、'):'齊全';
+     })()],
+     ['缺失說明',missingAccNote||'—'],
+    ].forEach(([k,v])=>{
+      html+=`<tr><td style="padding:3px 0;color:#666;width:70px">${k}</td><td style="padding:3px 0;color:#111">${v}</td></tr>`;
+    });
+    html+=`</table>`;
+
+    // 功能檢測
+    html+=`<div style="font-size:11px;font-weight:700;color:#666;letter-spacing:0.04em;margin-bottom:5px">功能檢測結果</div>`;
+    const fnRows=document.querySelectorAll(`#fn-area-${n} .fn-row`);
+    let abnormalList=[];
+    let normalCount=0;let naCount=0;
+    fnRows.forEach(row=>{
+      const label=row.querySelector('.fn-label')?.textContent.trim();
+      const isNormal=row.querySelector('.fn-btn.fn-normal');
+      const isAbnormal=row.querySelector('.fn-btn.fn-abnormal');
+      const isNA=row.querySelector('.fn-btn.fn-na');
+      if(isAbnormal){
+        const item=row.closest('.fn-item');
+        const deductVal=item?.querySelector('.deduct-field input[inputmode]')?.value||'0';
+        const reason=item?.querySelector('.abnormal-note-field input')?.value.trim()||'';
+        abnormalList.push({label,deduct:parseInt(deductVal)||0,reason});
+      } else if(isNormal) normalCount++;
+      else if(isNA) naCount++;
+    });
+
+    if(abnormalList.length===0){
+      html+=`<div style="color:#2d6a4f;font-size:12px;padding:5px 8px;background:#e8f4f0;border-radius:5px">✓ 全數正常（${normalCount}項）${naCount?'，無此項 '+naCount+'項':''}</div>`;
+    } else {
+      html+=`<div style="color:#2d6a4f;font-size:12px;margin-bottom:5px">✓ 正常 ${normalCount} 項${naCount?' ／ 無此項 '+naCount+'項':''}</div>`;
+      html+=`<div style="font-size:12px;color:#c0392b;margin-bottom:3px">✗ 異常項目：</div>`;
+      abnormalList.forEach(({label,deduct,reason})=>{
+        html+=`<div style="padding:4px 8px;background:#fdf0ef;border-radius:4px;margin-bottom:2px;font-size:12px">
+          <div style="display:flex;justify-content:space-between">
+            <span style="color:#c0392b;font-weight:600">${label}</span>
+            ${deduct?`<span style="color:#c0392b">扣款 NT$ ${deduct.toLocaleString()}</span>`:''}
+          </div>
+          ${reason?`<div style="color:#c0392b;margin-top:2px">原因：${reason}</div>`:''}
+        </div>`;
+      });
+    }
+
+    // 本台小計
+    const estNum=parseInt(est.replace(/[^\d]/g,'')||'0');
+    const totalDeduct=abnormalList.reduce((s,x)=>s+x.deduct,0)+accDeductRpt;
+    const sub=Math.max(0,estNum-totalDeduct);
+
+    // 缺配件扣款顯示
+    const accDeductVal = parseInt(document.getElementById(`acc-deduct-${n}`)?.value||'0')||0;
+    const shutterDeductVal = parseInt(document.getElementById(`eq${n}-shutter-deduct`)?.value||'0')||0;
+    const waterDeductVal = parseInt(document.getElementById(`water-deduct-val-${n}`)?.value||'0')||0;
+    if(accDeductVal || shutterDeductVal || waterDeductVal){
+      html+=`<div style="margin-top:8px;padding:8px 10px;background:#fdf0ef;border-radius:6px;font-size:12px">
+        <div style="font-weight:700;color:#c0392b;margin-bottom:4px">其他扣款</div>`;
+      if(shutterDeductVal) html+=`<div style="display:flex;justify-content:space-between;color:#c0392b"><span>快門扣款</span><span>－NT$ ${shutterDeductVal.toLocaleString()}</span></div>`;
+      if(waterDeductVal) html+=`<div style="display:flex;justify-content:space-between;color:#c0392b"><span>水貨扣款</span><span>－NT$ ${waterDeductVal.toLocaleString()}</span></div>`;
+      if(accDeductVal) html+=`<div style="display:flex;justify-content:space-between;color:#c0392b"><span>缺少配件扣款</span><span>－NT$ ${accDeductVal.toLocaleString()}</span></div>`;
+      html+=`</div>`;
+    }
+
+    html+=`<div style="display:flex;justify-content:space-between;margin-top:8px;font-size:12px;font-weight:600">
+      <span style="color:#666">本台建議收購價</span>
+      <span style="color:#2d6a4f">NT$ ${sub.toLocaleString()}</span>
+    </div>`;
+    // 功能備註
+    const fnNote=document.getElementById(`fn-note-${n}`)?.value.trim()||'';
+    if(fnNote){
+      html+=`<div style="margin-top:8px;padding:7px 10px;background:#fffbe6;border-left:3px solid #c9a84c;border-radius:0 4px 4px 0;font-size:12px;color:#5a4a00">
+        <strong>備註：</strong>${fnNote}
+      </div>`;
+    }
+    html+='</div>';
+  });
+
+  // 配件
+  const accList=[...document.querySelectorAll('#acc-grid .acc-item.sel')].map(e=>e.textContent.trim());
+  const accOther=document.getElementById('acc-other')?.value.trim();
+  if(accOther)accList.push(accOther);
+  html+=`<div style="margin-bottom:14px">
+    <div style="font-size:11px;font-weight:700;color:#666;letter-spacing:0.04em;margin-bottom:5px">交付配件</div>
+    <div style="font-size:12px;color:#111">${accList.length?accList.join('、'):'無'}</div>
+  </div>`;
+
+  // 金額總計
+  const totalEl=document.getElementById('summary-total')?.textContent||'—';
+  const finalAmt=document.getElementById('tx-amount')?.value||'—';
+  html+=`<div style="background:#111;border-radius:8px;padding:12px 14px;margin-top:4px">
+    <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+      <span style="color:#aaa;font-size:12px">建議收購總價</span>
+      <span style="color:#52b788;font-size:13px;font-weight:600">${totalEl}</span>
+    </div>
+    <div style="display:flex;justify-content:space-between">
+      <span style="color:#fff;font-size:13px;font-weight:700">最終收購金額</span>
+      <span style="color:#fff;font-size:15px;font-weight:700">NT$ ${parseInt(finalAmt)||0} 元整</span>
+    </div>
+  </div>`;
+
+  document.getElementById('report-preview').innerHTML=html;
+}
+
+
+function getCondSummary(){
+  const blocks=document.querySelectorAll('.eq-block');
+  return [...blocks].map(b=>{
+    const n=b.id.replace('eq-block-','');
+    const name=document.getElementById('eq'+n+'-name')?.value||'';
+    const btn=document.querySelector('#cond-'+n+' .cond-btn.on');
+    const cond=btn?btn.textContent.trim():'';
+    return name&&cond?name+'：'+cond:'';
+  }).filter(Boolean).join('、')||'—';
+}
+
+function getSerialSummary(){
+  const blocks=document.querySelectorAll('.eq-block');
+  return [...blocks].map(b=>{
+    const n=b.id.replace('eq-block-','');
+    const name=document.getElementById('eq'+n+'-name')?.value||'';
+    const serial=document.getElementById('eq'+n+'-serial')?.value||'';
+    return name&&serial?name+'：'+serial:'';
+  }).filter(Boolean).join('、')||'—';
+}
+
+function getMissingAccSummary(){
+  const blocks=document.querySelectorAll('.eq-block');
+  return [...blocks].map(b=>{
+    const n=b.id.replace('eq-block-','');
+    const name=document.getElementById('eq'+n+'-name')?.value||'';
+    const note=document.getElementById('missing-acc-note-'+n)?.value||'';
+    return name&&note?name+'：'+note:'';
+  }).filter(Boolean).join('\n')||'—';
+}
+
+function getAccNoteSummary(){
+  const blocks=document.querySelectorAll('.eq-block');
+  return [...blocks].map(b=>{
+    const n=b.id.replace('eq-block-','');
+    const name=document.getElementById('eq'+n+'-name')?.value||'';
+    const note=document.getElementById('acc-note-'+n)?.value||'';
+    return name&&note?name+'：'+note:'';
+  }).filter(Boolean).join('\n')||'—';
+}
+
+function getHoldSummary(){
+  const dec=getDecisionData();
+  if(!dec.hold.length)return'無';
+  return dec.hold.map(x=>x.name+'（報價至'+x.exp+'）').join('、');
+}
+
+function getShutterSummary(){
+  const blocks=document.querySelectorAll('.eq-block');
+  return [...blocks].map(b=>{
+    const n=b.id.replace('eq-block-','');
+    const name=document.getElementById('eq'+n+'-name')?.value||'';
+    const shutter=document.getElementById('eq'+n+'-shutter')?.value||'';
+    return name&&shutter?name+'：'+shutter+'次':'';
+  }).filter(Boolean).join('、')||'—';
+}
+
+function getWarrantySummary(){
+  const blocks=document.querySelectorAll('.eq-block');
+  return [...blocks].map(b=>{
+    const n=b.id.replace('eq-block-','');
+    const name=document.getElementById('eq'+n+'-name')?.value||'';
+    const btn=document.querySelector('#warranty-'+n+' .cond-btn.on');
+    const status=btn?btn.textContent.trim():'';
+    const date=document.getElementById('eq'+n+'-warranty-date')?.querySelector('input')?.value||'';
+    if(!name||!status)return'';
+    return name+'：'+status+(date?'（至'+date+'）':'');
+  }).filter(Boolean).join('、')||'—';
+}
+
+function getOriginSummary(){
+  const blocks=document.querySelectorAll('.eq-block');
+  return [...blocks].map(b=>{
+    const n=b.id.replace('eq-block-','');
+    const name=document.getElementById('eq'+n+'-name')?.value||'';
+    const btn=document.querySelector('#origin-'+n+' .cond-btn.on');
+    const origin=btn?btn.textContent.trim():'';
+    return name&&origin?name+'：'+origin:'';
+  }).filter(Boolean).join('、')||'—';
+}
+
+async function writeToSheet(rec){
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbx-afMzrAEbPKTpP7Kc4F0EWCUYXH87sfPGUUYXCAGipSW_TVJ7xZFZ_3hLW-l0sd0G/exec';
+  // 從 rec（單筆器材資料）直接取欄位
+  const name = rec['器材一']||'';
+  if(!name) return;
+  const serial = rec['序號']||'';
+  const shutter = rec['快門數']||'';
+  const origin = rec['貨品來源']||'';
+  const warranty = rec['原廠保固']||'';
+  const acc = rec['配件清單']||'';
+  const price = rec['收購總金額']||0;
+  const boxDoc = rec['盒單']||'';
+  const fnNote = (rec['功能備註']||'').split('\n').filter(l=>!l.startsWith('[機身]')&&!l.startsWith('[鏡頭]')).map(l=>l.replace(/^[^：]+：異常：/,'').replace(/^[^：]+：/,'').trim()).filter(Boolean).join('\n');
+
+  // 保固：只帶在保日期
+  const warrantyDisplay = warranty && warranty.startsWith('在保') ? warranty : '';
+  const shutterField = [
+    warrantyDisplay ? warrantyDisplay : '',
+    acc ? acc : '',
+    shutter ? shutter+'次' : '',
+    fnNote ? fnNote : '',
+  ].filter(Boolean).join(' | ');
+
+  // 從器材名稱推算品牌和分類
+  const BRANDS=['Canon','Fujifilm','Leica','Nikon','Olympus','Panasonic','Pentax','Ricoh','Sony','Sigma','Hasselblad'];
+  const detectedBrand = BRANDS.find(b=>name.toLowerCase().includes(b.toLowerCase()))||'';
+  // 分類：優先用 _eqType 欄位（lens/body/compact），否則從名稱判斷
+  const eqType = rec['_eqType']||'';
+  const isLens = eqType==='lens' || /mm|f\/|\bf\d|鏡頭|lens|zoom|prime|macro/i.test(name);
+  const typeLabel = isLens ? '鏡頭' : '相機';
+  const category = detectedBrand ? detectedBrand+' '+typeLabel : typeLabel;
+
+  const rowData = {
+    '商品名稱': name,
+    '分類': category,
+    '條碼': String(serial),
+    '庫存量': 1,
+    '進貨價': price,
+    '銷售價': '',
+    '品牌': detectedBrand,
+    '供貨商': '現場客人',
+    '公水': origin,
+    '快門數': shutterField,
+    '盒單': boxDoc,
+  };
+
+  const params = new URLSearchParams();
+  Object.keys(rowData).forEach(k => params.append(k, rowData[k]));
+  await fetch(SHEET_URL + '?' + params.toString(), {
+    method: 'GET',
+    mode: 'no-cors',
+  });
+}
+
+
+async function sendEmail(fields, toEmail){
+  // 寄件 API 網址（部署 Vercel 後替換）
+  const API_URL = 'https://linscam-email-api-lpvi.vercel.app/api/send-email';
+
+  const dec = getDecisionData();
+  const sellRows = dec.sell.map(x=>`
+    <tr>
+      <td style="padding:9px 12px;font-size:12px;color:#666;border-bottom:1px solid #e0eef8;vertical-align:top">出售</td>
+      <td style="padding:9px 12px;border-bottom:1px solid #e0eef8">
+        <div style="font-size:14px;font-weight:700;color:#1565c0">${x.name}</div>
+        <div style="font-size:11px;color:#888;margin-top:2px">${x.origin}　保固：${x.warranty}</div>
+        ${x.accDeduct?`<div style="font-size:11px;color:#c0392b;margin-top:3px;font-weight:600">⚠️ 缺少配件扣款 NT$ ${x.accDeduct.toLocaleString()}，需於 1 週內補件方可退還</div>`:''}
+      </td>
+      <td style="padding:9px 12px;font-size:14px;font-weight:700;color:#1565c0;text-align:right;border-bottom:1px solid #e0eef8;vertical-align:top">NT$ ${x.sub.toLocaleString()}</td>
+    </tr>`).join('');
+  const holdRows = dec.hold.map(x=>`
+    <tr>
+      <td style="padding:9px 12px;font-size:12px;color:#8a6820;border-bottom:1px solid #e8d5a0;vertical-align:top">保留報價</td>
+      <td style="padding:9px 12px;border-bottom:1px solid #e8d5a0">
+        <div style="font-size:13px;color:#111">${x.name}</div>
+        <div style="font-size:11px;color:#888;margin-top:2px">${x.origin}　保固：${x.warranty}</div>
+      </td>
+      <td style="padding:9px 12px;font-size:12px;color:#8a6820;text-align:right;border-bottom:1px solid #e8d5a0;vertical-align:top">有效至 ${x.exp}</td>
+    </tr>`).join('');
+
+  // 每台器材各自的報告內容
+  const blocks = document.querySelectorAll('.eq-block');
+  const eqReports = [];
+  blocks.forEach(block=>{
+    const n = block.id.replace('eq-block-','');
+    const eqName = document.getElementById('eq'+n+'-name')?.value||'';
+    if(!eqName) return;
+    const accData = getEqAccList(n);
+    const accHave = accData.have.join('、')||'—';
+    const abnormal = [];
+    block.querySelectorAll('.fn-btn.fn-abnormal').forEach(btn=>{
+      const row=btn.closest('.fn-row');
+      const item=btn.closest('.fn-item');
+      const label=row?.querySelector('.fn-label')?.textContent.trim();
+      const reason=item?.querySelector('.abnormal-note-field input')?.value.trim()||'';
+      if(label){ let d=label; if(reason)d+='（'+reason+')'; abnormal.push(d); }
+    });
+    const fnNoteItem = document.getElementById('fn-note-'+n)?.value.trim()||'';
+    const fnStatus = abnormal.length ? '異常：'+abnormal.join('、') : '全數正常';
+    eqReports.push({name:eqName, acc:accHave, fn:fnStatus+(fnNoteItem?'，'+fnNoteItem:'')});
+  });
+
+  const fnReport = getFnReport().replace(/\n/g,'<br>');
+  const accList = getAccList()||'—';
+  const txDate = fields['交易日期']||'';
+  const amount = (fields['收購總金額']||0).toLocaleString();
+  const payment = fields['付款方式']||'—';
+  const name = fields['客戶姓名']||'您';
+  const eqList = [fields['器材一'],fields['器材二'],fields['器材三']].filter(Boolean).join('、')||'—';
+
+  const html = `<!DOCTYPE html>
+<html><head><meta charset="UTF-8"></head>
+<body style="margin:0;padding:20px;background:#eef3f8;font-family:'PingFang TC',Arial,sans-serif">
+<table width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;margin:0 auto;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 6px 24px rgba(15,50,100,0.08)">
+
+<!-- Header: 純文字排版 -->
+<tr><td style="background:linear-gradient(135deg,#0d3b66,#1565c0 60%,#2196d3);padding:30px 28px 26px">
+  <div style="color:#fff;font-size:22px;font-weight:700;letter-spacing:0.04em">林相攝影</div>
+  <div style="color:rgba(255,255,255,0.65);font-size:11px;letter-spacing:0.12em;margin-top:3px">LIN'S CAMERA</div>
+
+  <div style="margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.18)">
+    <table width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td style="color:rgba(255,255,255,0.92);font-size:12px;line-height:2.1">
+          台北市文山區羅斯福路六段5號　　02-2930-3697<br>
+          營業時間　14:00–21:00　（週二、三公休）
+        </td>
+      </tr>
+    </table>
+  </div>
+</td></tr>
+
+<!-- 確認 Bar -->
+<tr><td style="background:#fff;padding:0">
+  <table width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+      <td style="background:#0d3b66;width:6px"></td>
+      <td style="padding:14px 24px;background:#f7faff">
+        <span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#2d9d5f;margin-right:8px;vertical-align:middle"></span>
+        <span style="font-size:13px;font-weight:600;color:#0d3b66;letter-spacing:0.02em;vertical-align:middle">交易確認通知　已完成</span>
+      </td>
+    </tr>
+  </table>
+</td></tr>
+
+<!-- Body -->
+<tr><td style="padding:30px 28px 8px">
+  <p style="font-size:15px;color:#1a1a1a;margin:0 0 6px;line-height:1.6">${name} 您好，</p>
+  <p style="font-size:13.5px;color:#5a6472;line-height:1.85;margin:0 0 26px">
+    感謝您於 ${txDate} 蒞臨本店進行器材收購交易。<br>
+    本次交易已順利完成，以下為完整紀錄憑證，敬請留存查照。
+  </p>
+
+  <!-- 交易資訊 -->
+  <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px">
+    <tr><td style="font-size:10.5px;font-weight:700;color:#8a96a5;letter-spacing:0.1em;padding-bottom:10px">交易資訊</td></tr>
+    <tr><td>
+      <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse">
+        <tr>
+          <td style="padding:11px 0;border-bottom:1px solid #eef1f5;color:#8a96a5;font-size:12px;width:92px">收購金額</td>
+          <td style="padding:11px 0;border-bottom:1px solid #eef1f5;color:#0d3b66;font-size:17px;font-weight:700">NT$ ${amount}</td>
+        </tr>
+        <tr>
+          <td style="padding:11px 0;border-bottom:1px solid #eef1f5;color:#8a96a5;font-size:12px">付款方式</td>
+          <td style="padding:11px 0;border-bottom:1px solid #eef1f5;color:#1a1a1a;font-size:13px">${payment}</td>
+        </tr>
+        <tr>
+          <td style="padding:11px 0;border-bottom:1px solid #eef1f5;color:#8a96a5;font-size:12px">交易日期</td>
+          <td style="padding:11px 0;border-bottom:1px solid #eef1f5;color:#1a1a1a;font-size:13px">${txDate}</td>
+        </tr>
+        ${sellRows}
+        ${holdRows}
+        <tr>
+          <td style="padding:11px 0;color:#8a96a5;font-size:12px;vertical-align:top">隨附配件</td>
+          <td style="padding:11px 0;color:#1a1a1a;font-size:13px">${accList}</td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+
+  <!-- 檢測報告 -->
+  <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:26px">
+    <tr><td style="font-size:10.5px;font-weight:700;color:#8a96a5;letter-spacing:0.1em;padding-bottom:10px">檢測報告預覽</td></tr>
+    <tr><td style="background:#f7faff;border-left:3px solid #0d3b66;border-radius:0 8px 8px 0;padding:16px 18px">
+      ${eqReports.map(eq=>`
+        <div style="margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid #e4eef8">
+          <div style="font-size:13px;font-weight:700;color:#0d3b66;margin-bottom:4px">【${eq.name}】</div>
+          <div style="font-size:12px;color:#3a4756;line-height:1.8">
+            <span style="color:#6b6b63">配件：</span>${eq.acc}<br>
+            <span style="color:#6b6b63">檢測：</span>${eq.fn}
+          </div>
+        </div>`).join('')}
+    </td></tr>
+    <tr><td style="padding-top:9px">
+      <span style="font-size:11px;color:#2d9d5f">✓ 以上檢測結果已由甲乙雙方現場確認並簽署</span>
+    </td></tr>
+  </table>
+
+  <div style="height:1px;background:#eef1f5;margin-bottom:24px"></div>
+
+  <!-- 線上商城 + LINE -->
+  <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px">
+    <tr>
+      <td width="50%" style="padding-right:6px">
+        <a href="https://linscam.fslol.com/" style="display:block;background:#f7faff;border:1px solid #dce8f7;border-radius:10px;padding:16px 14px;text-decoration:none;text-align:center">
+          <div style="font-size:12.5px;font-weight:700;color:#0d3b66">🛒 線上商城</div>
+          <div style="font-size:10.5px;color:#8a96a5;margin-top:3px">瀏覽更多商品</div>
+        </a>
+      </td>
+      <td width="50%" style="padding-left:6px">
+        <a href="https://lin.ee/pmgns9U" style="display:block;background:#f7faff;border:1px solid #dce8f7;border-radius:10px;padding:16px 14px;text-decoration:none;text-align:center">
+          <div style="font-size:12.5px;font-weight:700;color:#0d3b66">💬 LINE 好友</div>
+          <div style="font-size:10.5px;color:#8a96a5;margin-top:3px">加入掌握最新消息</div>
+        </a>
+      </td>
+    </tr>
+  </table>
+
+  <!-- 評論邀請 -->
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:linear-gradient(135deg,#f7faff,#eef4fc);border:1px solid #dce8f7;border-radius:12px;margin-bottom:8px">
+    <tr><td style="padding:24px 22px;text-align:center">
+      <div style="font-size:12px;color:#0d3b66;font-weight:700;letter-spacing:0.06em;margin-bottom:8px">★ ★ ★ ★ ★</div>
+      <div style="font-size:14.5px;font-weight:600;color:#1a1a1a;margin-bottom:6px">玩玩我們開發的評論系統</div>
+      <div style="font-size:12.5px;color:#5a6472;line-height:1.7;margin-bottom:18px">您的支持是我們最大動力，只需 30 秒即可完成</div>
+      <a href="https://amazing-capybara-a34a3c.netlify.app/" style="display:inline-block;background:#0d3b66;color:#fff;font-size:13px;font-weight:600;padding:12px 30px;border-radius:8px;text-decoration:none;letter-spacing:0.03em">前往留下評論</a>
+    </td></tr>
+  </table>
+</td></tr>
+
+<!-- Footer -->
+<tr><td style="background:#0d3b66;padding:20px 28px">
+  <table width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+      <td>
+        <div style="color:#fff;font-size:13px;font-weight:600;margin-bottom:5px">林相攝影 Lin's Camera</div>
+        <div style="color:rgba(255,255,255,0.55);font-size:11px;line-height:1.8">
+          台北市文山區羅斯福路六段5號　02-2930-3697<br>
+          此信件由系統自動發送，請勿直接回覆
+        </div>
+      </td>
+    </tr>
+  </table>
+</td></tr>
+
+</table>
+</body></html>
+`;
+
+  await fetch(API_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      to: toEmail,
+      cc: 'linscamerastore@gmail.com',
+      subject: `【林相攝影】器材收購交易確認通知 — ${txDate}`,
+      html: html
+    })
+  });
+}
+
+
+async function submitForm(){
+  document.getElementById('loading').classList.add('show');
+  const fields={
+    '客戶姓名':document.getElementById('name').value.trim(),
+    '身分證字號':document.getElementById('id-num').value.trim(),
+    '聯絡電話':document.getElementById('phone').value.trim(),
+    '電子信箱':document.getElementById('email').value.trim(),
+    '得知管道':sourceVal==='other'?(document.getElementById('other-source').value.trim()||'其他'):sourceVal,
+    '經手人員':[...document.querySelectorAll('input[name="staff"]:checked')].map(e=>e.value).join('、')||'',
+    '乙方簽名':sigs['sig-client']?.hasContent?'已簽名':'未簽名',
+    '交易日期':document.getElementById('tx-date').value,
+    '器材一':document.getElementById('eq1-name')?.value.trim()||'',
+    '器材二':document.getElementById('eq2-name')?.value.trim()||'',
+    '器材三':document.getElementById('eq3-name')?.value.trim()||'',
+    '收購總金額':parseInt(document.getElementById('tx-amount').value.replace(/[^\d]/g,''))||0,
+    '付款方式':paymentVal,
+    '配件清單':getAccList(),
+    '功能備註':getFnReport(),
+    '外觀備註':'',
+    '快門數':getShutterSummary(),
+    '原廠保固':getWarrantySummary(),
+    '貨品來源':getOriginSummary(),
+    '新舊程度':getCondSummary(),
+    '序號':getSerialSummary(),
+    '缺失配件':getMissingAccSummary(),
+    '保留報價':getHoldSummary(),
+  };
+  // 每台器材各自送一筆到 Airtable
+  const blocks = document.querySelectorAll('.eq-block');
+  const dec = getDecisionData();
+  
+  // 建立每台器材的個別資料
+  const eqRecords = [];
+  blocks.forEach(block => {
+    const n = block.id.replace('eq-block-','');
+    const name = document.getElementById(`eq${n}-name`)?.value.trim()||'';
+    if(!name) return;
+    
+    // 找這台的決策資料（出售/保留），若沒有就用粗估金額
+    const decItem = [...dec.sell,...dec.hold].find(x=>x.name===name);
+    const price = decItem ? decItem.sub : (parseInt(document.getElementById(`eq${n}-est`)?.value||'0')||0);
+    
+    // 這台的貨品來源
+    const originBtn = document.querySelector(`#origin-${n} .cond-btn.on`);
+    const origin = originBtn ? originBtn.textContent.trim() : '';
+    
+    // 這台的保固
+    const warrantyBtn = document.querySelector(`#warranty-${n} .cond-btn.on`);
+    const warrantyStatus = warrantyBtn ? warrantyBtn.textContent.trim() : '';
+    const warrantyDate = document.getElementById(`eq${n}-warranty-date`)?.querySelector('input')?.value||'';
+    const warranty = warrantyStatus==='在保'&&warrantyDate ? warrantyStatus+'（至'+warrantyDate+'）' : warrantyStatus;
+    
+    // 這台的序號
+    const serial = document.getElementById(`eq${n}-serial`)?.value||'';
+    
+    // 這台的快門數
+    const shutter = document.getElementById(`eq${n}-shutter`)?.value||'';
+    
+    // 這台的新舊程度
+    const condBtn = document.querySelector(`#cond-${n} .cond-btn.on`);
+    const cond = condBtn ? condBtn.textContent.trim() : '';
+    
+    // 這台的配件
+    const accData = getEqAccList(n);
+    const accList = accData.have.join('、')||'—';
+    
+    // 這台的功能異常報告
+    const fnAbnormal = [];
+    document.querySelectorAll(`#fn-area-${n} .fn-btn.fn-abnormal`).forEach(btn=>{
+      const row=btn.closest('.fn-row');
+      const item=btn.closest('.fn-item');
+      const label=row?.querySelector('.fn-label')?.textContent.trim();
+      const reason=item?.querySelector('.abnormal-note-field input')?.value.trim()||'';
+      if(label){ let d=label; if(reason)d+='（'+reason+')'; fnAbnormal.push(d); }
+    });
+    const fnNoteThis = document.getElementById(`fn-note-${n}`)?.value.trim()||'';
+    const fnReportThis = [...fnAbnormal, fnNoteThis].filter(Boolean).join('、');
+
+    // 盒裝和盒單
+    const boxBtn2 = document.querySelector('#box-'+n+' .cond-btn.on');
+    const boxDocBtn2 = document.querySelector('#boxdoc-'+n+' .cond-btn.on');
+
+    // 缺少配件扣款
+    const accDeductVal = parseInt(document.getElementById(`acc-deduct-${n}`)?.value||'0')||0;
+    const accData2 = getEqAccList(n);
+    const missingAccStr = accData2.missing.filter(a=>!a.includes('（無此配件）')).join('、')||'';
+
+    eqRecords.push({
+      ...fields,
+      '器材一': name,
+      '器材二': '',
+      '器材三': '',
+      '收購總金額': price,
+      '貨品來源': origin,
+      '原廠保固': warranty,
+      '序號': serial,
+      '快門數': shutter,
+      '新舊程度': cond,
+      '配件清單': accList,
+      '功能備註': fnReportThis,
+      '盒裝': boxBtn2 ? boxBtn2.textContent.trim() : '',
+      '盒單': boxDocBtn2 ? boxDocBtn2.textContent.trim() : '',
+      '檢測報告': getReportHTML(),
+      '缺少配件': missingAccStr ? `${missingAccStr}（需補件）` : '',
+      '配件扣款': accDeductVal || null,
+      '_eqType': block.dataset.type||'body',
+    });
+  });
+
+  // 如果沒有器材資料，用原始 fields 送一筆
+  const recordsToSend = eqRecords.length > 0 ? eqRecords : [fields];
+  // 評論購物金只記在第一筆，避免多台器材重複累計
+  const reviewCredit = getReviewCredit();
+  if(reviewCredit) recordsToSend[0] = {...recordsToSend[0], '評論購物金': reviewCredit};
+  
+  try{
+    // 並行送出所有 Airtable 紀錄（加速）
+    const airtableResults = await Promise.all(recordsToSend.map(rec => {
+      const {_eqType, ...recFields} = rec; // 移除內部欄位
+      return fetch('/.netlify/functions/airtable-create',{
+        method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({fields:recFields})
+      }).then(res=>res.json().then(data=>({ok:res.ok,data})));
+    }));
+    // 檢查是否有失敗
+    for(const r of airtableResults){
+      if(!r.ok){
+        document.getElementById('loading').classList.remove('show');
+        alert('送出失敗：'+JSON.stringify(r.data.error));
+        return;
+      }
+    }
+    document.getElementById('loading').classList.remove('show');
+    // 並行寄信 + 寫入 Google Sheet
+    const email=document.getElementById('email').value.trim();
+    const tasks=[];
+    if(email) tasks.push(sendEmail(fields,email).catch(e=>console.warn('寄信失敗:',e)));
+    for(const rec of recordsToSend){
+      tasks.push(writeToSheet(rec).catch(e=>console.warn('Google Sheet 寫入失敗:',e)));
+    }
+    await Promise.all(tasks);
+    document.getElementById('bottom-nav').style.display='none';
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById('success-screen').classList.add('show');setTimeout(generateQR,300);
+  }catch(err){
+    document.getElementById('loading').classList.remove('show');
+    alert('送出失敗：'+err.message+'（請確認網路連線後再試）');
+  }
+}
+
+
+function generateQR(){
+  // 填入交易摘要卡片
+  const summary = document.getElementById('success-summary');
+  if(summary){
+    const finalAmt = parseInt(document.getElementById('tx-amount')?.value||'0')||0;
+    const dec = getDecisionData();
+    let html = '<div style="font-size:11px;font-weight:700;color:#6b6b63;letter-spacing:0.06em;margin-bottom:10px">📋 本次交易摘要</div>';
+    if(finalAmt){
+      html += `<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:2px solid #1565c0;margin-bottom:8px;font-size:15px;font-weight:700">
+        <span>最終收購金額</span>
+        <span style="color:#1565c0">NT$ ${finalAmt.toLocaleString()}</span>
+      </div>`;
+    }
+    if(dec.sell.length){
+      dec.sell.forEach(x=>{
+        html += `<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f2f2f0;font-size:13px">
+          <span style="color:#111;font-weight:500">${x.name}</span>
+          <span style="color:#2d6a4f;font-weight:700">NT$ ${x.sub.toLocaleString()}</span>
+        </div>`;
+      });
+    }
+    if(dec.hold.length){
+      html += '<div style="margin-top:10px;font-size:11px;font-weight:700;color:#8a6820;letter-spacing:0.06em;margin-bottom:6px">📌 保留報價</div>';
+      dec.hold.forEach(x=>{
+        html += `<div style="display:flex;justify-content:space-between;font-size:13px;color:#8a6820;padding:4px 0">
+          <span>${x.name}</span><span>NT$ ${x.sub.toLocaleString()}（有效至${x.exp}）</span>
+        </div>`;
+      });
+    }
+    const rc = getReviewCredit();
+    if(rc){
+      html += `<div style="margin-top:12px;padding:10px 12px;background:#fffbea;border:1px dashed #c9a227;border-radius:10px;font-size:13px;color:#7a5c00">
+        🎁 已登記評論折抵金 <strong>NT$ ${rc.toLocaleString()}</strong><br>
+        <span style="font-size:12px">記在電話 ${document.getElementById('phone')?.value.trim()||''} 名下，下次消費滿 NT$ ${REVIEW_MIN_SPEND.toLocaleString()} 可折抵</span>
+      </div>`;
+    }
+    summary.innerHTML = html;
+  }
+
+  // QR Code
+  const c=document.getElementById('qrcode-container');
+  if(!c||c.children.length>0)return;
+  if(typeof QRCode !== 'undefined'){
+    const sl=document.getElementById('success-review-link'); if(sl) sl.href=reviewUrl();
+    try{new QRCode(c,{text:reviewUrl(),width:156,height:156,colorDark:'#111',colorLight:'#fff',correctLevel:QRCode.CorrectLevel.M});}
+    catch(e){c.innerHTML='<div style="font-size:11px;color:#aaa;padding:16px">請點下方按鈕</div>';}
+  }
+}
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+function generateListingText(){
+  const container = document.getElementById('listing-cards');
+  if(!container) return;
+
+  const blocks = document.querySelectorAll('.eq-block');
+  let cards = '';
+
+  blocks.forEach((block,bi)=>{
+    const n = block.id.replace('eq-block-','');
+    const name = document.getElementById('eq'+n+'-name')?.value.trim()||'';
+    if(!name) return;
+
+    const type = block.dataset.type==='lens'?'鏡頭':'機身';
+    const serial = document.getElementById('eq'+n+'-serial')?.value||'';
+    const shutter = document.getElementById('eq'+n+'-shutter')?.value||'';
+    const condBtn = document.querySelector('#cond-'+n+' .cond-btn.on');
+    const cond = condBtn ? condBtn.textContent.trim() : '';
+    const originBtn = document.querySelector('#origin-'+n+' .cond-btn.on');
+    const origin = originBtn ? originBtn.textContent.trim() : '';
+    const boxBtn = document.querySelector('#box-'+n+' .cond-btn.on');
+    const boxDocBtn = document.querySelector('#boxdoc-'+n+' .cond-btn.on');
+    const boxStr = boxBtn ? boxBtn.textContent.trim() : '';
+    const boxDocStr = boxDocBtn ? boxDocBtn.textContent.trim() : '';
+    const warrantyBtn = document.querySelector('#warranty-'+n+' .cond-btn.on');
+    const warrantyStatus = warrantyBtn ? warrantyBtn.textContent.trim() : '';
+    const warrantyDate = document.getElementById('eq'+n+'-warranty-date')?.querySelector('input')?.value||'';
+
+    // 配件
+    const accData = getEqAccList(n);
+    const accHave = accData.have.filter(a=>!a.includes('無此配件')).join('、')||'—';
+
+    // 新舊程度對應%
+    const condMap = {'全新':'100%新','近無使用痕跡':'90%新以上','些許使用痕跡':'80%新','使用痕跡多':'75%新'};
+    const condPct = condMap[cond]||cond;
+
+    // 功能異常說明
+    const abnormal = [];
+    block.querySelectorAll('.fn-btn.fn-abnormal').forEach(btn=>{
+      const row=btn.closest('.fn-row');
+      const item=btn.closest('.fn-item');
+      const label=row?.querySelector('.fn-label')?.textContent.trim();
+      const reason=item?.querySelector('.abnormal-note-field input')?.value.trim()||'';
+      if(label){ let d=label; if(reason)d+='（'+reason+')'; abnormal.push(d); }
+    });
+    const fnNote = document.getElementById('fn-note-'+n)?.value.trim()||'';
+    const fnDesc = abnormal.length ? abnormal.join('、') : '狀況經檢測功能正常';
+    const fnFull = fnNote ? fnDesc+'　'+fnNote : fnDesc;
+
+    // 保固說明
+    const warrantyStr = warrantyStatus==='在保' && warrantyDate
+      ? `原廠保固至${warrantyDate}`
+      : '商品售出半年保固';
+
+    // 配件說明
+    const accDesc = `${origin}${boxDocStr}　${type}：${accHave}`;
+
+    const text = `⚠️ 商品與現場同步販售，庫存依現場為準，所以請一定要詢問! 謝謝
+☎️客服電話：02-29303697
+🏠門市營業時間14-21點(二三公休)
+台北市文山區羅斯福路六段5號
+--------------------------------------
+【商品貨號】${serial}
+【名稱】${name}
+【品相描述】${fnFull}${shutter?'　快門'+shutter+'內':''}
+【新舊程度】${condPct}
+【保固狀態】${warrantyStr}
+【配件說明】${accDesc}
+【BSMI商檢字號】
+NCC：（請自行查詢）
+--------------------------------------
+【商品狀態分級說明】
+● 100%新 = 全新未拆封新品
+●  90%新以上 = 機況近全新、使用痕跡不明顯
+●   80%新 = 僅些許使用小痕跡，不影響心情
+●   75%新 = 外觀較重的使用痕跡，會特別標注位置`;
+
+    cards += `<div style="background:#fff;border:1px solid #e4e4e0;border-radius:12px;padding:14px;margin-bottom:12px;position:relative">
+      <div style="font-size:12px;font-weight:700;color:#1565c0;margin-bottom:8px">${name}</div>
+      <textarea readonly id="listing-text-${n}" style="width:100%;height:220px;font-size:11px;line-height:1.7;border:1px solid #e4e4e0;border-radius:8px;padding:10px;font-family:inherit;resize:none;color:#111;box-sizing:border-box;background:#f8f8f7">${text}</textarea>
+      <button onclick="copyListing('listing-text-${n}')" style="margin-top:8px;width:100%;padding:9px;background:#1565c0;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">
+        📋 複製文案
+      </button>
+    </div>`;
+  });
+
+  container.innerHTML = cards || '<div style="font-size:13px;color:#888">無器材資料</div>';
+}
+
+function copyListing(id){
+  const el = document.getElementById(id);
+  if(!el) return;
+  el.select();
+  document.execCommand('copy');
+  // 顯示提示
+  const btn = el.nextElementSibling;
+  if(btn){ btn.textContent='✅ 已複製！'; setTimeout(()=>btn.textContent='📋 複製文案',2000); }
+}
+
+</script>
+<script>
+// 防止意外重新整理
+window.addEventListener('beforeunload', function(e){
+  if(eqCount > 0 || document.getElementById('client-name')?.value){
+    e.preventDefault();
+    e.returnValue = '表單資料尚未送出，確定要離開嗎？';
+    return e.returnValue;
+  }
+});
+
+// 頁面載入完成後自動新增第一台器材
+document.addEventListener('DOMContentLoaded', function(){
+  addEquipment();
+});
+</script>
+
+
+</body></html>
