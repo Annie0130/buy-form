@@ -650,6 +650,11 @@ function addEquipment(){
         <div class="type-btn" onclick="setType(this,${n},'lens')">🔭 鏡頭</div>
         <div class="type-btn" onclick="setType(this,${n},'compact')">📸 隨身機</div>
       </div>
+      <div class="y2k-row" id="y2k-row-${n}" style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:-2px 0 10px">
+        <span class="sub-label" style="margin:0">CCD／Y2K（選填）</span>
+        <div class="cond-btn" data-val="CCD 相機" onclick="setY2k(this,${n})">📼 CCD 相機</div>
+        <div class="cond-btn" data-val="Y2K 復古" onclick="setY2k(this,${n})">✨ Y2K 復古（非 CCD）</div>
+      </div>
       <div class="eq-grid2">
         <div class="field" style="position:relative"><label>型號名稱</label>
           <input type="text" id="eq${n}-name" placeholder="輸入型號搜尋…" autocomplete="off"
@@ -760,8 +765,25 @@ function setType(el,n,type){
   el.parentElement.querySelectorAll('.type-btn').forEach(b=>b.classList.remove('on'));
   el.classList.add('on');
   document.getElementById(`eq-block-${n}`).dataset.type=type;
+  // 鏡頭沒有 CCD／Y2K：隱藏並清除選擇
+  const y2kRow = document.getElementById(`y2k-row-${n}`);
+  if (y2kRow) {
+    y2kRow.style.display = type === 'lens' ? 'none' : 'flex';
+    if (type === 'lens') y2kRow.querySelectorAll('.cond-btn').forEach(b => b.classList.remove('on'));
+  }
   document.getElementById(`acc-area-${n}`).innerHTML=buildAccHTML(n,type);
   document.getElementById(`fn-area-${n}`).innerHTML=buildFnHTML(n,type);
+}
+
+// CCD／Y2K：兩個選項只能選一個，再點一次可以取消
+function setY2k(el,n){
+  const was = el.classList.contains('on');
+  document.querySelectorAll(`#y2k-row-${n} .cond-btn`).forEach(b=>b.classList.remove('on'));
+  if(!was) el.classList.add('on');
+}
+function getY2k(n){
+  const b = document.querySelector(`#y2k-row-${n} .cond-btn.on`);
+  return b ? b.dataset.val : '';
 }
 
 function setCond(el,n){
@@ -1911,6 +1933,7 @@ async function submitForm(){
       '缺少配件': missingAccStr ? `${missingAccStr}（需補件）` : '',
       '配件扣款': accDeductVal || null,
       '_eqType': block.dataset.type||'body',
+      ...(getY2k(n) && (block.dataset.type||'body') !== 'lens' ? {'CCD／Y2K': getY2k(n)} : {}),
     });
   });
 
