@@ -1587,6 +1587,7 @@ async function writeToSheet(rec){
     '公水': origin,
     '快門數': shutterField,
     '盒單': boxDoc,
+    'airtableId': rec['_airtableId']||'',
   };
 
   const params = new URLSearchParams();
@@ -1941,9 +1942,10 @@ async function submitForm(){
     const email=document.getElementById('email').value.trim();
     const tasks=[];
     if(email) tasks.push(sendEmail(fields,email).catch(e=>console.warn('寄信失敗:',e)));
-    for(const rec of recordsToSend){
-      tasks.push(writeToSheet(rec).catch(e=>console.warn('Google Sheet 寫入失敗:',e)));
-    }
+    // 帶上 Airtable 紀錄編號，試算表 KEY 售價時才能對回這筆紀錄
+    recordsToSend.forEach((rec,i)=>{
+      tasks.push(writeToSheet({...rec, _airtableId: airtableResults[i]?.data?.id||''}).catch(e=>console.warn('Google Sheet 寫入失敗:',e)));
+    });
     await Promise.all(tasks);
     document.getElementById('bottom-nav').style.display='none';
     document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
