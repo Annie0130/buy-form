@@ -63,7 +63,8 @@ function onPriceEdit(e) {
   if (sheet.getName() !== SHEET_NAME) return;
   if (range.getColumn() > PRICE_COLUMN || range.getLastColumn() < PRICE_COLUMN) return;
 
-  const token = PropertiesService.getScriptProperties().getProperty('AIRTABLE_TOKEN');
+  // 去掉複製時可能多帶的空白或引號
+  const token = (PropertiesService.getScriptProperties().getProperty('AIRTABLE_TOKEN') || '').trim().replace(/^["']|["']$/g, '');
   if (!token) throw new Error('請在「專案設定 → 指令碼屬性」加入 AIRTABLE_TOKEN');
 
   for (let row = Math.max(range.getRow(), 2); row <= range.getLastRow(); row++) {
@@ -90,8 +91,8 @@ function findAirtableId(sheet, row, token) {
   const meta = rowRange.getDeveloperMetadata().find(m => m.getKey() === ID_KEY);
   if (meta) return meta.getValue();
 
-  const name = String(sheet.getRange(row, 1).getValue()).trim();
-  const serial = String(sheet.getRange(row, 3).getValue()).trim();
+  const name = String(sheet.getRange(row, 1).getDisplayValue()).trim();
+  const serial = String(sheet.getRange(row, 3).getDisplayValue()).trim();
   if (!name) return '';
   const esc = s => s.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
   const formula = serial
@@ -101,6 +102,10 @@ function findAirtableId(sheet, row, token) {
     headers: { Authorization: 'Bearer ' + token },
     muteHttpExceptions: true,
   });
+  if (res.getResponseCode() !== 200) {
+    console.error('第 ' + row + ' 列查詢 Airtable 失敗（' + res.getResponseCode() + '）：' + res.getContentText());
+    return '';
+  }
   const records = JSON.parse(res.getContentText()).records || [];
   if (records.length !== 1) {
     console.warn('第 ' + row + ' 列找不到唯一對應的 Airtable 紀錄（找到 ' + records.length + ' 筆），略過');
