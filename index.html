@@ -536,6 +536,88 @@ const compactChecks=[
   {cat:'外觀部分',items:['機身外觀痕跡','皮革老化狀況','感光元件入塵/發霉','鏡頭入塵/發霉','螢幕刮傷']},
   {cat:'內部功能',items:['自動對焦功能','變焦功能','螢幕顯示/亮暗點','記憶卡讀寫','實體按鍵功能','閃光燈','電池充電功能','功能轉盤模式','時間記憶功能']},
 ];
+// CCD／Y2K 老相機額外檢查（選了 CCD／Y2K 才會出現，加在原本檢核表後面）
+const retroChecks=[
+  {cat:'老相機：鏡頭機構',items:['開機鏡頭伸縮（無卡住/Lens Error）','自動鏡頭蓋葉片開合','變焦馬達順暢無異音']},
+  {cat:'老相機：成像',items:['CCD 成像（無整片紫/黑/條紋）','拍照壞點/熱點','畫面偏色']},
+  {cat:'老相機：電源',items:['電池無鼓脹','電池續航','電池接點/端子無鏽蝕','時間記憶（內部紐扣電池）']},
+  {cat:'老相機：外觀材質',items:['橡膠/塗層無發黏','電池蓋/記憶卡蓋卡榫']},
+  {cat:'老相機：連接與其他',items:['大容量記憶卡相容','USB 傳輸照片','錄影功能']},
+];
+const RETRO_CARDS=['SD','SDHC','xD','Memory Stick','CF','內建記憶體'];
+const RETRO_LANGS=['有中文','英文','日文','英日文','其他語言'];
+
+function buildRetroHTML(n){
+  let html=`<div class="retro-checks" id="retro-${n}" style="margin-top:6px;padding-top:6px;border-top:1px dashed #d8b4fe">`;
+  retroChecks.forEach(sec=>{
+    html+=`<div class="divider-label" style="color:#7c3aed">▸ ${sec.cat}</div>`;
+    sec.items.forEach(item=>{
+      html+=`<div class="fn-item">
+        <div class="fn-row">
+          <span class="fn-label">${item}</span>
+          <div class="fn-toggle">
+            <div class="fn-btn" onclick="setFn(this,'fn-normal')">正常</div>
+            <div class="fn-btn" onclick="setFn(this,'fn-abnormal')">異常</div>
+            <div class="fn-btn fn-na-btn" onclick="setFnNA(this)">無此項</div>
+          </div>
+        </div>
+        <div class="deduct-field">
+          <span style="font-size:12px;color:var(--red)">扣款 NT$</span>
+          <input type="text" inputmode="numeric" placeholder="0" oninput="updateSummary()">
+          <span style="font-size:12px;color:var(--gray-600)">元</span>
+        </div>
+        <div class="deduct-field abnormal-note-field" style="margin-top:4px">
+          <input type="text" placeholder="異常原因（例：鏡頭伸出卡住）" style="flex:1;width:100%;padding:5px 8px;border:1px solid #e57373;border-radius:4px;font-size:12px;font-family:inherit;color:var(--black)">
+        </div>
+      </div>`;
+    });
+  });
+  // 記憶卡類型（可多選）＋最大容量、選單語言（單選）
+  html+=`<div class="divider-label" style="color:#7c3aed">▸ 老相機：規格（會寫進上架文案）</div>
+    <div class="sub-label">記憶卡類型（可多選）</div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px" id="retro-card-${n}">
+      ${RETRO_CARDS.map(c=>`<div class="cond-btn" onclick="this.classList.toggle('on')">${c}</div>`).join('')}
+    </div>
+    <input type="text" id="retro-cardmax-${n}" placeholder="最大支援容量（選填，例：2GB）" style="width:100%;box-sizing:border-box;padding:6px 10px;border:1px solid var(--gray-200);border-radius:var(--radius-sm);font-size:13px;font-family:inherit;margin-bottom:8px">
+    <div class="sub-label">選單語言</div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:4px" id="retro-lang-${n}">
+      ${RETRO_LANGS.map(l=>`<div class="cond-btn" onclick="setRetroLang(this,${n})">${l}</div>`).join('')}
+    </div>
+  </div>`;
+  return html;
+}
+function setRetroLang(el,n){
+  const was=el.classList.contains('on');
+  document.querySelectorAll(`#retro-lang-${n} .cond-btn`).forEach(b=>b.classList.remove('on'));
+  if(!was) el.classList.add('on');
+}
+function getRetroCard(n){
+  const cards=[...document.querySelectorAll(`#retro-card-${n} .cond-btn.on`)].map(b=>b.textContent.trim());
+  const max=document.getElementById(`retro-cardmax-${n}`)?.value.trim()||'';
+  if(!cards.length && !max) return '';
+  return cards.join('／') + (max ? `（最大 ${max}）` : '');
+}
+function getRetroLang(n){
+  return document.querySelector(`#retro-lang-${n} .cond-btn.on`)?.textContent.trim()||'';
+}
+// 依 CCD／Y2K 的選擇，加上或移除老相機檢核表（不會清掉已經勾好的原本項目）
+function syncRetro(n){
+  const area=document.getElementById(`fn-area-${n}`);
+  if(!area) return;
+  const block=document.getElementById(`eq-block-${n}`);
+  const want = !!getY2k(n) && (block?.dataset.type||'body')!=='lens';
+  const cur=document.getElementById(`retro-${n}`);
+  if(want && !cur){
+    const note=document.getElementById(`fn-note-${n}`)?.closest('.field');
+    const wrap=document.createElement('div'); wrap.innerHTML=buildRetroHTML(n);
+    const node=wrap.firstElementChild;
+    if(note) note.parentNode.insertBefore(node, note); else area.appendChild(node);
+  } else if(!want && cur){
+    cur.remove();
+  }
+  if(typeof updateSummary==='function') updateSummary();
+}
+
 const lensChecks=[
   {cat:'外觀部分',items:['鏡頭外觀痕跡','鏡桶刮傷','遮光罩卡口']},
   {cat:'光學部分',items:['鏡頭鏡片發霉/霧化','鏡片入塵','鍍膜刮傷','內部油漬']},
@@ -773,6 +855,7 @@ function setType(el,n,type){
   }
   document.getElementById(`acc-area-${n}`).innerHTML=buildAccHTML(n,type);
   document.getElementById(`fn-area-${n}`).innerHTML=buildFnHTML(n,type);
+  syncRetro(n); // 換類型後檢核表重建：CCD／Y2K 還有選就補回老相機項目
 }
 
 // CCD／Y2K：兩個選項只能選一個，再點一次可以取消
@@ -780,6 +863,7 @@ function setY2k(el,n){
   const was = el.classList.contains('on');
   document.querySelectorAll(`#y2k-row-${n} .cond-btn`).forEach(b=>b.classList.remove('on'));
   if(!was) el.classList.add('on');
+  syncRetro(n);
 }
 function getY2k(n){
   const b = document.querySelector(`#y2k-row-${n} .cond-btn.on`);
@@ -1385,6 +1469,7 @@ function generateReport(){
        return realMissing.length?realMissing.join('、'):'齊全';
      })()],
      ['缺失說明',missingAccNote||'—'],
+     ...(getY2k(n)?[['CCD／Y2K',getY2k(n)],['記憶卡',getRetroCard(n)||'—'],['選單語言',getRetroLang(n)||'—']]:[]),
     ].forEach(([k,v])=>{
       html+=`<tr><td style="padding:3px 0;color:#666;width:70px">${k}</td><td style="padding:3px 0;color:#111">${v}</td></tr>`;
     });
@@ -1934,6 +2019,8 @@ async function submitForm(){
       '配件扣款': accDeductVal || null,
       '_eqType': block.dataset.type||'body',
       ...(getY2k(n) && (block.dataset.type||'body') !== 'lens' ? {'CCD／Y2K': getY2k(n)} : {}),
+      ...(getRetroCard(n) ? {'記憶卡類型': getRetroCard(n)} : {}),
+      ...(getRetroLang(n) ? {'選單語言': getRetroLang(n)} : {}),
     });
   });
 
