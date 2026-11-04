@@ -63,8 +63,7 @@ function onPriceEdit(e) {
   if (sheet.getName() !== SHEET_NAME) return;
   if (range.getColumn() > PRICE_COLUMN || range.getLastColumn() < PRICE_COLUMN) return;
 
-  // 去掉複製時可能多帶的空白或引號
-  const token = (PropertiesService.getScriptProperties().getProperty('AIRTABLE_TOKEN') || '').trim().replace(/^["']|["']$/g, '');
+  const token = getToken();
   if (!token) throw new Error('請在「專案設定 → 指令碼屬性」加入 AIRTABLE_TOKEN');
 
   for (let row = Math.max(range.getRow(), 2); row <= range.getLastRow(); row++) {
@@ -113,6 +112,26 @@ function findAirtableId(sheet, row, token) {
   }
   rowRange.addDeveloperMetadata(ID_KEY, records[0].id);
   return records[0].id;
+}
+
+// Airtable 金鑰只會有英文、數字和「.」，複製時夾帶的空白、換行、隱形字元都去掉
+function getToken() {
+  const raw = PropertiesService.getScriptProperties().getProperty('AIRTABLE_TOKEN') || '';
+  return raw.replace(/^Bearer\s+/i, '').replace(/[^A-Za-z0-9.]/g, '');
+}
+
+// 檢查金鑰用：在上方選 checkToken 按「執行」，看執行紀錄（不會印出完整金鑰）
+function checkToken() {
+  const raw = PropertiesService.getScriptProperties().getProperty('AIRTABLE_TOKEN') || '';
+  const token = getToken();
+  console.log('原始長度 ' + raw.length + '，清理後長度 ' + token.length
+    + '，開頭 ' + token.slice(0, 3) + '，含「.」：' + token.includes('.')
+    + '，被清掉的字元碼：' + (Array.from(raw).filter(c => !/[A-Za-z0-9.]/.test(c)).map(c => c.charCodeAt(0)).join(',') || '無'));
+  const res = UrlFetchApp.fetch(AIRTABLE_URL + '?maxRecords=1', {
+    headers: { Authorization: 'Bearer ' + token },
+    muteHttpExceptions: true,
+  });
+  console.log('Airtable 回應 ' + res.getResponseCode() + '：' + res.getContentText().slice(0, 150).replace(/"fields":\{.*$/, '…'));
 }
 
 // 只要執行一次：建立「編輯試算表時自動同步售價」的觸發條件
