@@ -23,6 +23,12 @@ function doGet(e) {
   return ContentService.createTextOutput('OK');
 }
 
+// 序號像數字時（例如 008362），前面加 ' 讓試算表當成文字，前面的 0 才不會被吃掉
+function asText(v) {
+  const s = String(v || '').trim();
+  return /^\d+$/.test(s) ? "'" + s : s;
+}
+
 function handleData(data) {
   // 好幾台器材會同時送進來，排隊寫入，避免記錯列
   const lock = LockService.getScriptLock();
@@ -32,7 +38,7 @@ function handleData(data) {
     sheet.appendRow([
       data['商品名稱'] || '',
       data['分類'] || '',
-      data['條碼'] || '',
+      asText(data['條碼']),
       data['庫存量'] || 1,
       data['進貨價'] || '',
       data['銷售價'] || '',
@@ -94,8 +100,12 @@ function findAirtableId(sheet, row, token) {
   const serial = String(sheet.getRange(row, 3).getDisplayValue()).trim();
   if (!name) return '';
   const esc = s => s.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+  // 試算表可能把序號前面的 0 吃掉（008362 → 8362），所以純數字的序號比對時忽略前面的 0
+  const serialCond = /^\d+$/.test(serial)
+    ? 'REGEX_MATCH({序號}&"","^0*' + serial.replace(/^0+/, '') + '$")'
+    : '{序號}="' + esc(serial) + '"';
   const formula = serial
-    ? 'AND({器材一}="' + esc(name) + '",{序號}="' + esc(serial) + '")'
+    ? 'AND({器材一}="' + esc(name) + '",' + serialCond + ')'
     : '{器材一}="' + esc(name) + '"';
   const res = UrlFetchApp.fetch(AIRTABLE_URL + '?maxRecords=2&filterByFormula=' + encodeURIComponent(formula), {
     headers: { Authorization: 'Bearer ' + token },
