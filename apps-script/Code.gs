@@ -2,7 +2,7 @@
 // 這份是備份；實際執行的是試算表「擴充功能 → Apps Script」裡的那份，改完要貼回去並重新部署。
 //
 // 1. 合約網站送出收購時，doGet / doPost 新增一列，並在那一列記下 Airtable 紀錄編號（隱藏的列資料，匯出時不會出現）
-// 2. 在試算表 KEY「銷售價」（F 欄）時，onPriceEdit 自動寫進 Airtable 的「售價」
+// 2. 在試算表 KEY「銷售價」（F 欄）時，onPriceEdit 自動寫進 Airtable 的「售價」（清空儲存格不會刪掉 Airtable 的售價）
 //
 // Airtable 金鑰放在「專案設定 → 指令碼屬性」的 AIRTABLE_TOKEN，不要寫在程式碼裡。
 
@@ -76,7 +76,9 @@ function onPriceEdit(e) {
     const id = findAirtableId(sheet, row, token);
     if (!id) continue;
     const raw = String(sheet.getRange(row, PRICE_COLUMN).getValue()).replace(/[^\d.]/g, '');
-    const price = raw ? Number(raw) : null;
+    // 清空儲存格（或刪掉內容）不會把收購後台的售價刪掉；只有打數字才會改
+    if (!raw) continue;
+    const price = Number(raw);
     const res = UrlFetchApp.fetch(AIRTABLE_URL + '/' + id, {
       method: 'patch',
       contentType: 'application/json',
