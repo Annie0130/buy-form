@@ -129,6 +129,16 @@ export function periodDisplay(label, start, end) {
   return label || '—';
 }
 
+// 畫面把「6個月（2026-11-01～2027-05-01）」拆開，日期各自不換行。字串本身不變。
+export function fillValueParts(value) {
+  const text = String(value || '—');
+  const ranged = text.match(/^(.*?)（(\d{4}-\d{2}-\d{2})～(\d{4}-\d{2}-\d{2})）$/);
+  if (ranged) return { name: ranged[1], start: ranged[2], end: ranged[3] };
+  const single = text.match(/^(\d{4}-\d{2}-\d{2})(（已過期）)?$/);
+  if (single) return { date: single[1], note: single[2] || '' };
+  return { plain: text };
+}
+
 export function inferPeriod(start, end, label) {
   const fromLabel = normalizePeriod(label);
   if (fromLabel && periodEnd(start, fromLabel) === end) return fromLabel;

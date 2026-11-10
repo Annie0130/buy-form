@@ -3,6 +3,7 @@ import {
   guestMessage, inferPeriod, normPhone, normalizePeriod, parsePosRecords,
   periodEnd, periodLabel, prepareIssue, taipeiToday,
 } from './shared/warranty.js';
+import { renderFillRows } from './fill-dom.js';
 
 const PW_KEY = 'linscamWarrantyPw';
 const PW_DAYS = 30;
@@ -13,20 +14,55 @@ let editingId = '';
 let listOffset = '';
 let posItems = [];
 let last = null;
+let password = '';
+const DEMO = new URLSearchParams(location.search).get('demo') === '1';
 
 const $ = (id) => document.getElementById(id);
 
-function getPassword() {
+function readSavedPassword() {
   try {
     const saved = JSON.parse(localStorage.getItem(PW_KEY) || 'null');
     if (saved && saved.expires > Date.now() && saved.pw) return saved.pw;
   } catch { /* 壞掉的紀錄就當沒有 */ }
-  const pw = prompt('請輸入後台密碼') || '';
-  if (pw) localStorage.setItem(PW_KEY, JSON.stringify({ pw, expires: Date.now() + PW_DAYS * 86400000 }));
-  return pw;
+  return '';
 }
 
+function showGate(message) {
+  document.body.classList.add('locked');
+  const err = $('login-error');
+  if (!err) return;
+  err.hidden = !message;
+  err.textContent = message || '';
+  $('login-pw')?.focus();
+}
+
+function hideGate() {
+  document.body.classList.remove('locked');
+}
+
+const DEMO_CERTS = [
+  { id: 'demo1', no: 'LW20261101-DEMO', token: 'demo-1', product: 'Sony A7 III 機身（預覽範例）', serial: 'DEMO-A7III-0001', memberName: '王小明', phone: '0912345678', periodLabel: '6個月', shopEnd: '2027-05-01', company: true, displayStatus: '有效', status: '有效' },
+  { id: 'demo2', no: 'LW20260920-EXAM', token: 'demo-2', product: 'Sony FE 24-70mm F2.8 GM（預覽範例）', serial: 'DEMO-2470-0002', memberName: '王小明', phone: '0912345678', periodLabel: '1個月', shopEnd: '2026-10-20', company: false, displayStatus: '已到期', status: '有效' },
+  { id: 'demo3', no: 'LW20260801-VOID', token: 'demo-3', product: 'Canon EOS R6 機身（預覽範例）', serial: 'DEMO-R6-0003', memberName: '示範客人', phone: '0987654321', periodLabel: '6個月', shopEnd: '2027-02-01', company: true, displayStatus: '已作廢', status: '已作廢' },
+];
+
 async function api(path, opts = {}) {
+  if (DEMO) {
+    const reading = !opts.method || opts.method === 'GET';
+    if (!reading) return { res: { ok: false, status: 400 }, data: { error: '預覽模式不會寫入資料' } };
+    if (path.includes('op=status')) return { res: { ok: true, status: 200 }, data: { tables: { members: 'ok', certs: 'ok', terms: 'ok' }, hint: '' } };
+    if (path.includes('op=certs')) return { res: { ok: true, status: 200 }, data: { certificates: DEMO_CERTS, offset: '' } };
+    if (path.includes('op=member&')) {
+      return { res: { ok: true, status: 200 }, data: { found: true, member: { phone: '0912345678', name: '王小明', line: 'xiaoming-demo', email: 'preview@example.com', code: '246810', created: '2026-10-15' } } };
+    }
+    if (path.includes('op=members')) return { res: { ok: true, status: 200 }, data: { members: [{ id: 'm1', phone: '0912345678', name: '王小明', line: 'xiaoming-demo', email: 'preview@example.com', code: '246810', created: '2026-10-15', note: '' }], offset: '' } };
+    if (path.includes('op=terms')) return { res: { ok: true, status: 200 }, data: { terms: DEFAULT_TERMS } };
+    return { res: { ok: false, status: 400 }, data: { error: '預覽模式沒有這筆資料' } };
+  }
+  if (!password) {
+    showGate();
+    return { res: { ok: false, status: 401 }, data: { error: '請先登入' } };
+  }
   let res;
   let data = {};
   try {
@@ -35,7 +71,7 @@ async function api(path, opts = {}) {
       headers: {
         ...(opts.body ? { 'Content-Type': 'application/json' } : {}),
         ...(opts.headers || {}),
-        'x-admin-password': getPassword(),
+        'x-admin-password': password,
       },
     });
     data = await res.json().catch(() => ({}));
@@ -43,8 +79,9 @@ async function api(path, opts = {}) {
     return { res: { ok: false, status: 0 }, data: { error: '連不上伺服器' } };
   }
   if (res.status === 401) {
+    password = '';
     localStorage.removeItem(PW_KEY);
-    alert('密碼錯誤，請重新整理頁面再輸入一次');
+    showGate('密碼不正確，請再試一次');
   }
   return { res, data };
 }
@@ -105,7 +142,6 @@ function paintPreview() {
   if ($('staff-other-wrap').hidden !== hideStaff) $('staff-other-wrap').hidden = hideStaff;
   const periodKey = normalizePeriod($('f-period').value) || DEFAULT_PERIOD;
   const box = $('bottom-preview');
-  box.replaceChildren();
   const draft = {
     product: $('f-product').value.trim(),
     serial: $('f-serial').value.trim(),
@@ -118,17 +154,7 @@ function paintPreview() {
     company: $('f-company').checked,
     mfgEnd: $('f-company').checked ? $('f-mfg').value : '',
   };
-  for (const [label, value] of bottomFields(draft, today)) {
-    const row = document.createElement('div');
-    row.className = 'fill-row';
-    const a = document.createElement('div');
-    a.className = 'fill-label';
-    a.textContent = label;
-    const b = document.createElement('div');
-    b.textContent = value;
-    row.append(a, b);
-    box.append(row);
-  }
+  renderFillRows(box, bottomFields(draft, today));
 }
 
 function fillMember(member) {
@@ -245,17 +271,9 @@ function openDone(data, title) {
   head.style.fontWeight = '700';
   head.textContent = `${cert.no}　${cert.product}`;
   body.append(head);
-  for (const [label, value] of bottomFields({ ...cert, phone: cert.phone }, taipeiToday())) {
-    const row = document.createElement('div');
-    row.className = 'fill-row';
-    const a = document.createElement('div');
-    a.className = 'fill-label';
-    a.textContent = label;
-    const b = document.createElement('div');
-    b.textContent = value;
-    row.append(a, b);
-    body.append(row);
-  }
+  const fills = document.createElement('div');
+  renderFillRows(fills, bottomFields({ ...cert, phone: cert.phone }, taipeiToday()));
+  body.append(fills);
   $('done-code').textContent = member.code || '';
   $('done-open').href = url;
   $('done-line').href = `https://line.me/R/msg/text/?${encodeURIComponent(guestMessage({
@@ -329,33 +347,39 @@ async function loadCerts(reset) {
   if (reset && !rows.length) { box.textContent = '沒有保固書'; }
   const table = box.querySelector('table') || document.createElement('table');
   if (!box.querySelector('table') && rows.length) {
+    const wrap = document.createElement('div');
+    wrap.className = 'table-wrap';
     table.innerHTML = '<thead><tr><th>編號</th><th>商品</th><th>會員</th><th>期間</th><th>狀態</th><th></th></tr></thead>';
-    box.replaceChildren(table);
+    wrap.append(table);
+    box.replaceChildren(wrap);
   }
   let body = table.querySelector('tbody');
   if (!body && rows.length) { body = document.createElement('tbody'); table.append(body); }
   for (const cert of rows) {
     const tr = document.createElement('tr');
-    tr.innerHTML = `<td>${cert.no || ''}</td><td>${escapeHtml(cert.product)}<br><span class="hint">${escapeHtml(cert.serial)}</span></td><td>${escapeHtml(cert.memberName)}<br>${formatPhone(cert.phone)}</td><td>${escapeHtml(cert.periodLabel)}<br>${escapeHtml(cert.shopEnd || '')}${cert.company ? ' <span class="badge co">公司貨</span>' : ''}</td><td>${badge(cert.displayStatus)}</td><td></td>`;
+    tr.innerHTML = `<td><span class="date">${escapeHtml(cert.no || '')}</span></td><td>${escapeHtml(cert.product)}<br><span class="hint">${escapeHtml(cert.serial)}</span></td><td>${escapeHtml(cert.memberName)}<br><span class="date">${formatPhone(cert.phone)}</span></td><td><span class="date">${escapeHtml(cert.periodLabel)}</span><br><span class="date">${escapeHtml(cert.shopEnd || '')}</span>${cert.company ? ' <span class="badge co">公司貨</span>' : ''}</td><td>${badge(cert.displayStatus)}</td><td></td>`;
     const cell = tr.lastElementChild;
+    const actions = document.createElement('div');
+    actions.className = 'row-actions';
     const open = document.createElement('a');
+    open.className = 'btn tiny secondary';
     open.href = certUrl(location.origin, cert.token);
     open.target = '_blank';
     open.rel = 'noopener';
     open.textContent = '證書';
     const edit = document.createElement('button');
     edit.type = 'button';
-    edit.className = 'secondary';
+    edit.className = 'btn tiny secondary';
     edit.textContent = '修改';
-    edit.style.marginLeft = '4px';
     edit.addEventListener('click', () => editCert(cert.id));
     const voidBtn = document.createElement('button');
     voidBtn.type = 'button';
-    voidBtn.className = 'secondary';
-    voidBtn.style.marginLeft = '4px';
-    voidBtn.textContent = cert.status === '已作廢' ? '恢復' : '作廢';
+    const voided = cert.status === '已作廢';
+    voidBtn.className = voided ? 'btn tiny secondary' : 'btn tiny danger';
+    voidBtn.textContent = voided ? '恢復' : '作廢';
     voidBtn.addEventListener('click', () => toggleVoid(cert));
-    cell.append(open, edit, voidBtn);
+    actions.append(open, edit, voidBtn);
+    cell.append(actions);
     body.append(tr);
   }
   listOffset = data.offset || '';
@@ -481,13 +505,16 @@ async function refreshStatus() {
   const { res, data } = await api('/.netlify/functions/admin?op=status');
   const banner = $('banner');
   if (!res.ok) {
-    banner.hidden = false;
-    banner.textContent = data.error || '還連不上資料';
-    return;
+    if (res.status !== 401) {
+      banner.hidden = false;
+      banner.textContent = data.error || '還連不上資料';
+    }
+    return { res, data };
   }
   const missing = Object.values(data.tables || {}).some((v) => v !== 'ok');
   banner.hidden = !missing && !data.hint;
   banner.textContent = missing || data.hint ? `${data.hint || '資料表還沒準備好。'} 請按右上角「建立資料表」。` : '';
+  return { res, data };
 }
 
 async function runSetup() {
@@ -614,8 +641,42 @@ function bind() {
   $('done-mail').addEventListener('click', sendMail);
   $('done-modal').addEventListener('click', (e) => { if (e.target === $('done-modal')) $('done-modal').hidden = true; });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { $('pos-modal').hidden = true; $('done-modal').hidden = true; } });
+  $('login-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const pw = $('login-pw').value;
+    if (!pw) { showGate('請輸入密碼'); return; }
+    password = pw;
+    localStorage.setItem(PW_KEY, JSON.stringify({ pw, expires: Date.now() + PW_DAYS * 86400000 }));
+    hideGate();
+    const status = await refreshStatus();
+    if (status?.res?.status === 401) return;
+  });
   paintPreview();
-  refreshStatus();
+  if (DEMO) {
+    hideGate();
+    $('banner').hidden = false;
+    $('banner').textContent = '這是版面預覽，用的是範例資料，不會寫進店裡的紀錄。';
+    $('f-phone').value = '0912345678';
+    $('f-name').value = '王小明';
+    $('f-line').value = 'xiaoming-demo';
+    $('f-email').value = 'preview@example.com';
+    $('f-product').value = 'Sony A7 III 機身（預覽範例）';
+    $('f-serial').value = 'DEMO-A7III-0001';
+    $('f-price').value = '28000';
+    $('f-date').value = '2026-11-01';
+    $('f-period').value = '6m';
+    $('f-company').checked = true;
+    $('f-mfg').value = '2027-06-30';
+    $('f-staff').value = 'Annie';
+    $('member-hint').textContent = '已是會員，建立於 2026-10-15，驗證碼 246810。請只把驗證碼告訴這位客人。';
+    paintPreview();
+    return;
+  }
+  password = readSavedPassword();
+  if (password) {
+    hideGate();
+    refreshStatus();
+  } else showGate();
 }
 
 bind();

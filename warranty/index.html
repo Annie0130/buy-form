@@ -5,9 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>林相攝影 — 電子保固書後台</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="locked">
+<div class="login-gate" id="login-gate">
+  <form class="login-card" id="login-form">
+    <div class="logo">林</div>
+    <h1>林相攝影</h1>
+    <p class="en">LIN'S CAMERA</p>
+    <p class="hint">請輸入這個網站的後台密碼。這台電腦會記住 30 天。</p>
+    <label class="f"><span>後台密碼</span><input id="login-pw" type="password" autocomplete="current-password" required></label>
+    <button class="btn" type="submit">進入後台</button>
+    <p id="login-error" class="error" hidden></p>
+  </form>
+</div>
 <header class="header">
   <div class="logo">林</div>
   <div>

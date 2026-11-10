@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   DEFAULT_TERMS, PERIODS, DEFAULT_PERIOD, normPhone, formatPhone, maskPhone,
-  addDays, addMonths, periodEnd, prepareIssue, displayStatus, bottomFields,
+  addDays, addMonths, periodEnd, prepareIssue, displayStatus, bottomFields, fillValueParts,
   inferPeriod, formatTwd, periodFromText, mfgEndFromText, parsePosRecords,
   guestMessage, registerFailure, isLocked, MAX_CODE_FAILS, formulaString, escHtml,
   STATUS_VOID,
@@ -83,6 +83,9 @@ test('證書底部欄位從紀錄填，公司貨才多一列', () => {
   const rows = bottomFields(base, today);
   assert.deepEqual(rows.map((r) => r[0]), ['商品名稱', '序號', '保固期間', '交易日期', '會員姓名/電話']);
   assert.equal(rows[2][1], '6個月（2026-11-10～2027-05-10）');
+  assert.deepEqual(fillValueParts(rows[2][1]), { name: '6個月', start: '2026-11-10', end: '2027-05-10' });
+  assert.deepEqual(fillValueParts('2027-06-30'), { date: '2027-06-30', note: '' });
+  assert.deepEqual(fillValueParts('2026-01-01（已過期）'), { date: '2026-01-01', note: '（已過期）' });
   assert.equal(rows[4][1], '王小明 / 0912-345-678');
   const withCo = bottomFields({ ...base, company: true, mfgEnd: '2027-03-31' }, today);
   assert.equal(withCo[5][0], '公司貨 / 原廠保固到期日');
