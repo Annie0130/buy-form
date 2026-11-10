@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>林相攝影 — 電子保固書後台</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header">
+  <div class="logo">林</div>
+  <div>
+    <h1>林相攝影</h1>
+    <p>電子保固書後台</p>
+  </div>
+  <div class="header-actions">
+    <button class="ghost" id="btn-setup" type="button">建立資料表</button>
+    <button class="ghost" id="btn-reload" type="button">重新整理</button>
+  </div>
+</header>
+<nav class="tabs">
+  <button type="button" id="tab-issue" aria-selected="true">開立保固</button>
+  <button type="button" id="tab-list" aria-selected="false">保固紀錄</button>
+  <button type="button" id="tab-members" aria-selected="false">會員</button>
+  <button type="button" id="tab-terms" aria-selected="false">條款範本</button>
+</nav>
+<main class="main">
+  <div id="banner" class="banner" hidden></div>
+
+  <section id="view-issue">
+    <div id="edit-banner" class="notice" hidden>
+      正在修改這張保固書，查詢連結不會變。
+      <button type="button" id="btn-cancel-edit" class="btn secondary">取消修改</button>
+    </div>
+    <div id="notice" class="notice" hidden></div>
+    <div class="card">
+      <h2>會員（以電話為編號）</h2>
+      <div class="body">
+        <p class="hint">一支電話一筆會員。已有會員會帶出姓名；新電話會在開立時一併建立，並產生 6 位數驗證碼。LINE、電子信箱可以留空。</p>
+        <div class="inline">
+          <label class="f" style="flex:1"><span>電話 *</span><input id="f-phone" type="tel" inputmode="tel" placeholder="0912345678" autocomplete="off"></label>
+          <button type="button" id="btn-lookup" class="btn secondary">查會員</button>
+        </div>
+        <p id="member-hint" class="hint"></p>
+        <div class="row2">
+          <label class="f"><span>姓名 *</span><input id="f-name" type="text" maxlength="40"></label>
+          <label class="f"><span>LINE（可留空）</span><input id="f-line" type="text" maxlength="40" placeholder="LINE ID"></label>
+        </div>
+        <label class="f"><span>電子信箱（可留空）</span><input id="f-email" type="email" maxlength="80"></label>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>商品</h2>
+      <div class="body">
+        <div class="actions"><button type="button" id="btn-pos" class="btn secondary">從 POS 檔帶入</button></div>
+        <label class="f"><span>商品名稱 *</span><input id="f-product" type="text" maxlength="120"></label>
+        <div class="row2">
+          <label class="f"><span>序號 *</span><input id="f-serial" type="text" maxlength="80"></label>
+          <label class="f"><span>售價（只存後台，不印在證書）*</span><input id="f-price" inputmode="numeric" placeholder="28000"></label>
+        </div>
+        <div class="row2">
+          <label class="f"><span>交易日期 *</span><input id="f-date" type="date"></label>
+          <label class="f"><span>保固期間 *</span>
+            <select id="f-period">
+              <option value="7d">7天</option>
+              <option value="1m">1個月</option>
+              <option value="6m" selected>6個月</option>
+            </select>
+          </label>
+        </div>
+        <p id="end-preview" class="hint"></p>
+        <label class="check"><input id="f-company" type="checkbox">公司貨</label>
+        <label class="f" id="mfg-wrap" hidden><span>公司貨 / 原廠保固到期日</span><input id="f-mfg" type="date"></label>
+        <div class="row2">
+          <label class="f"><span>經手人員</span>
+            <select id="f-staff">
+              <option value="">—</option>
+              <option>Annie</option>
+              <option>陳貢丸</option>
+              <option>AMY</option>
+              <option>EASON</option>
+              <option>孟</option>
+              <option value="其他">其他</option>
+            </select>
+          </label>
+          <label class="f" id="staff-other-wrap" hidden><span>其他人員</span><input id="f-staff-other" type="text" maxlength="40"></label>
+        </div>
+        <label class="f"><span>內部備註（不會印在證書上）</span><textarea id="f-note" maxlength="1000"></textarea></label>
+        <label class="check" id="refresh-wrap" hidden><input id="f-refresh" type="checkbox">改用目前的條款範本（覆蓋這張證書上的條款）</label>
+        <p id="form-error" class="error" hidden></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>證書底部（依這張保固書自動填入）</h2>
+      <div class="body"><div id="bottom-preview" class="preview"></div></div>
+    </div>
+  </section>
+
+  <section id="view-list" hidden>
+    <div class="inline" style="margin-bottom:10px">
+      <input id="list-q" placeholder="搜尋編號、商品、序號、電話、姓名">
+      <button type="button" id="btn-list" class="btn secondary">搜尋</button>
+    </div>
+    <div id="list-body"></div>
+    <button type="button" id="btn-more" class="secondary" hidden>看更多</button>
+  </section>
+
+  <section id="view-members" hidden>
+    <div class="card">
+      <h2>建立或修改會員</h2>
+      <div class="body">
+        <p class="hint">電話是會員編號。姓名必填。LINE 與電子信箱可留空。建立日期由系統填上。改姓名或電話時，這支電話底下的保固書會一起更新。</p>
+        <input id="mem-id" type="hidden">
+        <div class="row2">
+          <label class="f"><span>電話 *</span><input id="mem-phone" type="tel" placeholder="0912345678"></label>
+          <label class="f"><span>姓名 *</span><input id="mem-name" type="text" maxlength="40"></label>
+        </div>
+        <div class="row2">
+          <label class="f"><span>LINE</span><input id="mem-line" type="text" maxlength="40"></label>
+          <label class="f"><span>電子信箱</span><input id="mem-email" type="email"></label>
+        </div>
+        <label class="f"><span>備註</span><textarea id="mem-note"></textarea></label>
+        <div class="actions">
+          <button type="button" id="btn-mem-save" class="btn">儲存會員</button>
+          <button type="button" id="btn-mem-clear" class="btn secondary">清空表格</button>
+        </div>
+        <p id="mem-error" class="error" hidden></p>
+      </div>
+    </div>
+    <div class="inline" style="margin-bottom:10px">
+      <input id="mem-q" placeholder="搜尋電話、姓名或 LINE">
+      <button type="button" id="btn-mem" class="btn secondary">搜尋</button>
+    </div>
+    <div id="mem-body"></div>
+  </section>
+
+  <section id="view-terms" hidden>
+    <div class="card">
+      <h2>保固條款範本</h2>
+      <div class="body">
+        <p class="hint">預設是店家定稿。改完按儲存，只影響之後新開的保固書。證書底部的商品名稱、序號、保固期間、交易日期、會員姓名/電話，以及公司貨的原廠保固到期日，會依每一張保固書自動填上，不必寫進範本。</p>
+        <textarea id="terms-text" style="min-height:420px"></textarea>
+        <div class="actions">
+          <button type="button" id="btn-terms-save" class="btn">儲存範本</button>
+          <button type="button" id="btn-terms-reset" class="btn secondary">載入店家定稿</button>
+        </div>
+        <p id="terms-msg" class="hint"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="bar" id="issue-bar">
+  <button type="button" class="btn" id="btn-submit">開立保固書</button>
+</div>
+
+<div id="pos-modal" class="modal" hidden>
+  <div class="modal-card">
+    <h2 style="margin-bottom:8px">從 POS 檔帶入</h2>
+    <p class="hint">選 POS 匯出的商品資料（Excel 或 CSV）。只會填進這張表，不會改 POS 庫存。庫存量 0 的不列出。請再核對序號，試算表有時會吃掉前面的 0。</p>
+    <input id="pos-file" type="file" accept=".xlsx,.xls,.csv">
+    <label class="check"><input id="pos-hide-acc" type="checkbox" checked>隱藏分類含「配件」的列</label>
+    <input id="pos-q" placeholder="篩選名稱或條碼" style="margin-bottom:8px">
+    <div id="pos-body" class="hint">請選擇檔案</div>
+    <div class="actions"><button type="button" id="pos-close" class="secondary">關閉</button></div>
+  </div>
+</div>
+
+<div id="done-modal" class="modal" hidden>
+  <div class="modal-card">
+    <h2 id="done-title" style="margin-bottom:8px">已開立</h2>
+    <div id="done-body"></div>
+    <p class="hint">驗證碼請口頭或用 LINE 傳給客人，不要印在保固書上。這組碼能看到此電話名下所有保固。</p>
+    <div id="done-code"></div>
+    <label class="check"><input id="done-include-code" type="checkbox" checked>複製的訊息包含驗證碼</label>
+    <div id="done-qr"></div>
+    <div class="actions">
+      <button type="button" id="done-copy-link" class="secondary">複製連結</button>
+      <button type="button" id="done-copy-msg" class="secondary">複製給客人的訊息</button>
+      <a id="done-line" class="btn secondary" target="_blank" rel="noopener">用 LINE 傳</a>
+      <button type="button" id="done-mail" class="secondary">寄到信箱</button>
+      <a id="done-open" class="btn" target="_blank" rel="noopener">開啟證書</a>
+      <button type="button" id="done-next" class="secondary">再開一張（同一位客人）</button>
+      <button type="button" id="done-close" class="secondary">關閉</button>
+    </div>
+  </div>
+</div>
+<script type="module" src="staff.js"></script>
+</body>
+</html>
