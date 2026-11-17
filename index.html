@@ -339,13 +339,13 @@ body{background:var(--gray-50);font-family:-apple-system,'PingFang TC','Noto San
       <div class="rc-box">
         <label class="rc-check">
           <input type="checkbox" id="review-credit-chk" onchange="toggleReviewCredit(this.checked)">
-          <span>🎁 我願意留下 Google 評論，領取 <strong>NT$<span class="rc-amt">500</span> 折抵金</strong>（消費滿 NT$<span class="rc-min">5,000</span> 可折抵）</span>
+          <span>是否願意留下 Google 評論，折抵 <strong>NT$<span class="rc-amt">300</span> 元</strong></span>
         </label>
         <div class="rc-panel" id="rc-panel">
           <div id="rc-qr"></div>
           <div style="font-size:12px;color:#b0b0a8;margin-bottom:10px">用手機掃描 QR Code，或點下方按鈕</div>
-          <a class="rc-btn" id="rc-link" href="https://amazing-capybara-a34a3c.netlify.app/" target="_blank">前往留下評論 →</a>
-          <div class="rc-note">✔ NT$<span class="rc-amt">500</span> 折抵金將登記在您的聯絡電話 <strong id="rc-phone">—</strong> 名下<br>✔ 下次於林相攝影單筆消費滿 NT$<span class="rc-min">5,000</span>，報上電話即可折抵</div>
+          <a class="rc-btn" id="rc-link" href="review.html" target="_blank">前往留下評論 →</a>
+          <div class="rc-note">✔ NT$<span class="rc-amt">300</span> 折抵金將登記在您的聯絡電話 <strong id="rc-phone">—</strong> 名下<br>✔ 下次於林相攝影單筆消費滿 NT$<span class="rc-min">5,000</span>，報上電話即可折抵</div>
         </div>
       </div>
 
@@ -369,13 +369,13 @@ body{background:var(--gray-50);font-family:-apple-system,'PingFang TC','Noto San
   <!-- 交易摘要卡片 -->
   <div id="success-summary" style="background:#fff;border:1px solid #e4e4e0;border-radius:14px;padding:18px 16px;max-width:360px;margin:16px auto;text-align:left"></div>
 
-  <div style="background:#fff;border:1px solid #e4e4e0;border-radius:16px;padding:24px 20px;max-width:320px;margin:0 auto">
+  <div id="success-review-box" style="display:none;background:#fff;border:1px solid #e4e4e0;border-radius:16px;padding:24px 20px;max-width:320px;margin:0 auto">
     <div style="font-size:13px;color:#6b6b63;margin-bottom:6px;">✨ 等候的空檔，誠摯邀請您</div>
     <div style="font-size:17px;font-weight:700;color:#111;margin-bottom:4px;">為林相攝影留下評論</div>
     <div style="font-size:13px;color:#6b6b63;margin-bottom:18px;line-height:1.6;">您的每一則評論都是我們繼續進步的動力<br>只需 30 秒，對我們幫助很大 🙏</div>
     <div id="qrcode-container" style="width:160px;height:160px;background:#f8f8f7;border-radius:10px;display:flex;align-items:center;justify-content:center;border:1px solid #e4e4e0;overflow:hidden;margin:0 auto 14px;"></div>
     <div style="font-size:12px;color:#b0b0a8;text-align:center;margin-bottom:16px">掃描 QR Code 或點下方按鈕</div>
-    <a id="success-review-link" href="https://amazing-capybara-a34a3c.netlify.app/" target="_blank" style="display:block;background:#111;color:#fff;font-size:14px;font-weight:600;padding:13px;border-radius:10px;text-decoration:none;text-align:center;">
+    <a id="success-review-link" href="review.html" target="_blank" style="display:block;background:#111;color:#fff;font-size:14px;font-weight:600;padding:13px;border-radius:10px;text-decoration:none;text-align:center;">
       前往留下評論 →
     </a>
   </div>
@@ -405,13 +405,13 @@ body{background:var(--gray-50);font-family:-apple-system,'PingFang TC','Noto San
 // Airtable 金鑰、寄信密碼、試算表密碼都放在 Netlify，不放在這頁。
 // 寄信不需要收購後台的登入密碼，櫃檯送出同意書時直接寄。
 // ===== Google 評論購物金 =====
-const REVIEW_CREDIT = 500;   // ← 折抵金金額
+const REVIEW_CREDIT = 300;   // ← 折抵金金額
 const REVIEW_MIN_SPEND = 5000; // ← 消費滿多少才能折抵
-const REVIEW_URL = 'https://amazing-capybara-a34a3c.netlify.app/';
+function reviewPageUrl(){ return new URL('review.html', location.href).href; }
 document.addEventListener('DOMContentLoaded',()=>{
   document.querySelectorAll('.rc-amt').forEach(e=>e.textContent=REVIEW_CREDIT.toLocaleString());
   document.querySelectorAll('.rc-min').forEach(e=>e.textContent=REVIEW_MIN_SPEND.toLocaleString());
-  const l=document.getElementById('rc-link'); if(l) l.href=REVIEW_URL;
+  const l=document.getElementById('rc-link'); if(l) l.href=reviewPageUrl();
 });
 // 評論頁網址帶入本次器材，讓評論自然寫到型號（SEO 關鍵字）
 function reviewUrl(){
@@ -419,7 +419,8 @@ function reviewUrl(){
   try{ names=getDecisionData().sell.map(x=>x.name); }catch(e){}
   if(!names.length) names=[...document.querySelectorAll('.eq-block')].map(b=>document.getElementById(`eq${b.id.replace('eq-block-','')}-name`)?.value.trim()).filter(Boolean);
   names=[...new Set(names)].slice(0,3);
-  return names.length ? REVIEW_URL+'?eq='+encodeURIComponent(names.join('|')) : REVIEW_URL;
+  const base=reviewPageUrl();
+  return names.length ? base+'?eq='+encodeURIComponent(names.join('|')) : base;
 }
 function toggleReviewCredit(on){
   document.getElementById('rc-panel').classList.toggle('show',on);
@@ -1984,12 +1985,19 @@ function generateQR(){
     summary.innerHTML = html;
   }
 
-  // QR Code
+  // QR Code：只有勾了願意留評才顯示
+  const box=document.getElementById('success-review-box');
+  if(!getReviewCredit()){
+    if(box) box.style.display='none';
+    return;
+  }
+  if(box) box.style.display='block';
+  const url=reviewUrl();
+  const sl=document.getElementById('success-review-link'); if(sl) sl.href=url;
   const c=document.getElementById('qrcode-container');
   if(!c||c.children.length>0)return;
   if(typeof QRCode !== 'undefined'){
-    const sl=document.getElementById('success-review-link'); if(sl) sl.href=reviewUrl();
-    try{new QRCode(c,{text:reviewUrl(),width:156,height:156,colorDark:'#111',colorLight:'#fff',correctLevel:QRCode.CorrectLevel.M});}
+    try{new QRCode(c,{text:url,width:156,height:156,colorDark:'#111',colorLight:'#fff',correctLevel:QRCode.CorrectLevel.M});}
     catch(e){c.innerHTML='<div style="font-size:11px;color:#aaa;padding:16px">請點下方按鈕</div>';}
   }
 }
