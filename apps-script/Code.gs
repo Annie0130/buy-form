@@ -5,6 +5,18 @@
 // 2. 在試算表 KEY「銷售價」（F 欄）時，onPriceEdit 自動寫進 Airtable 的「售價」（清空儲存格不會刪掉 Airtable 的售價）
 //
 // Airtable 金鑰放在「專案設定 → 指令碼屬性」的 AIRTABLE_TOKEN，不要寫在程式碼裡。
+//
+// ── 這次要一起做的事（沒做完之前，外人仍可直接寫入試算表）──
+// 1. 把這整份貼回試算表的 Apps Script，存檔。
+// 2. 「部署 → 管理部署作業 → 鉛筆（編輯）→ 版本選新版本 → 部署」。
+//    要編輯現在這一個部署，不要按「新增部署」，網址才不會變。
+// 3. 這時候先不要填 SHEET_SECRET。指令碼屬性是空的時，寫入照舊放行，
+//    同意書才不會突然寫不進試算表。
+// 4. 等收購同意書和收購後台都會送出同一組密碼之後，再到
+//    「專案設定 → 指令碼屬性」新增 SHEET_SECRET（至少 16 個字，跟兩個 Netlify 同一組）。
+//    填了以後，沒帶對密碼的寫入會被拒絕。
+// 儲存格內容若以 =、+、-、@ 開頭，前面會加 '，避免試算表把它當成公式。
+// 已經有 ' 的不要再加。純數字的條碼仍加 '，前面的 0 才不會被吃掉。進貨價維持數字。
 
 const SPREADSHEET_ID = '1uUw1kFe80JUpMBUYM6e5rijMwB75BoBioNNs8DzwXys';
 const SHEET_NAME = '匯入時只能有他';
@@ -12,21 +24,74 @@ const PRICE_COLUMN = 6;  // F 欄：銷售價（必填）
 const AIRTABLE_URL = 'https://api.airtable.com/v0/appAuc0SgpUMOFLsv/tblnOp2xI0RPOAR3J';
 const ID_KEY = 'airtableId';
 
+function jsonOut(obj) {
+  return ContentService.createTextOutput(JSON.stringify(obj))
+                       .setMimeType(ContentService.MimeType.JSON);
+}
+
 function doPost(e) {
-  return handleData(JSON.parse(e.postData.contents));
+  let data;
+  try {
+    data = JSON.parse(e.postData.contents);
+  } catch (err) {
+    return jsonOut({ error: '資料格式錯誤' });
+  }
+  if (!sheetSecretOk(data)) return jsonOut({ error: '沒有權限' });
+  return handleData(data);
 }
 
 function doGet(e) {
-  if(e.parameter && e.parameter['商品名稱']){
+  if (e.parameter && e.parameter['商品名稱']) {
+    if (!sheetSecretOk(e.parameter)) return jsonOut({ error: '沒有權限' });
     return handleData(e.parameter);
   }
   return ContentService.createTextOutput('OK');
 }
 
-// 序號像數字時（例如 008362），前面加 ' 讓試算表當成文字，前面的 0 才不會被吃掉
+// 比對兩組 SHA-256，長度固定，避免從回應速度猜密碼。
+// 指令碼屬性還沒有 SHEET_SECRET 時先放行，等兩個網站都會送密碼再填上。
+function sheetSecretOk(data) {
+  const expected = String(PropertiesService.getScriptProperties().getProperty('SHEET_SECRET') || '').trim();
+  if (!expected) return true;
+  const provided = data && data.secret != null ? String(data.secret).trim() : '';
+  if (expected.length < 16 || provided.length < 16) return false;
+  const digest = function(s) {
+    const bytes = Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, s, Utilities.Charset.UTF_8);
+    return bytes.map(function(b) {
+      const v = (b + 256) % 256;
+      return (v < 16 ? '0' : '') + v.toString(16);
+    }).join('');
+  };
+  return digest(provided) === digest(expected);
+}
+
+// 以 = + - @ 開頭時前面加 '，試算表才不會把它當公式。
+function cellText(v) {
+  const s = String(v == null ? '' : v).trim();
+  if (!s) return '';
+  if (s.charAt(0) === "'") return s;
+  if (/^[=+\-@]/.test(s)) return "'" + s;
+  return s;
+}
+
+// 序號像數字時（例如 008362），前面加 ' 讓試算表當成文字，前面的 0 才不會被吃掉。
+// 公式開頭同樣加 '。
 function asText(v) {
-  const s = String(v || '').trim();
-  return /^\d+$/.test(s) ? "'" + s : s;
+  const s = String(v == null ? '' : v).trim();
+  if (!s) return '';
+  if (s.charAt(0) === "'") return s;
+  if (/^[=+\-@]/.test(s) || /^\d+$/.test(s)) return "'" + s;
+  return s;
+}
+
+// 數字欄若被塞了公式文字，改成純文字；負數也當成文字，不讓它以 - 開頭執行。
+function sheetNumber(v, fallback) {
+  if (v == null || v === '') return fallback;
+  if (typeof v === 'number' && isFinite(v) && v >= 0) return v;
+  const s = String(v).trim();
+  if (/^[=+\-@]/.test(s)) return "'" + s;
+  if (/^\d+(\.\d+)?$/.test(s)) return Number(s);
+  return "'" + s;
 }
 
 function handleData(data) {
@@ -36,17 +101,17 @@ function handleData(data) {
     lock.waitLock(20000);
     const sheet = SpreadsheetApp.openById(SPREADSHEET_ID).getSheetByName(SHEET_NAME);
     sheet.appendRow([
-      data['商品名稱'] || '',
-      data['分類'] || '',
+      cellText(data['商品名稱']),
+      cellText(data['分類']),
       asText(data['條碼']),
-      data['庫存量'] || 1,
-      data['進貨價'] || '',
-      data['銷售價'] || '',
-      data['品牌'] || '',
-      data['供貨商'] || '',
-      data['公水'] || '',
-      data['快門數'] || '',
-      data['盒單'] || '',
+      sheetNumber(data['庫存量'], 1),
+      sheetNumber(data['進貨價'], ''),
+      sheetNumber(data['銷售價'], ''),
+      cellText(data['品牌']),
+      cellText(data['供貨商']),
+      cellText(data['公水']),
+      cellText(data['快門數']),
+      cellText(data['盒單']),
     ]);
     if (data[ID_KEY]) {
       const row = sheet.getLastRow();
