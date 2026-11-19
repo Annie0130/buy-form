@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>林相攝影 — 電子保固書</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="header noprint">
+  <div class="logo">林</div>
+  <div>
+    <h1>林相攝影</h1>
+    <p>電子保固書</p>
+  </div>
+</header>
+<div class="lookup noprint" id="lookup">
+  <div class="card">
+    <h2>查詢我的保固書</h2>
+    <div class="body">
+      <p class="hint">輸入購買時留下的電話，以及店員給您的 6 位數驗證碼。驗證碼不會印在保固書上。若您有證書連結或 QR Code，打開即可，不必再輸入。</p>
+      <label class="f"><span>電話</span><input id="q-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="0912345678"></label>
+      <label class="f"><span>驗證碼</span><input id="q-code" inputmode="numeric" maxlength="6" autocomplete="off" placeholder="6 位數字"></label>
+      <button type="button" class="btn" id="q-go" style="width:100%">查詢</button>
+      <p id="q-error" class="error" hidden></p>
+    </div>
+  </div>
+  <p class="shop-foot">台北市文山區羅斯福路六段5號<br>02-2930-3697　14:00–21:00（週二、三公休）</p>
+</div>
+<div id="result-list" class="list noprint"></div>
+<div id="sheet-wrap"></div>
+<div class="tools noprint" id="tools" hidden>
+  <button type="button" class="btn" id="btn-print">列印或存成 PDF</button>
+  <button type="button" class="btn secondary" id="btn-copy">複製連結</button>
+  <a id="btn-line" class="btn secondary" target="_blank" rel="noopener">用 LINE 傳</a>
+  <button type="button" class="btn secondary" id="btn-back" hidden>看其他保固</button>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script type="module" src="certificate.js"></script>
+</body>
+</html>

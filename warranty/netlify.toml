@@ -1,0 +1,34 @@
+# 只在 Netlify 的 Base directory 設成 warranty 時才會用這份設定。
+# 倉庫根目錄的 netlify.toml 仍是收購同意書，不要改那個網站的目錄。
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/c"
+  to = "/certificate.html"
+  status = 200
+
+[[redirects]]
+  from = "/c/"
+  to = "/certificate.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Cache-Control = "no-store"
